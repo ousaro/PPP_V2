@@ -1,5 +1,6 @@
 import logo from "../imgs/HomeLogo.png"
 import HomeHero from "../imgs/HomeHero.png"
+import { Link } from "react-router-dom";
 
 
 
@@ -15,7 +16,7 @@ const Home = () => {
 
             <main className="Home_Content">
                 <figure className="Home_Content_Hero">
-                    <img src={HomeHero} alt="HomeHero" width="777" height="420"/>
+                    <img src={HomeHero} alt="HomeHero" width="684" height="416"/>
                 </figure>
 
                 <section className="Home_Content_Title">
@@ -24,16 +25,16 @@ const Home = () => {
 
                 <section className="Home_Content_Btn">
                     <button className="Btn_Volunteer">Are you a volounteer?</button>
-                    <button className="Btn_Association">Are you an association?</button>
+                    <button className="Btn_Association" >Are you an association?</button>
                 </section>
 
             </main>
 
             <footer className="Home_Footer">
                 <ul>
-                    <li>About</li>
-                    <li>Privacy Policy</li>
-                    <li>Terms of services</li>
+                    <li><Link to="/">About</Link></li>
+                    <li><Link to="/">Privacy Policy</Link></li>
+                    <li><Link to="/">Terms of services</Link></li>
                 </ul>
                 <p>2024 CoeurSolidaire- All Rights Reserved</p>
             </footer>

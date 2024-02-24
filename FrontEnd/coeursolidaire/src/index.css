@@ -54,7 +54,7 @@ body{
   background-image: url("./imgs/HomeBg.png");
   background-repeat: no-repeat;
   background-size: 100% 100vh;
-  height: 100vh;
+  height: 100svh;
 }
 
 .Home_Header_Logo{
@@ -62,8 +62,9 @@ body{
   place-items: center;
 }
 .Home_Header_Logo img{
-  margin-top: 1em;
-  width:clamp(6em,15%,8em);;
+  position: relative;
+  top: 10px;
+  width:clamp(6em,11cqi,8em);;
   height: auto;
 }
 
@@ -85,7 +86,7 @@ body{
 
 .Home_Content_Hero img{
   width:95%;
-  height:clamp(20em, 27cqi,26em);
+  height:clamp(22em, 32cqi,26em);
   margin-bottom: 3em;
   
 }
@@ -100,7 +101,7 @@ body{
   width: 80%;
   color: var(--HomeTextColor);
   font-weight: bold;
-  font-size: clamp(2.2em,5cqi,4em);
+  font-size: clamp(2.2em,4.5cqi,4em);
 }
 
 .Home_Content_Btn{
@@ -114,9 +115,11 @@ body{
   color: white;
   border: 1px solid white;
   border-radius: 3em;
-  font-size:clamp(0.7em,1.5cqi, 1.35em);
+  font-size:clamp(0.7em,1.4cqi, 1.3em);
   padding: 0 9em;
   height: 4em;
+  font-weight: bold;
+
 }
 
 .Btn_Volunteer{
@@ -125,6 +128,12 @@ body{
 
 .Btn_Association{
   background-color: var(--BtnColor2);
+}
+
+.Btn_Volunteer:hover,
+.Btn_Association:hover{
+ box-shadow: 1px 1px 8px var(--HomeTextColor);
+ text-shadow: 1px 1px 8px var(--HomeTextColor);
 }
 
 
@@ -142,14 +151,27 @@ body{
   flex-grow: 1;
   gap: 5em;
   list-style: none;
-  font-size: 1.2em;
+  font-size:clamp(0.8em,1.6cqi, 1.2em);
   font-weight: 300;
+}
 
+.Home_Footer a{
+  text-decoration: none;
+}
+
+.Home_Footer a:hover{
+  opacity: 80%;
+  font-weight: 250;
+}
+
+
+.Home_Footer a:visited{
+  color: white;
 }
 
 .Home_Footer p{
   justify-self:end;
-  font-size: 1em;
+  font-size:clamp(0.7em,1.4cqi, 1em);
   font-weight: 100;
 }
 

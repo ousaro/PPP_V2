@@ -1,13 +1,160 @@
-body {
+/* || importing inter font*/
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+
+/* || reset */
+*{ 
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+/*------------------------------------------------------------*/
+/* || variables */
+
+:root{
+  /* || fonts */
+  --FF:Inter;
+  --FS:1rem;
+  /* || colors */
+  --HomeTextColor:#cefce3;
+  --BtnColor1:#1E2D25;
+  --BtnColor2:#BEDBE13D;
+
+
+
+
+}
+
+/*------------------------------------------------------------*/
+/* || General styles */
+html{
+  scroll-behavior: smooth;
+}
+
+body{
+  font-size: var(--FS);
+  font-family: var(--FF);
+  box-sizing: border-box;
+}
+/*------------------------------------------------------------*/
+
+/* ||ajustement*/
+.NotBold{
+  font-weight: 300;
+}
+
+/*------------------------------------------------------------*/
+
+/* || Home */
+
+.Home{
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+  background-image: url("./imgs/HomeBg.png");
+  background-repeat: no-repeat;
+  background-size: 100% 100vh;
+  height: 100vh;
+}
+
+.Home_Header_Logo{
+  display: grid;
+  place-items: center;
+}
+.Home_Header_Logo img{
+  margin-top: 1em;
+  width:clamp(6em,15%,8em);;
+  height: auto;
+}
+
+.Home_Content {
+  flex-grow: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1.5fr;
+}
+
+
+.Home_Content_Hero{
+  grid-row: span 2;
+  display: flex;
+  justify-content: flex-end;
+  
+  
+}
+
+.Home_Content_Hero img{
+  width:95%;
+  height:clamp(20em, 27cqi,26em);
+  margin-bottom: 3em;
+  
+}
+
+
+.Home_Content_Title{
+  display: grid;
+  place-items: center;
+}
+
+.Home_Content_Title h1{
+  width: 80%;
+  color: var(--HomeTextColor);
+  font-weight: bold;
+  font-size: clamp(2.2em,5cqi,4em);
+}
+
+.Home_Content_Btn{
+  flex-direction: column;
+  gap: 1em;
+  display: flex;
+  margin: 2.5em auto;
+}
+
+.Home_Content_Btn button{
+  color: white;
+  border: 1px solid white;
+  border-radius: 3em;
+  font-size:clamp(0.7em,1.5cqi, 1.35em);
+  padding: 0 9em;
+  height: 4em;
+}
+
+.Btn_Volunteer{
+  background-color: var(--BtnColor1);
+}
+
+.Btn_Association{
+  background-color: var(--BtnColor2);
+}
+
+
+.Home_Footer{
+  margin: auto;
+  display: flex;
+  width: 90%;
+  padding: 0.5em;
+  color: white;
+  margin-bottom: 0.4em;
+}
+
+.Home_Footer ul{
+  display: flex;
+  flex-grow: 1;
+  gap: 5em;
+  list-style: none;
+  font-size: 1.2em;
+  font-weight: 300;
+
+}
+
+.Home_Footer p{
+  justify-self:end;
+  font-size: 1em;
+  font-weight: 100;
+}
+
+@media (max-width: 762px) {
+  .Home{
+    background-color: black;
+  }
 }

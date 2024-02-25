@@ -19,7 +19,10 @@
   --HomeTextColor:#cefce3;
   --BtnColor1:#1E2D25;
   --BtnColor2:#BEDBE13D;
-
+  --AboutColor1: #2EF288;
+  --AboutColor2:#288e7a;
+  --AboutColor3: #1f262d;
+  --Border1: #2ef28999;
 
 
 
@@ -51,6 +54,7 @@ body{
   display: flex;
   flex-direction: column;
   gap: 2em;
+  background: linear-gradient(to right,var(--AboutColor3),var(--AboutColor2),var(--AboutColor1));
   background-image: url("./imgs/HomeBg.png");
   background-repeat: no-repeat;
   background-size: 100% 100vh;
@@ -174,6 +178,117 @@ body{
   font-size:clamp(0.7em,1.4cqi, 1em);
   font-weight: 100;
 }
+
+/*------------------------------------------------------------*/
+
+/* || AboutPg */
+.AboutPg{
+  background: linear-gradient(to right,var(--AboutColor3),var(--AboutColor2),var(--AboutColor1));
+  height: 100svh;
+  display: flex;
+  flex-direction: column;
+}
+
+.About_Header{
+  display: flex;
+  flex-direction: row;
+  gap: 2.5em;
+  padding: 2em 0 0 7em;
+  
+}
+
+.About_Home_Btn,
+.About_LogIn_Btn{
+  color: white;
+  border: 0.1px solid var(--Border1);
+  font-size: 1em;
+  width: 11em;
+  height: 3em;
+  background-color: transparent;
+  border-radius: 2em;
+}
+
+.About_Home_Btn:hover,
+.About_LogIn_Btn:hover{
+ box-shadow: 1px 1px 8px var(--HomeTextColor);
+ text-shadow: 1px 1px 8px var(--HomeTextColor);
+ cursor: pointer;
+}
+
+.About_Header a{
+  text-decoration: none;
+}
+
+.About_Header a:visited{
+  color: var(--HomeTextColor);
+}
+
+.About_Content{
+  flex-grow: 1;
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  grid-template-rows: 2fr 1fr;
+  
+}
+
+.About_Content_Hero{
+  display: grid;
+  justify-items: center;
+  align-items: center;
+  grid-row: span 2;
+ 
+}
+
+.About_Content_Hero img{
+  width: 50%;
+  height:auto;
+  border-radius: 3em;
+}
+
+.About_Content_Desc{
+  padding-top: 6em;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  color:var(--HomeTextColor);
+}
+
+.About_Content_Desc_Logo{
+  padding-left: 18em;
+}
+
+.About_Content_Desc p {
+  font-size: 1.5em;
+  text-align: justify;
+  width: 80%;
+  align-self: start;
+}
+
+.About_Content_SocialLinks{
+  padding-top: 2em;
+}
+
+.About_Content_SocialLinks ul{
+  display: flex;
+  list-style: none;
+}
+
+.About_Content_SocialLinks li:hover{
+  opacity: 85%;
+}
+
+.About_Footer{
+  display: grid;
+  place-items: center;
+  color : white;
+  font-size:clamp(0.7em,1.3cqi, 0.91em);
+  font-weight: 200;
+  padding-bottom: 1em;
+
+}
+
+
+
 
 @media (max-width: 762px) {
   .Home{

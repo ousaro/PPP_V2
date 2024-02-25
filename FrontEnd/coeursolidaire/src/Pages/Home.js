@@ -32,7 +32,7 @@ const Home = () => {
 
             <footer className="Home_Footer">
                 <ul>
-                    <li><Link to="/">About</Link></li>
+                    <li><Link to="/About">About</Link></li>
                     <li><Link to="/">Privacy Policy</Link></li>
                     <li><Link to="/">Terms of services</Link></li>
                 </ul>

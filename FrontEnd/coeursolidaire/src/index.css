@@ -193,7 +193,7 @@ body{
   display: flex;
   flex-direction: row;
   gap: 2.5em;
-  padding: 2em 0 0 7em;
+  padding: clamp(1em,2cqi,2em) 0 0 clamp(2em,6cqi,7em);
   
 }
 
@@ -201,9 +201,9 @@ body{
 .About_LogIn_Btn{
   color: white;
   border: 0.1px solid var(--Border1);
-  font-size: 1em;
-  width: 11em;
-  height: 3em;
+  font-size: clamp(0.7em,1.5cqi,1em);
+  width: clamp(8em,10cqi,11em);
+  height: clamp(2.2em,3cqi,3em);
   background-color: transparent;
   border-radius: 2em;
 }
@@ -242,11 +242,11 @@ body{
 .About_Content_Hero img{
   width: 50%;
   height:auto;
-  border-radius: 3em;
+  border-radius: clamp(1em,2cqi,3em);
 }
 
 .About_Content_Desc{
-  padding-top: 6em;
+  padding-top:6em;
   display: flex;
   flex-direction: column;
   gap: 1em;
@@ -254,11 +254,16 @@ body{
 }
 
 .About_Content_Desc_Logo{
-  padding-left: 18em;
+  padding-left: clamp(7em,19cqi,18em);
+}
+
+.About_Content_Desc_Logo img{
+  width: clamp(4.5em,7cqi,7em);
+  height: auto;
 }
 
 .About_Content_Desc p {
-  font-size: 1.5em;
+  font-size: clamp(1em,2cqi,1.5em);
   text-align: justify;
   width: 80%;
   align-self: start;
@@ -277,11 +282,16 @@ body{
   opacity: 85%;
 }
 
+.About_Content_SocialLinks li img{
+  width:clamp(1.5em,3cqi,2.5em);
+  height: auto;
+}
+
 .About_Footer{
   display: grid;
   place-items: center;
   color : white;
-  font-size:clamp(0.7em,1.3cqi, 0.91em);
+  font-size:clamp(0.6em,1.3cqi, 0.91em);
   font-weight: 200;
   padding-bottom: 1em;
 

@@ -23,6 +23,8 @@
   --AboutColor2:#288e7a;
   --AboutColor3: #1f262d;
   --Border1: #2ef28999;
+  --FormColor:#1A3F2B;
+
 
 
 
@@ -298,7 +300,56 @@ body{
 }
 
 
+/*------------------------------------------------------------*/
 
+/* || LogInPg */
+
+.LogInPg{
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+  background: linear-gradient(to right,var(--AboutColor3),var(--AboutColor2),var(--AboutColor1));
+  background-image: url("./imgs/HomeBg.png");
+  background-repeat: no-repeat;
+  background-size: 100% 100svh;
+  height: 100svh;
+}
+
+.LogIn_Content{
+  display: flex;
+  background-image: url(imgs/LogInHero.JPG);
+  background-repeat: no-repeat;
+  background-size: 60% 100%;
+  border-radius: 3em;
+  width: 70%;
+  margin-top: 2em;
+  flex-grow: 1;
+  align-self:center;
+  justify-self:center ;
+  justify-content: flex-end;
+}
+
+.LogIn_Content_Hero img{
+  width: 100%;
+  border-radius: 2em 0em 0em 2em;
+}
+
+.LogIn_Content_Form{
+  background-color: var(--FormColor);
+  width: 45%;
+  height: inherit;
+  border-radius: 4em;
+}
+
+.LogIn_Footer{
+  display: grid;
+  place-items: center;
+  color : white;
+  font-size:clamp(0.6em,1.3cqi, 0.91em);
+  font-weight: 200;
+  padding-bottom: 1em;
+
+}
 
 @media (max-width: 762px) {
   .Home{

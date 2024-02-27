@@ -1,5 +1,9 @@
 /* || importing inter font*/
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+/* || importing Lalezar font*/
+@import url('https://fonts.googleapis.com/css2?family=Lalezar&display=swap');
+
+
 
 /* || reset */
 *{ 
@@ -24,6 +28,7 @@
   --AboutColor3: #1f262d;
   --Border1: #2ef28999;
   --FormColor:#1A3F2B;
+  --FORMTEXTBTN:#70cf9e;
 
 
 
@@ -339,7 +344,110 @@ body{
   width: 45%;
   height: inherit;
   border-radius: 4em;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  padding: 4em 4.5em 0.5em 4.5em;
 }
+
+
+.LogIn_Form_Header{
+font-family: Lalezar;
+font-size: 1.4em;
+color: white;
+}
+
+.LogIn_Form_Content{
+  padding-top: 2em;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+
+.LogIn_Form_Content p{
+  color: white;
+  font-weight: 200;
+  font-size: 0.9em;
+  margin-bottom: 0.7em;
+
+}
+
+.LogIn_Form_Content input{
+  border-radius: 0.5em;
+  margin-bottom: 0.8em;
+  border: none;
+  height:3em;
+}
+
+.LogIn_Form_Content input::placeholder{
+  text-align: center;
+  opacity: 50%;
+}
+
+.LogIn_Form_Content a{
+  color: white;
+  text-decoration: none;
+}
+
+.LogIn_Form_Content a:visited{
+  color: white;
+  text-decoration: none;
+}
+
+.LogIn_Form_Footer{
+  display: flex;
+  flex-direction: column;
+  place-items: center;
+
+}
+
+.LogIn_Form_Terms{
+  display: flex;
+  gap: 0.4em;
+}
+
+.LogIn_Form_Terms p{
+  font-weight: 500;
+  align-self: center;
+}
+
+.LogIn_Form_Terms input{
+  width: 1.3em;
+}
+
+
+.LogIn_Form_Btn{
+  color: var(--FORMTEXTBTN);
+  background-color: transparent;
+  border: 1px solid white;
+  border-radius: 3em;
+  font-size:clamp(0.7em,1.2cqi, 0.9em);
+  padding: 0 9em;
+  width: 100%;
+  height: 2.5em;
+
+}
+
+.LogIn_Form_Logo img{
+  width: clamp(2em,5cqi,5em);
+  height: auto;
+}
+
+.LogIn_Form_SocialLinks ul{
+  display: flex;
+  list-style: none;
+}
+
+.LogIn_Form_SocialLinks li:hover{
+  opacity: 85%;
+}
+
+.LogIn_Form_SocialLinks li img{
+  width:clamp(1.5em,3cqi,1em);
+  height: auto;
+}
+
 
 .LogIn_Footer{
   display: grid;

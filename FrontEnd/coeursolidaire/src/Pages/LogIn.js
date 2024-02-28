@@ -12,7 +12,12 @@ const LogIn = () => {
 
             <main className="LogIn_Content">
 
-                <form className="LogIn_Content_Form">
+               
+                <form className="LogIn_Content_Form" onSubmit={(e)=>    
+                            {e.preventDefault()
+                            alert("log in success")}}>
+
+                    <Link to="/"><div className="LogIn_Form_BackArrow"></div></Link>
 
                     <section className="LogIn_Form_Header">
                         <h1>Log In</h1>
@@ -22,20 +27,26 @@ const LogIn = () => {
 
                         <p>Please fill your information below</p>
 
-                        <input type="text" placeholder="Email" />
-                        <input type="password" placeholder="Password"/>
+                        <section className="LogIn_Form_Data">
+                            <input type="text" placeholder="Email" required/>
+                            <input type="password" placeholder="Password" required/>
+                        </section>
 
-                        <p><Link>Forgot Password?</Link></p>
+                        <section className="LogIn_Form_ForgotPass">
+                            <p><Link to="/">Forgot Password?</Link></p>
+                        </section>
 
                         <section className="LogIn_Form_Terms">
-                            <input type="radio" />
+                            <input type="checkbox"  required/>
                             <p>I accept terms & privacy policy</p>
                         </section>
                         
 
-                        <p>Not a member? <Link>SignIn</Link></p>
-
-                        <Link><button className="LogIn_Form_Btn">Log In</button></Link>
+                        <section className="LogIn_Form_SignIn">
+                            <p>Not a member? <Link to="/">SignIn</Link></p>
+                        </section>
+                       
+                        <button type="submit" className="LogIn_Form_Btn">Log In</button>
 
                     </section>
                     

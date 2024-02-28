@@ -43,7 +43,7 @@ const LogIn = () => {
                         
 
                         <section className="LogIn_Form_SignIn">
-                            <p>Not a member? <Link to="/">SignIn</Link></p>
+                            <p>Not a member? <Link to="/SignInV">SignIn</Link></p>
                         </section>
                        
                         <button type="submit" className="LogIn_Form_Btn">Log In</button>

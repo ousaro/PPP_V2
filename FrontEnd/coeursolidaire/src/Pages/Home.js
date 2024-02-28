@@ -24,9 +24,9 @@ const Home = () => {
                 </section>
 
                 <section className="Home_Content_Btn">
-                    <Link to="/LogIn"><button className="Btn_Volunteer">Are you a volounteer?</button></Link>
+                    <Link to="/SignInV"><button className="Btn_Volunteer">Are you a volounteer?</button></Link>
                     
-                    <Link to="/LogIn"><button className="Btn_Association" >Are you an association?</button></Link>
+                    <Link to="/SignInA"><button className="Btn_Association" >Are you an association?</button></Link>
                 </section>
 
             </main>

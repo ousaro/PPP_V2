@@ -8,26 +8,26 @@ import inIcon from "../imgs/LinkdinIcon.png"
 
 const LogIn = () => {
     return ( 
-        <div className="LogInPg">
+        <div className="AuthenticationPg LogInPg">
 
-            <main className="LogIn_Content">
+            <main className="Auth_Content LogIn_Content">
 
                
-                <form className="LogIn_Content_Form" onSubmit={(e)=>    
+                <form className="Auth_Content_Form LogIn_Content_Form" onSubmit={(e)=>    
                             {e.preventDefault()
                             alert("log in success")}}>
 
-                    <Link to="/"><div className="LogIn_Form_BackArrow"></div></Link>
+                    <Link to="/"><div className="Auth_Form_BackArrow LogIn_Form_BackArrow"></div></Link>
 
-                    <section className="LogIn_Form_Header">
+                    <section className="Auth_Form_Header LogIn_Form_Header">
                         <h1>Log In</h1>
                     </section>
 
-                    <section className="LogIn_Form_Content">
+                    <section className="Auth_Form_Content LogIn_Form_Content">
 
                         <p>Please fill your information below</p>
 
-                        <section className="LogIn_Form_Data">
+                        <section className="Auth_Form_Data LogIn_Form_Data">
                             <input type="text" placeholder="Email" required/>
                             <input type="password" placeholder="Password" required/>
                         </section>
@@ -36,7 +36,7 @@ const LogIn = () => {
                             <p><Link to="/">Forgot Password?</Link></p>
                         </section>
 
-                        <section className="LogIn_Form_Terms">
+                        <section className="Auth_Form_Terms  LogIn_Form_Terms">
                             <input type="checkbox"  required/>
                             <p>I accept terms & privacy policy</p>
                         </section>
@@ -46,18 +46,18 @@ const LogIn = () => {
                             <p>Not a member? <Link to="/SignInV">SignIn</Link></p>
                         </section>
                        
-                        <button type="submit" className="LogIn_Form_Btn">Log In</button>
+                        <button type="submit" className="Auth_Form_Btn  LogIn_Form_Btn">Log In</button>
 
                     </section>
                     
 
-                    <section className="LogIn_Form_Footer">
+                    <section className="Auth_Form_Footer LogIn_Form_Footer">
 
-                        <figure className="LogIn_Form_Logo">
+                        <figure className="Auth_Form_Logo LogIn_Form_Logo">
                             <img src={logo} alt="Logo" width="109" height="105"/>
                         </figure>
 
-                        <div className="LogIn_Form_SocialLinks">
+                        <div className="Auth_Form_SocialLinks LogIn_Form_SocialLinks">
                             <ul>
                                 <li><a href="/"  rel="noopener noreferrer"><img src={inIcon} alt="Linkdin" width="40" height="38" /></a></li>
                                 <li><a href="/"  rel="noopener noreferrer"><img src={fbIcon} alt="Facebook" width="40" height="38"/></a></li>
@@ -74,7 +74,7 @@ const LogIn = () => {
 
             </main>
 
-            <footer className="LogIn_Footer">
+            <footer className="Auth_Footer LogIn_Footer">
                 <p>2024 CoeurSolidaire- All Rights Reserved</p>
             </footer>
         </div>

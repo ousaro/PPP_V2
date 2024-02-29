@@ -310,12 +310,9 @@ body{
 
 /*------------------------------------------------------------*/
 
-/* || LogInPg */
+/* || AuthenticationPg */
 
-.LogInPg,
-.SignInVPg,
-.SignInAPg,
-.ForgotPassPg{
+.AuthenticationPg{
   display: flex;
   flex-direction: column;
   gap: 2em;
@@ -326,9 +323,8 @@ body{
   height: 100svh;
 }
 
-.LogIn_Content{
+.Auth_Content{
   display: flex;
-  background-image: url(imgs/LogInHero.JPG);
   background-repeat: no-repeat;
   background-size: 70% 100%;
   border-radius: 3em;
@@ -340,16 +336,16 @@ body{
   justify-content: flex-end;
 }
 
-.LogIn_Content_Hero img{
+
+.Auth_Content_Hero img{
   width: 100%;
   border-radius: 2em 0em 0em 2em;
 }
 
 
 
-.LogIn_Content_Form{
+.Auth_Content_Form{
   background-color: var(--FormColor);
-
   width: 45%;
   height: inherit;
   border-radius: 4em;
@@ -360,12 +356,12 @@ body{
   position: relative;
 }
 
-.LogIn_Form_BackArrow{
+.Auth_Form_BackArrow{
   display: flex;
   width: clamp(1em,3cqi,2em);
   height: clamp(1em,3cqi,2em);
   position: absolute;
-  top:3em;
+  top:2.5em;
   left: clamp(1em,3cqi,2.5em);
   box-sizing: border-box;
   background-image: url(imgs/arrow-left_w.png);
@@ -375,7 +371,7 @@ body{
   
 }
 
-.LogIn_Form_BackArrow:hover{
+.Auth_Form_BackArrow:hover{
   width: clamp(0.9em,2.8cqi,1.9em);
   height: clamp(0.9em,2.8cqi,1.9em);
   opacity: 85%;
@@ -383,13 +379,14 @@ body{
 }
 
 
-.LogIn_Form_Header{
+.Auth_Form_Header{
 font-family: Lalezar;
 font-size: clamp(1em, 2cqi, 1.4em);
 color: white;
+text-align: center;
 }
 
-.LogIn_Form_Content{
+.Auth_Form_Content{
   padding-top: 2em;
   flex-grow: 1;
   display: flex;
@@ -397,7 +394,7 @@ color: white;
 }
 
 
-.LogIn_Form_Content p{
+.Auth_Form_Content p{
   color: white;
   font-weight: 200;
   font-size: clamp(0.6em,1cqi,0.9em);
@@ -406,7 +403,7 @@ color: white;
 }
 
 
-.LogIn_Form_Data input{
+.Auth_Form_Data input{
   border-radius: 0.5em;
   margin-bottom: 0.8em;
   border: none;
@@ -417,104 +414,97 @@ color: white;
   font-size: clamp(0.5em,1.5cqi,1em);
 }
 
-.LogIn_Form_Data input::placeholder{
+.Auth_Form_Data input::placeholder{
   text-align: center;
  
 }
 
-.LogIn_Form_Data input:focus,
-.LogIn_Form_Data input:hover{
+.Auth_Form_Data input:focus,
+.Auth_Form_Data input:hover{
   outline: none;
   border: 1px solid var(--FORMTEXTBTN);
   box-shadow: 1px 1px 3px var(--FORMTEXTBTN);
 }
 
-.LogIn_Form_Data input:hover::placeholder
-,.LogIn_Form_Data input:focus::placeholder
+.Auth_Form_Data input:hover::placeholder
+,.Auth_Form_Data input:focus::placeholder
  {
   opacity: 50%;
 }
 
-.LogIn_Form_Content a{
+.Auth_Form_Content a{
   color: white;
   text-decoration: none;
 }
 
-.LogIn_Form_Content a:visited{
+.Auth_Form_Content a:visited{
   color: white;
   text-decoration: none;
 }
 
-.LogIn_Form_Content a:hover{
+.Auth_Form_Content a:hover{
   opacity: 80%;
   text-shadow: 1px 1px 8px var(--FORMTEXTBTN);
 }
 
-.LogIn_Form_Terms{
+.Auth_Form_Terms{
   display: flex;
   gap: 0.4em;
   margin-bottom: 0.8em;
 }
 
-.LogIn_Form_Terms p{
+.Auth_Form_Terms p{
   font-weight: 500;
   margin: auto 0;
 
 }
 
-.LogIn_Form_Terms input{
+.Auth_Form_Terms input{
   width: clamp(0.8em,1cqi,1.3em);
 }
 
-
-
-.LogIn_Form_Btn{
-  color: var(--FORMTEXTBTN);
-  background-color: transparent;
-  border: 1px solid white;
-  border-radius: 3em;
-  font-size:clamp(0.6em,1.2cqi, 0.9em);
-  width: 100%;
-  height: 3em;
-
-}
-
-
-.LogIn_Form_Btn:hover{
- box-shadow: 1px 1px 8px var(--FORMTEXTBTN);
- text-shadow: 1px 1px 8px var(--FORMTEXTBTN);
- cursor: pointer;
-}
-
-
-.LogIn_Form_Footer{
+.Auth_Form_Footer{
   display: flex;
   flex-direction: column;
   place-items: center;
 
 }
 
-.LogIn_Form_Logo img{
+.Auth_Form_Logo img{
   width: clamp(2em,5cqi,5em);
   height: auto;
 }
 
-.LogIn_Form_SocialLinks ul{
+.Auth_Form_SocialLinks ul{
   display: flex;
   list-style: none;
 }
 
-.LogIn_Form_SocialLinks li:hover{
+.Auth_Form_SocialLinks li:hover{
   opacity: 85%;
 }
 
-.LogIn_Form_SocialLinks li img{
+.Auth_Form_SocialLinks li img{
   width:clamp(1em,2cqi,1.5em);
   height: auto;
 }
 
 
-.LogIn_Footer{
+.Auth_Form_Btn{
+  color: var(--FORMTEXTBTN);
+  background-color: transparent;
+  border: 1px solid white;
+}
+
+
+.Auth_Form_Btn:hover{
+  box-shadow: 1px 1px 8px var(--FORMTEXTBTN);
+  text-shadow: 1px 1px 8px var(--FORMTEXTBTN);
+  cursor: pointer;
+ }
+
+ 
+.Auth_Footer{
   display: grid;
   place-items: center;
   color : white;
@@ -523,6 +513,121 @@ color: white;
   padding-bottom: 1em;
 
 }
+
+
+/*------------------------------------------------------------*/
+
+/* || LogInPg */
+
+.LogIn_Content{
+  background-image: url(imgs/LogInHero.JPG);
+}
+
+
+.LogIn_Form_Btn{
+  border-radius: 3em;
+  font-size:clamp(0.6em,1.2cqi, 0.9em);
+  width: 100%;
+  height: 3em;
+
+}
+
+
+/*------------------------------------------------------------*/
+
+/* || SignInPg */
+
+.SignIn_Content{
+  background-image: url(imgs/SignInHero.png);
+}
+
+.SignIn_Content_Form{
+  width: 45%;
+  height: inherit;
+  padding: 3em clamp(1em,5cqi,4em) 0.5em clamp(1em,5cqi,4em);
+}
+
+.SignIn_Form_Content{
+  padding-top: 0;
+}
+
+.SignIn_Form_Header{
+  font-size: clamp(1em, 2cqi, 1.2em);
+  }
+
+.SignIn_Form_Data input{
+  border-radius: 0.5em;
+  margin-bottom: 0.8em;
+  border: none;
+  height:clamp(1em,3.5cqi,2.9em);
+  width: 100%;
+  box-sizing: border-box;
+  padding: 1em;
+  font-size: clamp(0.5em,1.5cqi,0.9em);
+}
+
+
+.SignIn_Data_FullName,
+.SignIn_Data_Pass{
+  display: flex;
+  gap: 0.5em;
+}
+
+.SignIn_Content .SignIn_Data_GenderTitle{
+  font-weight: 600;
+  font-size: clamp(0.5em,3cqi,1em);
+  margin-bottom: 0.3em;
+}
+
+.SignIn_Data_Gender{
+  display: flex;
+  box-sizing: border-box;
+  margin-bottom: 0.8em;
+}
+
+.SignIn_Form_Content input[type="date"]{
+  padding-left: clamp(0.8em,3cqi,2em);
+  color: #8e8b8b;
+}
+
+.SignIn_Data_Gender input{
+  height:clamp(0.8em,2cqi,1.3em);
+  width: 10%;
+  margin: auto 0;
+}
+
+.SignIn_Data_Gender input:hover,
+.SignIn_Data_Gender input:focus
+{
+  box-shadow: none;
+}
+
+.SignIn_Data_Gender label{
+  margin: auto 0;
+  font-size: clamp(0.5em,1.5cqi,0.8em);
+  height: 1.2em;
+  margin-right: 2em;
+  color: white;
+
+}
+
+.SignIn_Form_footer{
+  display: flex;
+  gap: 0.5em;
+  margin-top: 0.5em;
+}
+
+.SignIn_Form_Btn{
+  border-radius: 1em;
+  font-size:clamp(0.6em,1.2cqi, 0.9em);
+  width: 30%;
+  height: 3em;
+
+}
+
+/*------------------------------------------------------------*/
+
+/* || media query*/
 
 @media (max-width: 762px) {
   .Home{

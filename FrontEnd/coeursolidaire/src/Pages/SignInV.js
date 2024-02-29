@@ -9,64 +9,83 @@ import inIcon from "../imgs/LinkdinIcon.png"
 const SignInV = () => {
     return ( 
 
-        <div className="SignInVPg">
+        <div className="AuthenticationPg SignInVPg">
 
 
 
-            <main className="LogIn_Content">
+            <main className="Auth_Content SignIn_Content">
 
                         
-            <form className="LogIn_Content_Form" onSubmit={(e)=>    
+            <form className="Auth_Content_Form SignIn_Content_Form" onSubmit={(e)=>    
                         {e.preventDefault()
-                        alert("log in success")}}>
+                        alert("Sign in success")}}>
 
-                <Link to="/"><div className="LogIn_Form_BackArrow"></div></Link>
+                <Link to="/"><div className="Auth_Form_BackArrow SignIn_Form_BackArrow"></div></Link>
 
-                <section className="LogIn_Form_Header">
+                <section className="Auth_Form_Header SignIn_Form_Header">
                     <h1>Sign in (Volounteer)</h1>
                 </section>
 
-                <section className="LogIn_Form_Content">
+                <section className="Auth_Form_Content SignIn_Form_Content">
 
                     <p>Please fill your information below</p>
 
-                    <section className="LogIn_Form_Data">
-                        <input type="text" placeholder="First name" required/>
-                        <input type="text" placeholder="Last name" required/>
+                    <section className="Auth_Form_Data SignIn_Form_Data">
+                        <div className="SignIn_Data_FullName">
+                            <input type="text" placeholder="First name" required/>
+                            <input type="text" placeholder="Last name" required/>
+                        </div>
+                       
                         <input type="text" placeholder="Email" required/>
                         <input type="date" required/>
-                        <input type="radio" value=""/>
-                        <label htmlFor="" >Female</label>\
-                        <input type="radio" value=""/>
-                        <label htmlFor="" >Male</label>
-                        <input type="password" placeholder="Password" required/>
-                        <input type="password" placeholder="confirm Password" required/>
+
+                        <p className="SignIn_Data_GenderTitle">Gender</p>
+                        <div className="SignIn_Data_Gender">
+                            <input type="radio" name="Gender" required/>
+                            <label htmlFor="" >Female</label>
+                            <input type="radio" name="Gender" required/>
+                            <label htmlFor="" >Male</label>
+                        </div>
+                        
+                        <div className="SignIn_Data_Pass">
+                            <input type="password" placeholder="Password" required/>
+                            <input type="password" placeholder="confirm Password" required/>
+                        </div>
+                        
                         
                     </section>
 
 
-                    <section className="LogIn_Form_Terms">
-                        <input type="checkbox"  required/>
-                        <p>I accept terms & privacy policy</p>
-                    </section>
+                    <div className="SignIn_Form_footer">
+                        <div>
+                            <section className="Auth_Form_Terms SignIn_Form_Terms">
+                                <input type="checkbox"  required/>
+                                <p>I accept terms & privacy policy</p>
+                            </section>
+                        
+
+                            <section className="SignIn_Form_LogIn">
+                                <p>Already have an account? <Link to="/LogIn">LogIn</Link></p>
+                            </section>
+                        </div>
+
+
+                        <button type="submit" className="Auth_Form_Btn SignIn_Form_Btn">Sign In</button>
+
+
+                    </div>
                     
-
-                    <section className="LogIn_Form_SignIn">
-                        <p>Already have an account? <Link to="/LogIn">LogIn</Link></p>
-                    </section>
-                
-                    <button type="submit" className="LogIn_Form_Btn">Sign In</button>
-
+            
                 </section>
                 
 
-                <section className="LogIn_Form_Footer">
+                <section className="Auth_Form_Footer SignIn_Form_Footer">
 
-                    <figure className="LogIn_Form_Logo">
+                    <figure className="Auth_Form_Logo SignIn_Form_Logo">
                         <img src={logo} alt="Logo" width="109" height="105"/>
                     </figure>
 
-                    <div className="LogIn_Form_SocialLinks">
+                    <div className="Auth_Form_SocialLinks SignIn_Form_SocialLinks">
                         <ul>
                             <li><a href="/"  rel="noopener noreferrer"><img src={inIcon} alt="Linkdin" width="40" height="38" /></a></li>
                             <li><a href="/"  rel="noopener noreferrer"><img src={fbIcon} alt="Facebook" width="40" height="38"/></a></li>
@@ -83,7 +102,7 @@ const SignInV = () => {
 
             </main>
 
-            <footer className="LogIn_Footer">
+            <footer className="Auth_Footer SignIn_Footer">
             <p>2024 CoeurSolidaire- All Rights Reserved</p>
             </footer>
 

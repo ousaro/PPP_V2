@@ -1,10 +1,12 @@
 
 import Home from "./Pages/Home"; 
 import About from "./Pages/About";
-import LogIn from "./Pages/LogIn";
-import SignInV from "./Pages/SignInV";
-import SignInA from "./Pages/SignInA";
-import ForgotPass from "./Pages/ForgotPass";
+import LogIn from "./Pages/Authentication pages/LogIn";
+import SignInV from "./Pages/Authentication pages/SignInV";
+import SignInA from "./Pages/Authentication pages/SignInA";
+import ForgotPass from "./Pages/Authentication pages/ForgotPass";
+import ProfileV from "./Pages/Profiles/ProfileV";
+import ProfileA from "./Pages/Profiles/ProfileA";
 import {BrowserRouter, Route, Switch} from "react-router-dom"
 
 
@@ -19,6 +21,8 @@ function App() {
         <Route path="/SignInV"><SignInV></SignInV></Route>
         <Route path="/SignInA"><SignInA></SignInA></Route>
         <Route path="/ForgotPass"><ForgotPass></ForgotPass></Route>
+        <Route path="/ProfileV"><ProfileV></ProfileV></Route>
+        <Route path="/ProfileA"><ProfileA></ProfileA></Route>
       </Switch>
       
     </div>

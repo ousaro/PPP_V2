@@ -1,8 +1,8 @@
 
-import logo from "../imgs/HomeLogo.png"
-import igIcon from "../imgs/InstagramIcon.png"
-import fbIcon from "../imgs/facebookIcon.png"
-import inIcon from "../imgs/LinkdinIcon.png"
+import logo from "../../imgs/HomeLogo.png"
+import igIcon from "../../imgs/InstagramIcon.png"
+import fbIcon from "../../imgs/facebookIcon.png"
+import inIcon from "../../imgs/LinkdinIcon.png"
 import { useHistory } from "react-router-dom"
 
 

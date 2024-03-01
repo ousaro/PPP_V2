@@ -29,6 +29,13 @@
   --Border1: #2ef28999;
   --FormColor:#1A3F2B;
   --FORMTEXTBTN:#70cf9e;
+  --PROFILEICONCOLOR:#331C1C;
+  --PROFILEBTNCOLOR: #489C6F;
+  --PROFILECONTENTCOLOR: #D9D9D963;
+  --PROFILENAVBAR:#D9D9D9;
+
+
+
 
 
 
@@ -732,6 +739,229 @@ text-align: center;
   font-size:clamp(0.6em,1.2cqi, 0.9em);
   width: 100%;
   height: 3em;
+}
+
+/*------------------------------------------------------------*/
+
+/* || Profile commun style*/
+
+.ProfileIcon{
+  width: 3em;
+  height: 3em;
+  background-color: var(--PROFILEICONCOLOR);
+  border-radius: 5em;
+  background-image: url(./imgs/ProfileIcon.png);
+  background-size: 70%;
+  background-position: center;
+  background-repeat: no-repeat;
+  box-shadow: 1px 1px 8px var(--PROFILEBTNCOLOR);
+}
+
+
+/*------------------------------------------------------------*/
+
+/* || ProfileVPg*/
+
+.ProfileVPg{
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(to right,var(--AboutColor3),var(--AboutColor2),var(--AboutColor1));
+  background-image: url("./imgs/ProfilePg.png");
+  background-repeat: no-repeat;
+  background-size: 100% 100svh;
+  height: 100svh;
+  padding-top: 2em;
+  box-sizing: border-box;
+}
+
+
+.ProfileV_Header{
+  background-color: var(--PROFILENAVBAR);
+  width: 70%;
+  height: 3.5em;
+  border-radius: 3em;
+  margin: 0 auto;
+  padding: 0.3em 0.3em 0.3em 0.3em;
+  box-sizing: border-box;
+  display: flex;
+  gap: 1em;
+  justify-content: space-between;
+}
+
+.ProfileV_Header figure{
+  margin: auto;
+}
+
+.ProfileV_Header img{
+  width: 1.8em;  height: auto;
+
+}
+
+.ProfileV_Header_Logo img{
+  width: 3.5em;
+}
+
+.ProfileV_Header img:hover,
+.ProfileV_Header img:focus{
+  border-bottom: 4px solid var(--PROFILEBTNCOLOR);
+  margin-top: 0.7em;
+  padding-bottom: 0.3em;
+}
+
+.ProfileV_Header_Logo img:hover,
+.ProfileV_Header_Logo img:focus{
+  border: none;
+  margin-top: 0em;
+}
+
+.ProfileV_Header_ProfileIcon:hover{
+  width: 2.9em;
+  height: 2.9em;
+}
+
+
+.ProfileV_Content{
+  display: flex;
+  background-color: var(--PROFILECONTENTCOLOR);
+  background-repeat: no-repeat;
+  background-size: 70% 100%;
+  border-radius: 3em;
+  width: 70%;
+  margin: 1em 0 1em 0;
+  flex-grow: 1;
+  align-self:center;
+  justify-self:center ;
+  justify-content: flex-end;
+}
+
+
+.ProfileV_Content_Form{
+  background-color: var(--FormColor);
+  width: 45%;
+  margin: 0 auto;
+  height: inherit;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.ProfileV_Form_BackArrow{
+  display: flex;
+  width: clamp(1em,3cqi,2em);
+  height: clamp(1em,3cqi,2em);
+  position: absolute;
+  top:2em;
+  left:clamp(-16em,-18cqi,-5em);
+  box-sizing: border-box;
+  background-image: url(imgs/arrow-left_w.png);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  border-radius: clamp(0.2em,0.5cqi,0.6em);
+  
+}
+
+.ProfileV_Form_BackArrow:hover{
+  width: clamp(0.9em,2.8cqi,1.9em);
+  height: clamp(0.9em,2.8cqi,1.9em);
+  opacity: 85%;
+  box-shadow: 1px 1px 4px var(--FORMTEXTBTN);
+}
+
+
+.ProfileV_Form_Header{
+font-family: Lalezar;
+font-size: clamp(1em, 2cqi, 1.4em);
+color: white;
+text-align: center;
+}
+
+.ProfileV_Form_Content{
+  padding-top: 2em;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+
+.ProfileV_Form_Content p{
+  color: white;
+  font-weight: 200;
+  font-size: clamp(0.6em,1cqi,0.9em);
+  margin-bottom: 0.8em;
+
+}
+
+
+.ProfileV_Form_Data input{
+  border-radius: 0.5em;
+  margin-bottom: 0.8em;
+  border: none;
+  height:clamp(1em,3.5cqi,3em);
+  width: 100%;
+  box-sizing: border-box;
+  padding: 1em;
+  font-size: clamp(0.5em,1.5cqi,1em);
+}
+
+.ProfileV_Form_Data input::placeholder{
+  text-align: center;
+ 
+}
+
+.ProfileV_Form_Data input:focus,
+.ProfileV_Form_Data input:hover{
+  outline: none;
+  border: 1px solid var(--FORMTEXTBTN);
+  box-shadow: 1px 1px 3px var(--FORMTEXTBTN);
+}
+
+.ProfileV_Form_Data input:hover::placeholder
+,.ProfileV_Form_Data input:focus::placeholder
+ {
+  opacity: 50%;
+}
+
+.ProfileV_Form_Content a{
+  color: white;
+  text-decoration: none;
+}
+
+.ProfileV_Form_Content a:visited{
+  color: white;
+  text-decoration: none;
+}
+
+.ProfileV_Form_Content a:hover{
+  opacity: 80%;
+  text-shadow: 1px 1px 10px var(--PROFILEICONCOLOR);
+}
+
+
+
+
+.ProfileV_Form_Btn{
+  color: var(--FORMTEXTBTN);
+  background-color: transparent;
+  border: 1px solid white;
+}
+
+
+.ProfileV_Form_Btn:hover{
+  box-shadow: 1px 1px 8px var(--FORMTEXTBTN);
+  text-shadow: 1px 1px 8px var(--FORMTEXTBTN);
+  cursor: pointer;
+ }
+
+ 
+.ProfileV_Footer{
+  display: grid;
+  place-items: center;
+  color : white;
+  font-size:clamp(0.6em,1.3cqi, 0.91em);
+  font-weight: 200;
+  padding-bottom: 1em;
+
 }
 
 /*------------------------------------------------------------*/

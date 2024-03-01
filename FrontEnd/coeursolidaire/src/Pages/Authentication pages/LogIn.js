@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom"
-import logo from "../imgs/HomeLogo.png"
-import igIcon from "../imgs/InstagramIcon.png"
-import fbIcon from "../imgs/facebookIcon.png"
-import inIcon from "../imgs/LinkdinIcon.png"
+import logo from "../../imgs/HomeLogo.png"
+import igIcon from "../../imgs/InstagramIcon.png"
+import fbIcon from "../../imgs/facebookIcon.png"
+import inIcon from "../../imgs/LinkdinIcon.png"
 import { useHistory } from "react-router-dom"
 
 
@@ -14,6 +14,10 @@ const LogIn = () => {
         history.goBack();
     }
 
+    const changePg=(path)=>{
+        history.push(path)
+    }
+
     return ( 
         <div className="AuthenticationPg LogInPg">
 
@@ -22,7 +26,7 @@ const LogIn = () => {
                
                 <form className="Auth_Content_Form LogIn_Content_Form" onSubmit={(e)=>    
                             {e.preventDefault()
-                            alert("log in success")}}>
+                            changePg("/ProfileV")}}>
 
                     <div className="Auth_Form_BackArrow LogIn_Form_BackArrow" onClick={goBack}></div>
 

@@ -525,7 +525,7 @@ text-align: center;
 
 
 .LogIn_Form_Btn{
-  border-radius: 3em;
+  border-radius: 0.7em;
   font-size:clamp(0.6em,1.2cqi, 0.9em);
   width: 100%;
   height: 3em;
@@ -535,27 +535,27 @@ text-align: center;
 
 /*------------------------------------------------------------*/
 
-/* || SignInPg */
+/* || SignInVPg */
 
-.SignIn_Content{
+.SignInV_Content{
   background-image: url(imgs/SignInHero.png);
 }
 
-.SignIn_Content_Form{
+.SignInV_Content_Form{
   width: 45%;
   height: inherit;
   padding: 3em clamp(1em,5cqi,4em) 0.5em clamp(1em,5cqi,4em);
 }
 
-.SignIn_Form_Content{
+.SignInV_Form_Content{
   padding-top: 0;
 }
 
-.SignIn_Form_Header{
+.SignInV_Form_Header{
   font-size: clamp(1em, 2cqi, 1.2em);
   }
 
-.SignIn_Form_Data input{
+.SignInV_Form_Data input{
   border-radius: 0.5em;
   margin-bottom: 0.8em;
   border: none;
@@ -567,42 +567,42 @@ text-align: center;
 }
 
 
-.SignIn_Data_FullName,
-.SignIn_Data_Pass{
+.SignInV_Data_FullName,
+.SignInV_Data_Pass{
   display: flex;
   gap: 0.5em;
 }
 
-.SignIn_Content .SignIn_Data_GenderTitle{
+.SignInV_Content .SignIn_Data_GenderTitle{
   font-weight: 600;
   font-size: clamp(0.5em,3cqi,1em);
   margin-bottom: 0.3em;
 }
 
-.SignIn_Data_Gender{
+.SignInV_Data_Gender{
   display: flex;
   box-sizing: border-box;
   margin-bottom: 0.8em;
 }
 
-.SignIn_Form_Content input[type="date"]{
+.SignInV_Form_Content input[type="date"]{
   padding-left: clamp(0.8em,3cqi,2em);
   color: #8e8b8b;
 }
 
-.SignIn_Data_Gender input{
+.SignInV_Data_Gender input{
   height:clamp(0.8em,2cqi,1.3em);
   width: 10%;
   margin: auto 0;
 }
 
-.SignIn_Data_Gender input:hover,
-.SignIn_Data_Gender input:focus
+.SignInV_Data_Gender input:hover,
+.SignInV_Data_Gender input:focus
 {
   box-shadow: none;
 }
 
-.SignIn_Data_Gender label{
+.SignInV_Data_Gender label{
   margin: auto 0;
   font-size: clamp(0.5em,1.5cqi,0.8em);
   height: 1.2em;
@@ -611,18 +611,127 @@ text-align: center;
 
 }
 
-.SignIn_Form_footer{
+.SignInV_Form_footer{
   display: flex;
   gap: 0.5em;
   margin-top: 0.5em;
 }
 
-.SignIn_Form_Btn{
+.SignInV_Form_Btn{
   border-radius: 1em;
   font-size:clamp(0.6em,1.2cqi, 0.9em);
   width: 30%;
   height: 3em;
 
+}
+
+/*------------------------------------------------------------*/
+
+/* || SignInAPg */
+
+
+.SignInA_Content{
+  background-image: url(imgs/SignInAHero.png);
+}
+
+.SignInA_Content_Form{
+  width: 45%;
+  height: inherit;
+  padding: 3em clamp(1em,5cqi,4em) 0.5em clamp(1em,5cqi,4em);
+}
+
+.SignInA_Form_Content{
+  padding-top: 0;
+}
+
+.SignInA_Form_Header{
+  font-size: clamp(1em, 2cqi, 1.2em);
+  }
+
+.SignInA_Form_Data input{
+  border-radius: 0.5em;
+  margin-bottom: 0.8em;
+  border: none;
+  height:clamp(1em,3.5cqi,2.9em);
+  width: 100%;
+  box-sizing: border-box;
+  padding: 1em;
+  font-size: clamp(0.5em,1.5cqi,0.9em);
+}
+
+
+.SignInA_Data_FullName,
+.SignInA_Data_Pass,
+.SignInA_Data_EmailCity{
+  display: flex;
+  gap: 0.5em;
+}
+
+.SignInA_Content{
+  font-weight: 600;
+  font-size: clamp(0.5em,3cqi,1em);
+  margin-bottom: 0.3em;
+}
+
+#city{
+  width:clamp(3em,7cqi,8em);
+}
+
+.SignInA_Form_Data textarea{
+  width: 100%;
+  font-size: clamp(0.5em,1.2cqi,0.9em);
+  font-weight: 600;
+  border-radius: 0.5em;
+  padding: 1.3em;
+  box-sizing: border-box;
+  resize: none;
+}
+
+.SignInA_Form_Data textarea::placeholder{
+  text-align: center;
+}
+
+
+.Auth_Form_Data textarea:focus,
+.Auth_Form_Data textarea:hover{
+  outline: none;
+  border: 1px solid var(--FORMTEXTBTN);
+  box-shadow: 1px 1px 3px var(--FORMTEXTBTN);
+}
+
+.Auth_Form_Data textarea:hover::placeholder
+,.Auth_Form_Data textarea:focus::placeholder
+ {
+  opacity: 50%;
+}
+
+.SignInA_Form_footer{
+  margin-top: 0.5em;
+}
+
+.SignInA_Form_Btn{
+  border-radius: 0.7em;
+  font-size:clamp(0.6em,1.2cqi, 0.9em);
+  width: 100%;
+  height: 3em;
+  margin-bottom: 0.5em;
+}
+
+
+/*------------------------------------------------------------*/
+
+/* || ForgotPass */
+
+
+.ForgotPass_Content{
+  background-image: url(imgs/SignInAHero.png);
+}
+
+.ForgotPass_Form_Btn{
+  border-radius: 0.7em;
+  font-size:clamp(0.6em,1.2cqi, 0.9em);
+  width: 100%;
+  height: 3em;
 }
 
 /*------------------------------------------------------------*/

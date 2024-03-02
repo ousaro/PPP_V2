@@ -4,16 +4,29 @@ import EditIcon from "../../imgs/EditIcon.png"
 import HomeIcon from "../../imgs/HomeIcon.png"
 import MessangerIcon from "../../imgs/MessangerIcon.png"
 import NotificationIcon from "../../imgs/NotificationIcon.png"
-import { Link } from "react-router-dom"
+import { Link , useHistory} from "react-router-dom"
+
 
 
 
 
 const ProfileV = () => {
-    return ( 
-        <div className="ProfileVPg">
 
-            <header className="ProfileV_Header">
+
+    const history=useHistory();
+
+    const goBack = ()=>{
+        history.goBack();
+    }
+
+    const ChangePg=(e)=>{
+        history.push(e);
+    }
+
+    return ( 
+        <div className="ProfilePg ProfileVPg">
+
+            <header className="Profile_Header ProfileV_Header">
 
                 <figure>
                     <Link to="#"><img src={SettingIcon} alt="settingIcon" width="39" height="39"/></Link>
@@ -23,7 +36,7 @@ const ProfileV = () => {
                     <Link to="/"><img src={HomeIcon} alt="HomeIcon" width="39" height="39"/></Link>
                 </figure>
 
-                <figure className="ProfileV_Header_Logo">
+                <figure className="Profile_Header_Logo ProfileV_Header_Logo">
                     <img src={ProfileLogo} alt="Logo" width="262" height="236"/>
                 </figure>
 
@@ -35,42 +48,43 @@ const ProfileV = () => {
                     <Link to="#"><img src={NotificationIcon} alt="NotificationIcon" width="39" height="39"/></Link>
                 </figure>
 
-                <Link to="/ProfileV"><div className="ProfileIcon ProfileV_Header_ProfileIcon"></div></Link>
+                <Link to="/ProfileV"><div className="ProfileIcon Profile_Header_ProfileIcon ProfileV_Header_ProfileIcon"></div></Link>
             </header>
 
-            <main className="ProfileV_Content">
 
-                
+            <main className="Profile_Content ProfileV_Content">
             
-                <form className="ProfileV_Content_Form" onSubmit={(e)=>    
+                <form className="Profile_Content_Form ProfileV_Content_Form" onSubmit={(e)=>    
                             {e.preventDefault()
-                            }}>
+                            alert("Information Updated")}}>
 
-                    <div className="ProfileV_Form_BackArrow"></div>
+                    <div className="Profile_Form_BackArrow ProfileV_Form_BackArrow" onClick={goBack}></div>
 
-                    <section className="ProfileV_Form_Header">
+                    <section className="Profile_Form_Header ProfileV_Form_Header">
 
                        
-                        <div className="ProfileIcon ProfileV_Form_Header_ProfileIcon"></div>
+                        <div className="ProfileIcon Profile_Form_Header_ProfileIcon ProfileV_Form_Header_ProfileIcon">
+                            <figure className="Profile_Form_EditIcon ProfileV_Form_EditIcon">
+                                <Link to="#"><img src={EditIcon} alt="EditIcon" width="39" height="39"/></Link>
+                            </figure>
+                        </div>
 
-                        <figure>
-                            <img src={EditIcon} alt="EditIcon" width="39" height="39"/>
-                        </figure>
+                        
 
                         <p>Volounteer</p>
 
                     </section>
 
-                    <section className="ProfileV_Form_Content">
+                    <section className="Profile_Form_Content ProfileV_Form_Content">
 
 
-                        <section className="ProfileV_Form_Field1">
+                        <section className="Profile_Form_Field ProfileV_Form_Field">
                             <input type="text" placeholder="First name" />
                             <input type="text" placeholder="Last name" />
                         </section>
             
 
-                        <section className="ProfileV_Form_Field2">
+                        <section className="Profile_Form_Field ProfileV_Form_Field">
                             <input type="password" placeholder="Change password" />
                             <input type="date" />
                         </section>
@@ -78,7 +92,7 @@ const ProfileV = () => {
                         
                         <section className="ProfileV_Form_Gender">
                             <label >Gender</label>
-                            <div>
+                            <div className="ProfileV_Gender_Options">
                                 <input type="radio" name="gender" />
                                 <label>Male</label>
 
@@ -90,8 +104,8 @@ const ProfileV = () => {
                             
                         <input type="text" placeholder="Email" />
 
-                        <button type="submit" className=" ProfileV_Form_Btn ProfileV_Form_UpdateBtn">Update</button>
-                        <button className=" ProfileV_Form_Btn ProfileV_Form_LogOutBtn">Log out</button>
+                        <button type="submit" className=" Profile_Form_Btn ProfileV_Form_UpdateBtn">Update</button>
+                        <button className=" Profile_Form_Btn  ProfileV_Form_LogOutBtn" onClick={()=>ChangePg("/")} >Log out</button>
 
                     </section>
                     
@@ -101,8 +115,8 @@ const ProfileV = () => {
 
             </main>
 
-            <footer className="ProfileV_Footer">
-            <p>2024 CoeurSolidaire- All Rights Reserved</p>
+            <footer className="Footer ProfileV_Footer">
+            <p>&copy; 2024 CoeurSolidaire- All Rights Reserved</p>
             </footer>
 
         </div>

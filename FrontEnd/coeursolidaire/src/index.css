@@ -73,6 +73,7 @@ body{
   background-repeat: no-repeat;
   background-size: 100% 100vh;
   height: 100svh;
+  box-sizing: border-box;
 }
 
 .Home_Header_Logo{
@@ -82,8 +83,8 @@ body{
 .Home_Header_Logo img{
   position: relative;
   top: 10px;
-  width:clamp(6em,11cqi,8em);;
-  height: auto;
+  width:clamp(6em,11cqi,8em);
+  height:clamp(5em,11cqi,8em);
 }
 
 .Home_Content {
@@ -91,6 +92,7 @@ body{
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1.5fr;
+  box-sizing: border-box;
 }
 
 
@@ -164,6 +166,7 @@ body{
   padding: 0.5em;
   color: white;
   margin-bottom: 0.4em;
+  box-sizing: border-box;
 }
 
 .Home_Footer ul{
@@ -314,6 +317,19 @@ body{
 
 }
 
+/*------------------------------------------------------------*/
+
+/* || Commun footer */
+
+.Footer{
+  display: grid;
+  place-items: center;
+  color : white;
+  font-size:clamp(0.6em,1.3cqi, 0.91em);
+  font-weight: 200;
+  padding-bottom: 1em;
+
+}
 
 /*------------------------------------------------------------*/
 
@@ -511,17 +527,6 @@ text-align: center;
  }
 
  
-.Auth_Footer{
-  display: grid;
-  place-items: center;
-  color : white;
-  font-size:clamp(0.6em,1.3cqi, 0.91em);
-  font-weight: 200;
-  padding-bottom: 1em;
-
-}
-
-
 /*------------------------------------------------------------*/
 
 /* || LogInPg */
@@ -745,24 +750,7 @@ text-align: center;
 
 /* || Profile commun style*/
 
-.ProfileIcon{
-  width: 3em;
-  height: 3em;
-  background-color: var(--PROFILEICONCOLOR);
-  border-radius: 5em;
-  background-image: url(./imgs/ProfileIcon.png);
-  background-size: 70%;
-  background-position: center;
-  background-repeat: no-repeat;
-  box-shadow: 1px 1px 8px var(--PROFILEBTNCOLOR);
-}
-
-
-/*------------------------------------------------------------*/
-
-/* || ProfileVPg*/
-
-.ProfileVPg{
+.ProfilePg{
   display: flex;
   flex-direction: column;
   background: linear-gradient(to right,var(--AboutColor3),var(--AboutColor2),var(--AboutColor1));
@@ -775,9 +763,9 @@ text-align: center;
 }
 
 
-.ProfileV_Header{
+.Profile_Header{
   background-color: var(--PROFILENAVBAR);
-  width: 70%;
+  width: 65%;
   height: 3.5em;
   border-radius: 3em;
   margin: 0 auto;
@@ -788,56 +776,69 @@ text-align: center;
   justify-content: space-between;
 }
 
-.ProfileV_Header figure{
+.Profile_Header figure{
   margin: auto;
 }
 
-.ProfileV_Header img{
+.Profile_Header img{
   width: 1.8em;  height: auto;
 
 }
 
-.ProfileV_Header_Logo img{
+.Profile_Header_Logo img{
   width: 3.5em;
 }
 
-.ProfileV_Header img:hover,
-.ProfileV_Header img:focus{
+.Profile_Header img:hover,
+.Profile_Header img:focus{
   border-bottom: 4px solid var(--PROFILEBTNCOLOR);
   margin-top: 0.7em;
   padding-bottom: 0.3em;
 }
 
-.ProfileV_Header_Logo img:hover,
-.ProfileV_Header_Logo img:focus{
+.Profile_Header_Logo img:hover,
+.Profile_Header_Logo img:focus{
   border: none;
   margin-top: 0em;
 }
 
-.ProfileV_Header_ProfileIcon:hover{
+
+.ProfileIcon{
+  width: 3em;
+  height: 3em;
+  background-color: var(--PROFILEICONCOLOR);
+  border-radius: 5em;
+  background-image: url(./imgs/ProfileIcon.png);
+  background-size: 70%;
+  background-position: center;
+  background-repeat: no-repeat;
+  box-shadow: 1px 1px 8px var(--PROFILEBTNCOLOR);
+}
+
+.Profile_Header_ProfileIcon:hover{
   width: 2.9em;
   height: 2.9em;
 }
 
 
-.ProfileV_Content{
+.Profile_Content{
   display: flex;
   background-color: var(--PROFILECONTENTCOLOR);
   background-repeat: no-repeat;
   background-size: 70% 100%;
   border-radius: 3em;
-  width: 70%;
+  width: 65%;
   margin: 1em 0 1em 0;
   flex-grow: 1;
   align-self:center;
   justify-self:center ;
   justify-content: flex-end;
+  box-sizing: border-box;
 }
 
 
-.ProfileV_Content_Form{
-  background-color: var(--FormColor);
-  width: 45%;
+.Profile_Content_Form{
+  width: 35%;
   margin: 0 auto;
   height: inherit;
   display: flex;
@@ -846,7 +847,7 @@ text-align: center;
   position: relative;
 }
 
-.ProfileV_Form_BackArrow{
+.Profile_Form_BackArrow{
   display: flex;
   width: clamp(1em,3cqi,2em);
   height: clamp(1em,3cqi,2em);
@@ -861,7 +862,7 @@ text-align: center;
   
 }
 
-.ProfileV_Form_BackArrow:hover{
+.Profile_Form_BackArrow:hover{
   width: clamp(0.9em,2.8cqi,1.9em);
   height: clamp(0.9em,2.8cqi,1.9em);
   opacity: 85%;
@@ -869,99 +870,204 @@ text-align: center;
 }
 
 
-.ProfileV_Form_Header{
+.Profile_Form_Header{
 font-family: Lalezar;
 font-size: clamp(1em, 2cqi, 1.4em);
 color: white;
 text-align: center;
+padding-top: 2em;
+position: relative;
+
 }
 
-.ProfileV_Form_Content{
-  padding-top: 2em;
-  flex-grow: 1;
+.Profile_Form_Header p{
+  color: white;
+  font-weight: 200;
+  font-size: clamp(0.6em,1cqi,0.9em);
+  margin-top: 1em;
+}
+
+.Profile_Form_Header_ProfileIcon{
+  margin: auto;
+  box-shadow: none;
+  width: 5em;
+  height: 5em;
+  position: relative;
+}
+
+.Profile_Form_EditIcon{
+  position: absolute;
+  top: 70%;
+  left: 60%;
+}
+
+.Profile_Form_EditIcon:hover{
+  opacity: 80%;
+ 
+}
+
+.Profile_Form_Content{
+  padding-top: 1em;
   display: flex;
   flex-direction: column;
 }
 
-
-.ProfileV_Form_Content p{
-  color: white;
-  font-weight: 200;
-  font-size: clamp(0.6em,1cqi,0.9em);
-  margin-bottom: 0.8em;
-
-}
-
-
-.ProfileV_Form_Data input{
+.Profile_Form_Content input{
   border-radius: 0.5em;
   margin-bottom: 0.8em;
   border: none;
-  height:clamp(1em,3.5cqi,3em);
+  height:clamp(1em,3.5cqi,2.5em);
   width: 100%;
-  box-sizing: border-box;
   padding: 1em;
   font-size: clamp(0.5em,1.5cqi,1em);
+  box-sizing: border-box;
 }
 
-.ProfileV_Form_Data input::placeholder{
+.Profile_Form_Content  input::placeholder{
   text-align: center;
  
 }
 
-.ProfileV_Form_Data input:focus,
-.ProfileV_Form_Data input:hover{
+.Profile_Form_Content  input:focus,
+.Profile_Form_Content input:hover{
   outline: none;
   border: 1px solid var(--FORMTEXTBTN);
   box-shadow: 1px 1px 3px var(--FORMTEXTBTN);
 }
 
-.ProfileV_Form_Data input:hover::placeholder
-,.ProfileV_Form_Data input:focus::placeholder
+.Profile_Form_Content  input:hover::placeholder
+,.Profile_Form_Content input:focus::placeholder
  {
   opacity: 50%;
 }
 
-.ProfileV_Form_Content a{
+.Profile_Form_Content a{
   color: white;
   text-decoration: none;
 }
 
-.ProfileV_Form_Content a:visited{
+.Profile_Form_Content a:visited{
   color: white;
   text-decoration: none;
 }
 
-.ProfileV_Form_Content a:hover{
+.Profile_Form_Content a:hover{
   opacity: 80%;
   text-shadow: 1px 1px 10px var(--PROFILEICONCOLOR);
 }
 
+.Profile_Form_Content input[type="date"]{
+  padding-left: clamp(0.8em,3cqi,2em);
+  color: #8e8b8b;
+}
 
+.Profile_Form_Field {
+  display: flex;
+  gap: 0.5em;
+}
 
-
-.ProfileV_Form_Btn{
-  color: var(--FORMTEXTBTN);
-  background-color: transparent;
-  border: 1px solid white;
+.Profile_Form_Btn{
+  color: var(--PROFILECONTENTCOLOR);
+  background-color: var(--PROFILEICONCOLOR);
+  height:clamp(1em,3.5cqi,3em);
+  width: 100%;
+  border: none;
+  border-radius: 0.5em;
+  margin-bottom: 0.8em;
 }
 
 
-.ProfileV_Form_Btn:hover{
-  box-shadow: 1px 1px 8px var(--FORMTEXTBTN);
+.Profile_Form_Btn:hover{
+  box-shadow: 1px 1px 8px var(--PROFILEICONCOLOR);
   text-shadow: 1px 1px 8px var(--FORMTEXTBTN);
   cursor: pointer;
  }
 
- 
-.ProfileV_Footer{
-  display: grid;
-  place-items: center;
-  color : white;
-  font-size:clamp(0.6em,1.3cqi, 0.91em);
-  font-weight: 200;
-  padding-bottom: 1em;
+ /*------------------------------------------------------------*/
 
+/* || ProfilePgV*/
+
+.ProfileV_Form_Gender{
+  display: flex;
+  flex-direction: column;
+  gap: 0.2em;
+  box-sizing: border-box;
+}
+
+.ProfileV_Form_Gender label{
+  color: white;
+  font-weight: 600;
+  font-size: clamp(0.5em,3cqi,1em);
+  margin-bottom: 0.3em;
+}
+
+.ProfileV_Form_Gender input:hover,
+.ProfileV_Form_Gender input:focus
+{
+  box-shadow: none;
+}
+
+.ProfileV_Gender_Options{
+  display: flex;
+
+}
+
+.ProfileV_Gender_Options input{
+  height:clamp(0.8em,2cqi,1em);
+  width: 6%;
+}
+
+.ProfileV_Gender_Options label{
+  margin-right: 3em;
+  margin-left: 0.4em;
+  font-size: clamp(0.5em,1.5cqi,0.8em);
+  height: 1.2em;
+  margin-right: 2em;
+  color: white;
+
+}
+
+
+
+ /*------------------------------------------------------------*/
+
+/* || ProfilePgA*/
+
+
+.ProfileA_Form_Header{
+  padding-top: 1em;
+  }
+
+
+.ProfileA_Form_Content textarea{
+  width: 100%;
+  height:clamp(1em,7em,4.5em);
+  font-size: clamp(0.5em,1.2cqi,0.85em);
+  font-weight: 600;
+  border-radius: 0.5em;
+  padding: 1em;
+  box-sizing: border-box;
+  resize: none;
+  margin-bottom: 0.8em;
+  border: 1px solid white;
+}
+
+.ProfileA_Form_Content textarea::placeholder{
+  text-align: center;
+}
+
+
+.ProfileA_Form_Content textarea:focus,
+.ProfileA_Form_Content textarea:hover{
+  outline: none;
+  border: 1px solid var(--FORMTEXTBTN);
+  box-shadow: 1px 1px 3px var(--FORMTEXTBTN);
+}
+
+.ProfileA_Form_Content textarea:hover::placeholder
+,.ProfileA_Form_Content textarea:focus::placeholder
+ {
+  opacity: 50%;
 }
 
 /*------------------------------------------------------------*/
@@ -969,7 +1075,5 @@ text-align: center;
 /* || media query*/
 
 @media (max-width: 762px) {
-  .Home{
-    background-color: black;
-  }
+
 }

@@ -113,8 +113,8 @@ const SignInV = () => {
 
             </main>
 
-            <footer className="Auth_Footer SignInV_Footer">
-            <p>2024 CoeurSolidaire- All Rights Reserved</p>
+            <footer className="Footer Auth_Footer SignInV_Footer">
+            <p>&copy; 2024 CoeurSolidaire- All Rights Reserved</p>
             </footer>
 
 

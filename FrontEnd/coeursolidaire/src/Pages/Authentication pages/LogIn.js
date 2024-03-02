@@ -85,8 +85,8 @@ const LogIn = () => {
 
             </main>
 
-            <footer className="Auth_Footer LogIn_Footer">
-                <p>2024 CoeurSolidaire- All Rights Reserved</p>
+            <footer className="Footer Auth_Footer LogIn_Footer">
+                <p>&copy; 2024 CoeurSolidaire- All Rights Reserved</p>
             </footer>
         </div>
      );

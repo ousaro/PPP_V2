@@ -110,8 +110,8 @@ const SignInA = () => {
 
             </main>
 
-            <footer className="Auth_Footer SignInA_Footer">
-            <p>2024 CoeurSolidaire- All Rights Reserved</p>
+            <footer className="Footer Auth_Footer SignInA_Footer">
+            <p>&copy; 2024 CoeurSolidaire- All Rights Reserved</p>
             </footer>
 
 

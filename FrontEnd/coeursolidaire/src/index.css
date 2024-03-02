@@ -1130,6 +1130,74 @@ position: relative;
   cursor: pointer;
  }
 
+/*------------------------------------------------------------*/
+
+/* || UserHomePg*/
+
+.UserHome_Content{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  padding-top: 2em;
+  margin-bottom: 0;
+}
+
+.UserHome_SearchBar{
+  width: 60%;
+  height: 2em;
+  border-radius: 1em;
+  padding-left: 2.5em;
+  box-sizing: border-box;
+  margin: 0 auto;
+  margin-bottom:2em;
+  background-image: url(./imgs/searchIcon.png);
+  background-repeat: no-repeat;
+  background-size: 1.5em;
+  background-position: 0.5em center;
+  cursor: pointer;
+  background-color: white;
+
+}
+
+.UserHome_SearchBar:hover{
+  box-shadow: 1px 1px 8px var(--PROFILEICONCOLOR);
+}
+
+.UserHome_SearchBar input{
+  width: 100%;
+  height: 2.2em;
+  padding-top: 0.3em;
+  border-radius: 2em;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  border: none ;
+  box-sizing: border-box;
+  
+}
+
+.UserHome_SearchBar input:hover,
+.UserHome_SearchBar input:focus{
+  outline: none;
+  
+}
+
+.UserHome_BackArrow{
+  position: absolute;
+  left: 1.5em;
+}
+
+.UserHome_Post_Container{
+  width: 75%;
+  margin: 0 auto;
+  flex-grow: 1;
+  background-color: red;
+}
+
+.UserHome_Post{
+  background-color: blue;
+}
 
 /*------------------------------------------------------------*/
 

@@ -15,7 +15,7 @@ const NavBar = () => {
             </figure>
 
             <figure>
-                <Link to="/"><img src={HomeIcon} alt="HomeIcon" width="39" height="39"/></Link>
+                <Link to="/AuserHome"><img src={HomeIcon} alt="HomeIcon" width="39" height="39"/></Link>
             </figure>
 
             <figure className="Nav_Logo">

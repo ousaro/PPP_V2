@@ -9,6 +9,7 @@ import ProfileV from "./Pages/Profiles/ProfileV";
 import ProfileA from "./Pages/Profiles/ProfileA";
 import Settings from "./Pages/feature pages/Settings";
 import {BrowserRouter, Route, Switch} from "react-router-dom"
+import AuserHome from "./Pages/Users Home pages/AuserHome"
 
 
 function App() {
@@ -25,6 +26,8 @@ function App() {
         <Route path="/ProfileV"><ProfileV></ProfileV></Route>
         <Route path="/ProfileA"><ProfileA></ProfileA></Route>
         <Route path="/Settings"><Settings></Settings></Route>
+        <Route path="/AuserHome"><AuserHome></AuserHome></Route>
+
       </Switch>
       
     </div>

@@ -7,6 +7,7 @@ import SignInA from "./Pages/Authentication pages/SignInA";
 import ForgotPass from "./Pages/Authentication pages/ForgotPass";
 import ProfileV from "./Pages/Profiles/ProfileV";
 import ProfileA from "./Pages/Profiles/ProfileA";
+import Settings from "./Pages/feature pages/Settings";
 import {BrowserRouter, Route, Switch} from "react-router-dom"
 
 
@@ -23,6 +24,7 @@ function App() {
         <Route path="/ForgotPass"><ForgotPass></ForgotPass></Route>
         <Route path="/ProfileV"><ProfileV></ProfileV></Route>
         <Route path="/ProfileA"><ProfileA></ProfileA></Route>
+        <Route path="/Settings"><Settings></Settings></Route>
       </Switch>
       
     </div>

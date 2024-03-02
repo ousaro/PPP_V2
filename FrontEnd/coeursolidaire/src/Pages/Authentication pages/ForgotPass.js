@@ -1,9 +1,6 @@
-
-import logo from "../../imgs/HomeLogo.png"
-import igIcon from "../../imgs/InstagramIcon.png"
-import fbIcon from "../../imgs/facebookIcon.png"
-import inIcon from "../../imgs/LinkdinIcon.png"
 import { useHistory } from "react-router-dom"
+import Footer from "../Main Components/Footer"
+import FormFooter from "../Main Components/FormFooter"
 
 
 const ForgotPass = () => {
@@ -49,32 +46,14 @@ const ForgotPass = () => {
                     </section>
                     
 
-                    <section className="Auth_Form_Footer ForgotPass_Form_Footer">
-
-                        <figure className="Auth_Form_Logo ForgotPass_Form_Logo">
-                            <img src={logo} alt="Logo" width="109" height="105"/>
-                        </figure>
-
-                        <div className="Auth_Form_SocialLinks ForgotPass_Form_SocialLinks">
-                            <ul>
-                                <li><a href="/"  rel="noopener noreferrer"><img src={inIcon} alt="Linkdin" width="40" height="38" /></a></li>
-                                <li><a href="/"  rel="noopener noreferrer"><img src={fbIcon} alt="Facebook" width="40" height="38"/></a></li>
-                                <li><a href="/"  rel="noopener noreferrer"><img src={igIcon} alt="Instagram" width="40" height="38"/></a></li>
-                            </ul>
-                        </div>
-
-
-
-                    </section>
+                    <FormFooter></FormFooter>
 
                     
                 </form>
 
             </main>
 
-            <footer className="Auth_Footer LogIn_Footer">
-                <p>2024 CoeurSolidaire- All Rights Reserved</p>
-            </footer>
+            <Footer></Footer>
         </div>
      );
 }

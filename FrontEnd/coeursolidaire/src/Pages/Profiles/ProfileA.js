@@ -1,10 +1,7 @@
-import ProfileLogo from "../../imgs/ProfileLogo.png"
-import SettingIcon from "../../imgs/settingIcon.png"
 import EditIcon from "../../imgs/EditIcon.png"
-import HomeIcon from "../../imgs/HomeIcon.png"
-import MessangerIcon from "../../imgs/MessangerIcon.png"
-import NotificationIcon from "../../imgs/NotificationIcon.png"
 import { Link , useHistory} from "react-router-dom"
+import NavBar from "../Main Components/NavBar"
+import Footer from "../Main Components/Footer"
 
 
 
@@ -27,31 +24,7 @@ const ProfileA = () => {
     return ( 
         <div className="ProfilePg ProfileVPg">
 
-            <header className="Profile_Header ProfileA_Header">
-
-                <figure>
-                    <Link to="#"><img src={SettingIcon} alt="settingIcon" width="39" height="39"/></Link>
-                </figure>
-
-                <figure>
-                    <Link to="/"><img src={HomeIcon} alt="HomeIcon" width="39" height="39"/></Link>
-                </figure>
-
-                <figure className="Profile_Header_Logo ProfileA_Header_Logo">
-                    <img src={ProfileLogo} alt="Logo" width="262" height="236"/>
-                </figure>
-
-                <figure>
-                    <Link to="#"><img src={MessangerIcon} alt="MessangerIcon" width="39" height="39"/></Link>
-                </figure>
-
-                <figure>
-                    <Link to="#"><img src={NotificationIcon} alt="NotificationIcon" width="39" height="39"/></Link>
-                </figure>
-
-                <Link to="/ProfileV"><div className="ProfileIcon Profile_Header_ProfileIcon ProfileA_Header_ProfileIcon"></div></Link>
-            </header>
-
+            <NavBar></NavBar>
 
             <main className="Profile_Content ProfileA_Content">
             
@@ -64,7 +37,7 @@ const ProfileA = () => {
                     <section className="Profile_Form_Header ProfileA_Form_Header">
 
                        
-                        <div className="ProfileIcon Profile_Form_Header_ProfileIcon ProfileA_Form_Header_ProfileIcon">
+                        <div className="Nav_ProfileIcon Profile_Form_Header_ProfileIcon ProfileA_Form_Header_ProfileIcon">
                             <figure className="Profile_Form_EditIcon ProfileA_Form_EditIcon">
                                 <Link to="#"><img src={EditIcon} alt="EditIcon" width="39" height="39"/></Link>
                             </figure>
@@ -93,7 +66,7 @@ const ProfileA = () => {
 
                         <section className="Profile_Form_Field ProfileA_Form_Field">
                             <input type="password" placeholder="Change password" />
-                            <button className=" Profile_Form_Btn  ProfileA_Form_LogOutBtn" >My Posts</button>
+                            <button type="button" className=" Profile_Form_Btn  ProfileA_Form_LogOutBtn" onClick={()=>{alert("Your posts")}}>My Posts</button>
                         </section>
             
                         <button type="submit" className=" Profile_Form_Btn ProfileA_Form_UpdateBtn">Update</button>
@@ -107,9 +80,7 @@ const ProfileA = () => {
 
             </main>
 
-            <footer className="Footer ProfileV_Footer">
-            <p>&copy; 2024 CoeurSolidaire- All Rights Reserved</p>
-            </footer>
+            <Footer></Footer>
 
         </div>
      );

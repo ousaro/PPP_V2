@@ -3,6 +3,7 @@ import logo from "../imgs/HomeLogo.png"
 import igIcon from "../imgs/InstagramIcon.png"
 import fbIcon from "../imgs/facebookIcon.png"
 import inIcon from "../imgs/LinkdinIcon.png"
+import Footer from "./Main Components/Footer"
 
 import { Link } from "react-router-dom"
 
@@ -39,9 +40,8 @@ const About = () => {
                 </section>
             </main>
 
-            <footer className="About_Footer">
-                <p>2024 CoeurSolidaire- All Rights Reserved</p>
-            </footer>
+            <Footer></Footer>
+
         </div>
      );
 }

@@ -33,11 +33,7 @@
   --PROFILEBTNCOLOR: #489C6F;
   --PROFILECONTENTCOLOR: #D9D9D963;
   --PROFILENAVBAR:#D9D9D9;
-
-
-
-
-
+  --SETTINGBTNCOLOR:#23824F;
 
 
 }
@@ -319,7 +315,7 @@ body{
 
 /*------------------------------------------------------------*/
 
-/* || Commun footer */
+/* || Page footer */
 
 .Footer{
   display: grid;
@@ -330,6 +326,39 @@ body{
   padding-bottom: 1em;
 
 }
+
+/*------------------------------------------------------------*/
+
+/* || Form footer */
+
+
+.Form_Footer{
+  display: flex;
+  flex-direction: column;
+  place-items: center;
+
+}
+
+.Form_Footer_Logo img{
+  width: clamp(2em,5cqi,5em);
+  height: auto;
+}
+
+.Form_Footer_SocialLinks ul{
+  display: flex;
+  list-style: none;
+}
+
+.Form_Footer_SocialLinks li:hover{
+  opacity: 85%;
+}
+
+.Form_Footer_SocialLinks li img{
+  width:clamp(1em,2cqi,1.5em);
+  height: auto;
+}
+
+
 
 /*------------------------------------------------------------*/
 
@@ -485,33 +514,6 @@ text-align: center;
 .Auth_Form_Terms input{
   width: clamp(0.8em,1cqi,1.3em);
 }
-
-.Auth_Form_Footer{
-  display: flex;
-  flex-direction: column;
-  place-items: center;
-
-}
-
-.Auth_Form_Logo img{
-  width: clamp(2em,5cqi,5em);
-  height: auto;
-}
-
-.Auth_Form_SocialLinks ul{
-  display: flex;
-  list-style: none;
-}
-
-.Auth_Form_SocialLinks li:hover{
-  opacity: 85%;
-}
-
-.Auth_Form_SocialLinks li img{
-  width:clamp(1em,2cqi,1.5em);
-  height: auto;
-}
-
 
 .Auth_Form_Btn{
   color: var(--FORMTEXTBTN);
@@ -748,6 +750,63 @@ text-align: center;
 
 /*------------------------------------------------------------*/
 
+/* || NavBar */
+
+
+.NavBar{
+  background-color: var(--PROFILENAVBAR);
+  width: 65%;
+  height: 3.5em;
+  border-radius: 3em;
+  margin: 0 auto;
+  padding: 0.3em 0.3em 0.3em 0.3em;
+  box-sizing: border-box;
+  display: flex;
+  gap: 1em;
+  justify-content: space-between;
+}
+
+.NavBar figure{
+  margin: auto;
+}
+
+.NavBar img{
+  width: 1.8em;  height: auto;
+
+}
+
+.Nav_Logo img{
+  width: 3.5em;
+}
+
+.NavBar img:hover,
+.NavBar img:focus{
+  border-bottom: 4px solid var(--PROFILEBTNCOLOR);
+  margin-top: 0.7em;
+  padding-bottom: 0.3em;
+}
+
+.Nav_Logo img:hover,
+.Nav_Logo img:focus{
+  border: none;
+  margin-top: 0em;
+}
+
+
+.Nav_ProfileIcon{
+  width: 3em;
+  height: 3em;
+  background-color: var(--PROFILEICONCOLOR);
+  border-radius: 5em;
+  background-image: url(./imgs/ProfileIcon.png);
+  background-size: 70%;
+  background-position: center;
+  background-repeat: no-repeat;
+  box-shadow: 1px 1px 8px var(--PROFILEBTNCOLOR);
+}
+
+/*------------------------------------------------------------*/
+
 /* || Profile commun style*/
 
 .ProfilePg{
@@ -762,58 +821,6 @@ text-align: center;
   box-sizing: border-box;
 }
 
-
-.Profile_Header{
-  background-color: var(--PROFILENAVBAR);
-  width: 65%;
-  height: 3.5em;
-  border-radius: 3em;
-  margin: 0 auto;
-  padding: 0.3em 0.3em 0.3em 0.3em;
-  box-sizing: border-box;
-  display: flex;
-  gap: 1em;
-  justify-content: space-between;
-}
-
-.Profile_Header figure{
-  margin: auto;
-}
-
-.Profile_Header img{
-  width: 1.8em;  height: auto;
-
-}
-
-.Profile_Header_Logo img{
-  width: 3.5em;
-}
-
-.Profile_Header img:hover,
-.Profile_Header img:focus{
-  border-bottom: 4px solid var(--PROFILEBTNCOLOR);
-  margin-top: 0.7em;
-  padding-bottom: 0.3em;
-}
-
-.Profile_Header_Logo img:hover,
-.Profile_Header_Logo img:focus{
-  border: none;
-  margin-top: 0em;
-}
-
-
-.ProfileIcon{
-  width: 3em;
-  height: 3em;
-  background-color: var(--PROFILEICONCOLOR);
-  border-radius: 5em;
-  background-image: url(./imgs/ProfileIcon.png);
-  background-size: 70%;
-  background-position: center;
-  background-repeat: no-repeat;
-  box-shadow: 1px 1px 8px var(--PROFILEBTNCOLOR);
-}
 
 .Profile_Header_ProfileIcon:hover{
   width: 2.9em;
@@ -1069,6 +1076,60 @@ position: relative;
  {
   opacity: 50%;
 }
+
+
+
+/*------------------------------------------------------------*/
+
+/* || Setting*/
+
+
+.Profile_Content_Form{
+  width: 35%;
+  margin: 0 auto;
+  height: inherit;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  position: relative;
+  padding-top: 1em;
+}
+
+
+.Setting_Title{
+font-family: Lalezar;
+font-size: clamp(1em, 7cqi, 6em);
+color: white;
+font-weight: 200;
+text-align: center;
+position: relative;
+
+}
+
+.Setting_Btns{
+  flex-grow: 1;
+  width: 80%;
+  margin: 0 auto;
+}
+
+.Setting_Btn{
+  color: white;
+  background-color: var(--SETTINGBTNCOLOR);
+  height:clamp(1em,4cqi,3em);
+  width: 100%;
+  border: none;
+  font-size: clamp(0.5em, 1.2cqi, 1.1em);
+  border-radius: 1em;
+  margin-bottom: 0.8em;
+}
+
+
+.Setting_Btn:hover{
+  box-shadow: 1px 1px 8px var(--PROFILEICONCOLOR);
+  text-shadow: 1px 1px 8px var(--FORMTEXTBTN);
+  cursor: pointer;
+ }
+
 
 /*------------------------------------------------------------*/
 

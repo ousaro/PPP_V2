@@ -34,7 +34,7 @@ const AuserHome = () => {
                     <div className="UserHome_Post">
 
                         <div className="Post_Header">
-                            <div className="Nav_ProfileIcon"></div>
+                            <div className="Nav_ProfileIcon Post_Header_ProfileIcon"></div>
                             <div className="Post_Header_Info">
                                 <p>Association name</p>
                                 <p>not verified</p>
@@ -42,7 +42,21 @@ const AuserHome = () => {
                         </div>
                        
                        <div className="Post_Content">
-                        <textarea name="Description" placeholder="Description"></textarea>
+
+                            <textarea name="Description" placeholder="Description"></textarea>
+
+                            <label for="Post_file-upload" class="Post_custom-file-upload">
+                            </label>
+                            <input id="Post_file-upload" type="file" accept="image/*"/>
+
+                            
+                            <label htmlFor="serviceType" className="Post_Content_ProgramType-Title">Choose your Program Type</label>
+                            <select name="ProgramType" className="Post_Content_ProgramType" id="ProgramType">
+                                <option value="Nothing" selected disabled>Nothing</option>
+                                <option value="Service">Service</option>
+                                <option value="Donation">Donation</option>
+                            </select>
+
                        </div>
 
                        <button className="Post_btn">Post</button>

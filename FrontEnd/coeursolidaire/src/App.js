@@ -10,6 +10,7 @@ import ProfileA from "./Pages/Profiles/ProfileA";
 import Settings from "./Pages/feature pages/Settings";
 import {BrowserRouter, Route, Switch} from "react-router-dom"
 import AuserHome from "./Pages/Users Home pages/AuserHome"
+import VuserHome from "./Pages/Users Home pages/VuserHome";
 
 
 function App() {
@@ -27,6 +28,7 @@ function App() {
         <Route path="/ProfileA"><ProfileA></ProfileA></Route>
         <Route path="/Settings"><Settings></Settings></Route>
         <Route path="/AuserHome"><AuserHome></AuserHome></Route>
+        <Route path="/VuserHome"><VuserHome></VuserHome></Route>
 
       </Switch>
       

@@ -1227,7 +1227,7 @@ position: relative;
 .Post_Header{
   display: flex;
   gap: 1em;
-  padding: 1em 0 0 1em;
+  padding: 1em 1em 0 1em;
 }
 
 .Post_Header_Info{
@@ -1235,6 +1235,7 @@ position: relative;
   flex-direction: column;
   font-size: clamp(0.5em,1cqi,0.8em);
   margin: auto 0;
+  flex-grow: 1;
 }
 
 .Post_Header_ProfileIcon{
@@ -1358,6 +1359,12 @@ position: relative;
 /*------------------------------------------------------------*/
 
 /* || V userHome*/
+
+.Post_Header_Date{
+  font-family: Abhaya Libre;
+  font-weight: 600;
+
+}
 
 .Post_Content_Description{
   width: 100%;

@@ -2,11 +2,16 @@ import { Link } from "react-router-dom"
 import { useHistory } from "react-router-dom"
 import Footer from "../Main Components/Footer"
 import FormFooter from "../Main Components/FormFooter"
+import { useContext } from "react"
+import { UserTypeContext } from "../../Contexts/userTypeContext"
+
 
 
 const SignInV = () => {
 
     const history=useHistory();
+    const userType = useContext(UserTypeContext);
+
 
     const goBack=()=>{
         history.goBack();
@@ -15,6 +20,15 @@ const SignInV = () => {
     const changePg=(path)=>{
         history.push(path)
     }
+
+    const OnSubmitHandler=(e)=>{
+        e.preventDefault();
+        changePg("/Volounteer/ProfileV");
+        userType.setprofileType("/Volounteer/ProfileV");
+        userType.sethomeType("/Volounteer/VuserHome")
+
+    }
+
 
     return ( 
 
@@ -26,8 +40,7 @@ const SignInV = () => {
 
                         
             <form className="Auth_Content_Form SignInV_Content_Form" onSubmit={(e)=>    
-                        {e.preventDefault()
-                        changePg("/ProfileV")}}>
+                        {OnSubmitHandler(e)}}>
 
                 <div className="Auth_Form_BackArrow SignInV_Form_BackArrow" onClick={goBack}></div>
 

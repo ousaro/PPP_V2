@@ -4,8 +4,13 @@ import HomeIcon from "../../imgs/HomeIcon.png"
 import MessangerIcon from "../../imgs/MessangerIcon.png"
 import NotificationIcon from "../../imgs/NotificationIcon.png"
 import { Link } from "react-router-dom"
+import { UserTypeContext } from "../../Contexts/userTypeContext"
+import { useContext } from "react"
 
 const NavBar = () => {
+
+    const userType = useContext(UserTypeContext);
+
     return ( 
 
         <nav className="NavBar">
@@ -15,7 +20,7 @@ const NavBar = () => {
             </figure>
 
             <figure>
-                <Link to="/AuserHome"><img src={HomeIcon} alt="HomeIcon" width="39" height="39"/></Link>
+                <Link to={userType.HomeType}><img src={HomeIcon} alt="HomeIcon" width="39" height="39"/></Link>
             </figure>
 
             <figure className="Nav_Logo">
@@ -30,7 +35,7 @@ const NavBar = () => {
                 <Link to="#"><img src={NotificationIcon} alt="NotificationIcon" width="39" height="39"/></Link>
             </figure>
 
-            <Link to="/ProfileV"><div className="Nav_ProfileIcon"></div></Link>
+            <Link to={userType.ProfileType}><div className="Nav_ProfileIcon"></div></Link>
         </nav>
 
      );

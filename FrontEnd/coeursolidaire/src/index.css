@@ -13,6 +13,11 @@
   
 }
 
+*::after,
+*::before{
+  box-sizing: border-box;
+}
+
 /*------------------------------------------------------------*/
 /* || variables */
 
@@ -84,8 +89,8 @@ body{
 .Home_Header_Logo img{
   position: relative;
   top: 10px;
-  width:clamp(6em,11cqi,8em);
-  height:clamp(5em,11cqi,8em);
+  width:clamp(6rem,11cqi,8rem);
+  height:clamp(5rem,11cqi,8rem);
 }
 
 .Home_Content {
@@ -107,7 +112,7 @@ body{
 
 .Home_Content_Hero img{
   width:95%;
-  height:clamp(22em, 32cqi,26em);
+  height:clamp(22rem, 32cqi,26rem);
   margin-bottom: 3em;
   
 }
@@ -122,7 +127,7 @@ body{
   width: 80%;
   color: var(--HomeTextColor);
   font-weight: bold;
-  font-size: clamp(2.2em,4.5cqi,4em);
+  font-size: clamp(2.2rem,4.5cqi,4rem);
 }
 
 .Home_Content_Btn{
@@ -143,14 +148,14 @@ body{
 
 .Btn_Volunteer{
   background-color: var(--BtnColor1);
-  height: 4.1em;
-  font-size:clamp(0.7em,1.5cqi, 1.34em);
+  height: 4.1rem;
+  font-size:clamp(0.7rem,1.5cqi, 1.34rem);
 }
 
 .Btn_Association{
   background-color: var(--BtnColor2);
-  font-size:clamp(0.7em,1.4cqi, 1.3em);
-  height: 4em;
+  font-size:clamp(0.7rem,1.4cqi, 1.3rem);
+  height: 4rem;
 }
 
 .Btn_Volunteer:hover,
@@ -164,9 +169,9 @@ body{
   margin: auto;
   display: flex;
   width: 90%;
-  padding: 0.5em;
+  padding: 0.5rem;
   color: white;
-  margin-bottom: 0.4em;
+  margin-bottom: 0.4rem;
   box-sizing: border-box;
 }
 
@@ -175,7 +180,7 @@ body{
   flex-grow: 1;
   gap: 5em;
   list-style: none;
-  font-size:clamp(0.8em,1.6cqi, 1.2em);
+  font-size:clamp(0.8rem,1.6cqi, 1.2rem);
   font-weight: 300;
 }
 
@@ -196,7 +201,7 @@ body{
 
 .Home_Footer p{
   justify-self:end;
-  font-size:clamp(0.7em,1.4cqi, 1em);
+  font-size:clamp(0.7rem,1.4cqi, 1rem);
   font-weight: 100;
 }
 

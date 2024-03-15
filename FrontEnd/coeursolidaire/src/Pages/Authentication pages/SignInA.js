@@ -2,16 +2,13 @@ import { Link } from "react-router-dom"
 import { useHistory } from "react-router-dom"
 import Footer from "../Main Components/Footer"
 import FormFooter from "../Main Components/FormFooter"
-import { useContext } from "react"
-import { UserTypeContext } from "../../Contexts/userTypeContext"
-
 
 
 const SignInA = () => {
 
 
     const history=useHistory();
-    const userType = useContext(UserTypeContext);
+
 
     const goBack=()=>{
         history.goBack();
@@ -24,10 +21,8 @@ const SignInA = () => {
     const OnSubmitHandler=(e)=>{
         e.preventDefault();
         changePg("/Association/ProfileA");
-        userType.setprofileType("/Association/ProfileA");
-        userType.sethomeType("/Association/AuserHome")
-
     }
+    
 
     return ( 
         <div className="AuthenticationPg SignInVPg">
@@ -86,7 +81,7 @@ const SignInA = () => {
                         
 
                             <section className="SignInA_Form_LogIn">
-                                <p>Already have an account? <Link to="/LogIn">LogIn</Link></p>
+                                <p>Already have an account? <Link to="/Association/LogIn">LogIn</Link></p>
                             </section>
                         </div>
 

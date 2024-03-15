@@ -3,24 +3,25 @@ import SettingIcon from "../../imgs/settingIcon.png"
 import HomeIcon from "../../imgs/HomeIcon.png"
 import MessangerIcon from "../../imgs/MessangerIcon.png"
 import NotificationIcon from "../../imgs/NotificationIcon.png"
-import { Link } from "react-router-dom"
-import { UserTypeContext } from "../../Contexts/userTypeContext"
-import { useContext } from "react"
+import { Link,useLocation } from "react-router-dom"
+
 
 const NavBar = () => {
 
-    const userType = useContext(UserTypeContext);
+   const location = useLocation()
+   const currentPath = location.pathname;
+
 
     return ( 
 
         <nav className="NavBar">
 
             <figure>
-                <Link to="/Settings"><img src={SettingIcon} alt="settingIcon" width="39" height="39"/></Link>
+                <Link to={currentPath.startsWith("/Volounteer") ? '/Volounteer/Settings' : '/Association/Settings'}><img src={SettingIcon} alt="settingIcon" width="39" height="39"/></Link>
             </figure>
 
             <figure>
-                <Link to={userType.HomeType}><img src={HomeIcon} alt="HomeIcon" width="39" height="39"/></Link>
+                <Link to={currentPath.startsWith("/Volounteer") ? '/Volounteer/VuserHome' : '/Association/AuserHome'}><img src={HomeIcon} alt="HomeIcon" width="39" height="39"/></Link>
             </figure>
 
             <figure className="Nav_Logo">
@@ -35,7 +36,7 @@ const NavBar = () => {
                 <Link to="#"><img src={NotificationIcon} alt="NotificationIcon" width="39" height="39"/></Link>
             </figure>
 
-            <Link to={userType.ProfileType}><div className="Nav_ProfileIcon"></div></Link>
+            <Link to={currentPath.startsWith("/Volounteer") ? '/Volounteer/ProfileV' : '/Association/ProfileA'}><div className="Nav_ProfileIcon"></div></Link>
         </nav>
 
      );

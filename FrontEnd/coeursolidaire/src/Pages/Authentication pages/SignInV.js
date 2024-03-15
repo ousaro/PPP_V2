@@ -2,15 +2,12 @@ import { Link } from "react-router-dom"
 import { useHistory } from "react-router-dom"
 import Footer from "../Main Components/Footer"
 import FormFooter from "../Main Components/FormFooter"
-import { useContext } from "react"
-import { UserTypeContext } from "../../Contexts/userTypeContext"
 
 
 
 const SignInV = () => {
 
     const history=useHistory();
-    const userType = useContext(UserTypeContext);
 
 
     const goBack=()=>{
@@ -24,11 +21,8 @@ const SignInV = () => {
     const OnSubmitHandler=(e)=>{
         e.preventDefault();
         changePg("/Volounteer/ProfileV");
-        userType.setprofileType("/Volounteer/ProfileV");
-        userType.sethomeType("/Volounteer/VuserHome")
 
     }
-
 
     return ( 
 
@@ -87,7 +81,7 @@ const SignInV = () => {
                         
 
                             <section className="SignInV_Form_LogIn">
-                                <p>Already have an account? <Link to="/LogIn">LogIn</Link></p>
+                                <p>Already have an account? <Link to="/Volounteer/LogIn">LogIn</Link></p>
                             </section>
                         </div>
 

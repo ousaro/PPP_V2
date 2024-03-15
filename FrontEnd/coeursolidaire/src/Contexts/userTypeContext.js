@@ -6,6 +6,9 @@ const UserTypeProvider = (props) => {
 
     const [ProfileType, setprofileType] = useState('');
     const [HomeType, sethomeType] = useState('');
+    
+
+
 
     return (  
         <UserTypeContext.Provider value={{ProfileType,HomeType,setprofileType,sethomeType}}>

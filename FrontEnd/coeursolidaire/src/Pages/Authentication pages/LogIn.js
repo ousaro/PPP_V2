@@ -1,12 +1,17 @@
-import { Link } from "react-router-dom"
+import { Link, useLocation } from "react-router-dom"
 import { useHistory } from "react-router-dom"
 import Footer from "../Main Components/Footer"
 import FormFooter from "../Main Components/FormFooter"
 
 
+
+
 const LogIn = () => {
 
     const history=useHistory();
+    const location = useLocation();
+    const currentPath = location.pathname;
+
 
     const goBack=()=>{
         history.goBack();
@@ -16,6 +21,14 @@ const LogIn = () => {
         history.push(path)
     }
 
+
+    const OnSubmitHandler=(e)=>{
+        e.preventDefault();
+        changePg(currentPath==="/Volounteer/LogIn" ? '/Volounteer/ProfileV' : '/Association/ProfileA');
+    }
+
+  
+
     return ( 
         <div className="AuthenticationPg LogInPg">
 
@@ -23,8 +36,7 @@ const LogIn = () => {
 
                
                 <form className="Auth_Content_Form LogIn_Content_Form" onSubmit={(e)=>    
-                            {e.preventDefault()
-                            changePg("/ProfileV")}}>
+                            {OnSubmitHandler(e)}}>
 
                     <div className="Auth_Form_BackArrow LogIn_Form_BackArrow" onClick={goBack}></div>
 
@@ -52,7 +64,7 @@ const LogIn = () => {
                         
 
                         <section className="LogIn_Form_SignIn">
-                            <p>Not a member? <Link to="/SignInV">SignIn</Link></p>
+                            <p>Not a member? <Link to={currentPath==="/Volounteer/LogIn" ? '/SignInV' : '/SignInA'}>SignIn</Link></p>
                         </section>
                        
                         <button type="submit" className="Auth_Form_Btn  LogIn_Form_Btn">Log In</button>

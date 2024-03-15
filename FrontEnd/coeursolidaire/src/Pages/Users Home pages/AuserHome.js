@@ -1,6 +1,8 @@
 import { useHistory} from "react-router-dom"
 import NavBar from "../Main Components/NavBar"
+import { useEffect,useState } from "react";
 
+import PostsDetails from "../Main Components/PostsDetails"
 
 
 
@@ -14,6 +16,23 @@ const AuserHome = () => {
     const goBack = ()=>{
         history.goBack();
     }
+
+    const [posts, setPosts] = useState(null);
+
+    useEffect(()=>{
+        const fetchPosts = async ()=>{
+            const response = await fetch("/api/posts");
+            const json = await response.json();
+
+            if(response.ok){
+                setPosts(json);
+            }
+
+        }
+
+        fetchPosts();
+    },[])
+
 
     return ( 
         <div className="ProfilePg UserHomePg">
@@ -40,30 +59,36 @@ const AuserHome = () => {
                                 <p>not verified</p>
                             </div>
                         </div>
-                       
-                       <div className="Post_Content">
+                                
+                        <div className="Post_Content">
 
                             <textarea name="Description" placeholder="Description"></textarea>
 
-                            <label for="Post_file-upload" class="Post_custom-file-upload">
+                            <label htmlFor="Post_file-upload" className="Post_custom-file-upload">
                             </label>
                             <input id="Post_file-upload" type="file" accept="image/*"/>
 
-                            
+                                        
                             <label htmlFor="serviceType" className="Post_Content_ProgramType-Title">Choose your Program Type</label>
                             <select name="ProgramType" className="Post_Content_ProgramType" id="ProgramType">
-                                <option value="Nothing" selected disabled>Nothing</option>
+                                <option value="Nothing" defaultValue disabled>Nothing</option>
                                 <option value="Service">Service</option>
                                 <option value="Donation">Donation</option>
                             </select>
 
-                       </div>
+                        </div>
 
-                       <button className="Post_btn">Post</button>
+                        <button className="Post_btn">Post</button>
 
 
                     </div>
 
+
+                    {posts && posts.map((post)=>(
+                        <PostsDetails key={post._id} post={post}></PostsDetails>
+                    ))}
+                    
+                    
                 </section>
                 
 

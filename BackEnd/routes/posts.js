@@ -1,38 +1,24 @@
 const express = require('express');
-const Post = require('../models/postModel')
-
 const router=express.Router();
+const {createNewPost, getPosts, deletePost} = require("../Controllers/postsController")
 
 
 
 // GET all posts
-router.get('/',(req,res)=>{
-    res.json({mssg:"GET all posts"})
-})
+router.get('/', getPosts)
 
 // GET a single post
 router.get('/:id',(req,res)=>{
     res.json({mssg:"GET a single post"})
 })
 
-// POST all posts
-router.post('/', async (req,res)=>{
-    const {description, image} = req.body;
-    try{
-        const post = await Post.create({description, image})
-        res.status(200).json(post)
-
-    }catch(error){
-        res.status(400).json({error: error.message})
-    }
-})
+// Create a new post
+router.post('/', createNewPost)
 
 // DELETE a single posts
-router.delete('/:id',(req,res)=>{
-    res.json({mssg:"DELETE a post"})
-})
+router.delete('/:id', deletePost)
 
-// PATCH all posts
+// PATCH a single post
 router.patch('/:id',(req,res)=>{
     res.json({mssg:"UPDATE a post"})
 })

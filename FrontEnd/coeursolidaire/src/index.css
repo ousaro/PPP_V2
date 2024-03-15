@@ -1213,7 +1213,8 @@ position: relative;
   gap: 1em;
   overflow-x: hidden; 
   overflow-y: auto; 
-  
+  padding-bottom: 0.5em;
+
 }
 
 .UserHome_Post_Container::-webkit-scrollbar {

@@ -1,0 +1,45 @@
+import TestImg from "../../imgs/TestIimg.png" ;
+
+const PostsDetails = ({post}) => {
+    return ( 
+        
+        <div className="UserHome_Post">
+  
+            <div className="Post_Header">
+                <div className="Nav_ProfileIcon Post_Header_ProfileIcon"></div>
+                <div className="Post_Header_Info">
+                    <p>Association name</p>
+                    <p>not verified</p>
+                </div>
+
+                <div className="Post_Header_Date">
+                    <p>{post.createdAt}</p>
+                </div>
+
+            </div>
+                       
+            <div className="Post_Content">
+
+                            
+                <div className="Post_Content_Description">
+                    <p>{post.description}</p>
+                </div>
+                            
+
+                <figure className="Post_Content_Image">
+                    <img src={TestImg} alt="Post_image" width="641" height="341" />
+                </figure>
+                            
+                            
+
+                </div>
+
+                <button className="Post_btn">Participate</button>
+
+
+        </div>
+
+     );
+}
+ 
+export default PostsDetails;

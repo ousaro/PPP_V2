@@ -11,14 +11,13 @@ import Settings from "./Pages/feature pages/Settings";
 import {BrowserRouter, Route, Switch} from "react-router-dom"
 import AuserHome from "./Pages/Users Home pages/AuserHome"
 import VuserHome from "./Pages/Users Home pages/VuserHome";
-import UserTypeProvider from "./Contexts/userTypeContext";
+
 
 
 function App() {
   return (
-    <UserTypeProvider>
+    
       <BrowserRouter>
-  
         <div className="App">
           <Switch>
             <Route path="/" exact><Home></Home></Route>
@@ -38,16 +37,11 @@ function App() {
             <Route path="/Association/AuserHome"><AuserHome></AuserHome></Route>
             <Route path="/Association/Settings"><Settings></Settings></Route>
 
-            
-
-            
-          
-
           </Switch>
           
         </div>
       </BrowserRouter>
-    </UserTypeProvider>
+      
   );
 }
 

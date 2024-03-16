@@ -1,8 +1,10 @@
 import { useHistory} from "react-router-dom"
 import NavBar from "../Main Components/NavBar"
-import { useEffect,useState } from "react";
+import { useEffect } from "react";
+import {usePostsContext} from "../../Hooks/usePostsContext"
 
 import PostsDetails from "../Main Components/PostsDetails"
+import AddPost from "../Main Components/AddPost";
 
 
 
@@ -17,7 +19,7 @@ const AuserHome = () => {
         history.goBack();
     }
 
-    const [posts, setPosts] = useState(null);
+    const { posts, dispatch } = usePostsContext()
 
     useEffect(()=>{
         const fetchPosts = async ()=>{
@@ -25,13 +27,13 @@ const AuserHome = () => {
             const json = await response.json();
 
             if(response.ok){
-                setPosts(json);
+                dispatch({type: 'SET_POSTS', payload: json})
             }
 
         }
 
         fetchPosts();
-    },[])
+    },[dispatch])
 
 
     return ( 
@@ -50,39 +52,7 @@ const AuserHome = () => {
 
                 <section className="UserHome_Post_Container">
 
-                    <div className="UserHome_Post">
-
-                        <div className="Post_Header">
-                            <div className="Nav_ProfileIcon Post_Header_ProfileIcon"></div>
-                            <div className="Post_Header_Info">
-                                <p>Association name</p>
-                                <p>not verified</p>
-                            </div>
-                        </div>
-                                
-                        <div className="Post_Content">
-
-                            <textarea name="Description" placeholder="Description"></textarea>
-
-                            <label htmlFor="Post_file-upload" className="Post_custom-file-upload">
-                            </label>
-                            <input id="Post_file-upload" type="file" accept="image/*"/>
-
-                                        
-                            <label htmlFor="serviceType" className="Post_Content_ProgramType-Title">Choose your Program Type</label>
-                            <select name="ProgramType" className="Post_Content_ProgramType" id="ProgramType">
-                                <option value="Nothing" defaultValue disabled>Nothing</option>
-                                <option value="Service">Service</option>
-                                <option value="Donation">Donation</option>
-                            </select>
-
-                        </div>
-
-                        <button className="Post_btn">Post</button>
-
-
-                    </div>
-
+                    <AddPost></AddPost>
 
                     {posts && posts.map((post)=>(
                         <PostsDetails key={post._id} post={post}></PostsDetails>

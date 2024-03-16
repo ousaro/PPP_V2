@@ -1,6 +1,30 @@
 import TestImg from "../../imgs/TestIimg.png" ;
+import { usePostsContext } from "../../Hooks/usePostsContext";
+
+
+// date fns
+import formatDistanceToNow from "date-fns/formatDistanceToNow"
 
 const PostsDetails = ({post}) => {
+
+    const {dispatch} = usePostsContext()
+
+    const handleDelete= async ()=>{
+        
+
+        const response = await fetch('/api/posts/' + post._id,{
+            method: 'DELETE'
+        })
+
+        const json = await response.json();
+
+        if(response.ok){
+            dispatch({type:'DELETE_POST', payload:json})
+        }
+    
+    }
+
+
     return ( 
         
         <div className="UserHome_Post">
@@ -13,8 +37,10 @@ const PostsDetails = ({post}) => {
                 </div>
 
                 <div className="Post_Header_Date">
-                    <p>{post.createdAt}</p>
+                    <p>{formatDistanceToNow(new Date(post.createdAt),{addSuffix:true})}</p>
                 </div>
+
+                <div className="Post_Header_Delete"><button className="Post_Header_DeleteBtn" onClick={handleDelete}></button></div>
 
             </div>
                        

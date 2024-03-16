@@ -22,6 +22,16 @@ const getPosts = async (req,res)=>{
 const  createNewPost = async (req,res)=>{
     const {description, image} = req.body;
 
+    let emptyFields = [];
+
+    if(!description){
+        emptyFields.push('description');
+    }
+
+    if(emptyFields.length > 0){
+        return res.status(400).json({error: "Please fill in all the fields", emptyFields})
+    }
+
     // add doc to db
     try{
         const post = await Post.create({description, image})

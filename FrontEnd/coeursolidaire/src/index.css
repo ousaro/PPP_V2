@@ -1282,6 +1282,9 @@ position: relative;
   border: none;
 }
 
+.Post_Content .Post_Content_Error{
+  border: 1px solid red;
+}
 
 .Post_custom-file-upload {
   display: flex;
@@ -1346,6 +1349,11 @@ position: relative;
   color: var(--PROFILEBTNCOLOR);
 }
 
+.Post_Footer{
+  color: rgb(228, 78, 78);
+  font-weight: 700;
+  padding-left: 1em;
+}
 
 .Post_btn{
   border:none;
@@ -1369,7 +1377,21 @@ position: relative;
 .Post_Header_Date{
   font-family: Abhaya Libre;
   font-weight: 600;
+}
 
+.Post_Header_DeleteBtn{
+  width: 2em;
+  height: 2em;
+  background-color: transparent;
+  background-image: url(./imgs/trash.png);
+  border: none;
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+
+.Post_Header_DeleteBtn:hover{
+  background-size: 95%;
+  opacity: 90%;
 }
 
 .Post_Content_Description{
@@ -1393,6 +1415,8 @@ position: relative;
   width: clamp(10em,25cqi,20em);
   height: auto;
 }
+
+
 
 /*------------------------------------------------------------*/
 

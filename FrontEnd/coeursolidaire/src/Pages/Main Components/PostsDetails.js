@@ -1,16 +1,14 @@
-import TestImg from "../../imgs/TestIimg.png" ;
 import { usePostsContext } from "../../Hooks/usePostsContext";
 
 
 // date fns
 import formatDistanceToNow from "date-fns/formatDistanceToNow"
 
-const PostsDetails = ({post}) => {
+const PostsDetails = ({post, canDelete}) => {
 
     const {dispatch} = usePostsContext()
 
     const handleDelete= async ()=>{
-        
 
         const response = await fetch('/api/posts/' + post._id,{
             method: 'DELETE'
@@ -40,7 +38,7 @@ const PostsDetails = ({post}) => {
                     <p>{formatDistanceToNow(new Date(post.createdAt),{addSuffix:true})}</p>
                 </div>
 
-                <div className="Post_Header_Delete"><button className="Post_Header_DeleteBtn" onClick={handleDelete}></button></div>
+                {canDelete ? <div className="Post_Header_Delete"><button className="Post_Header_DeleteBtn" onClick={handleDelete}></button></div> : <div></div>}
 
             </div>
                        
@@ -53,14 +51,12 @@ const PostsDetails = ({post}) => {
                             
 
                 <figure className="Post_Content_Image">
-                    <img src={TestImg} alt="Post_image" width="641" height="341" />
+                    {post.image && post.image ? <img src={post.image} alt="Post_image" width="641" height="341" /> : <div></div>}
                 </figure>
                             
-                            
-
                 </div>
 
-                <button className="Post_btn">Participate</button>
+                <button className="Post_btn">{post.programType === "Service" ? "Participate" : "Donate"}</button>
 
 
         </div>

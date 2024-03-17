@@ -66,7 +66,7 @@ const ProfileA = () => {
 
                         <section className="Profile_Form_Field ProfileA_Form_Field">
                             <input type="password" placeholder="Change password" />
-                            <button type="button" className=" Profile_Form_Btn  ProfileA_Form_LogOutBtn" onClick={()=>{alert("Your posts")}}>My Posts</button>
+                            <button type="button" className=" Profile_Form_Btn  ProfileA_Form_LogOutBtn"  onClick={()=>ChangePg("/Association/AuserHome")}>My Posts</button>
                         </section>
             
                         <button type="submit" className=" Profile_Form_Btn ProfileA_Form_UpdateBtn">Update</button>

@@ -9,6 +9,10 @@ const postSchema= new Schema({
     },
     image: {
         type: String
+    },
+    programType: {
+        type: String,
+        required: true,
     }
 
 },{ timestamps: true })

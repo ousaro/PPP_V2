@@ -66,6 +66,63 @@ body{
   font-weight: 300;
 }
 
+
+/* Keyframes for animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;  
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideInFromTop {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInFromLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  };
+}
+
+@keyframes slideInFromRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  };
+}
+
+
+@keyframes slideInFromBottom {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+}
+
 /*------------------------------------------------------------*/
 
 /* || Home */
@@ -85,12 +142,14 @@ body{
 .Home_Header_Logo{
   display: grid;
   place-items: center;
+  animation: fadeIn 0.5s ease-in-out;
 }
 .Home_Header_Logo img{
   position: relative;
   top: 10px;
   width:clamp(6rem,11cqi,8rem);
   height:clamp(5rem,11cqi,8rem);
+  animation: slideInFromTop 0.5s ease-in-out;
 }
 
 .Home_Content {
@@ -114,7 +173,7 @@ body{
   width:95%;
   height:clamp(22rem, 32cqi,26rem);
   margin-bottom: 3em;
-  
+  animation: slideInFromTop 0.8s ease-in-out;
 }
 
 
@@ -128,6 +187,8 @@ body{
   color: var(--HomeTextColor);
   font-weight: bold;
   font-size: clamp(2.2rem,4.5cqi,4rem);
+  animation: slideInFromTop 0.7s ease-in-out;
+  animation: fadeIn 0.7s ease-in-out;
 }
 
 .Home_Content_Btn{
@@ -150,18 +211,22 @@ body{
   background-color: var(--BtnColor1);
   height: 4.1rem;
   font-size:clamp(0.7rem,1.5cqi, 1.34rem);
+  animation: slideInFromTop 1.2s ease-in-out;
+ 
 }
 
 .Btn_Association{
   background-color: var(--BtnColor2);
   font-size:clamp(0.7rem,1.4cqi, 1.3rem);
   height: 4rem;
+  animation: slideInFromTop 0.8s ease-in-out;
 }
 
 .Btn_Volunteer:hover,
 .Btn_Association:hover{
  box-shadow: 1px 1px 8px var(--HomeTextColor);
  text-shadow: 1px 1px 8px var(--HomeTextColor);
+ transform: scale(1.01);
 }
 
 
@@ -173,6 +238,7 @@ body{
   color: white;
   margin-bottom: 0.4rem;
   box-sizing: border-box;
+  animation: fadeIn 1s ease-in-out;
 }
 
 .Home_Footer ul{
@@ -232,6 +298,11 @@ body{
   height: clamp(2.2em,3cqi,3em);
   background-color: transparent;
   border-radius: 2em;
+  animation: slideInFromTop 0.7s ease-in-out;
+}
+
+.About_LogIn_Btn{
+  animation: slideInFromTop 0.9s ease-in-out;
 }
 
 .About_Home_Btn:hover,
@@ -239,6 +310,7 @@ body{
  box-shadow: 1px 1px 8px var(--HomeTextColor);
  text-shadow: 1px 1px 8px var(--HomeTextColor);
  cursor: pointer;
+ transform: scale(1.01);
 }
 
 .About_Header a{
@@ -262,7 +334,7 @@ body{
   justify-items: center;
   align-items: center;
   grid-row: span 2;
- 
+  animation: slideInFromLeft 0.9s ease-in-out;
 }
 
 .About_Content_Hero img{
@@ -277,10 +349,12 @@ body{
   flex-direction: column;
   gap: 1em;
   color:var(--HomeTextColor);
+  animation: fadeIn 1.2s ease-in-out;
 }
 
 .About_Content_Desc_Logo{
   padding-left: clamp(7em,19cqi,18em);
+  animation: slideInFromTop 0.7s ease-in-out;;
 }
 
 .About_Content_Desc_Logo img{
@@ -297,6 +371,7 @@ body{
 
 .About_Content_SocialLinks{
   padding-top: 2em;
+  animation: slideInFromBottom 1s ease-in-out;
 }
 
 .About_Content_SocialLinks ul{
@@ -313,15 +388,6 @@ body{
   height: auto;
 }
 
-.About_Footer{
-  display: grid;
-  place-items: center;
-  color : white;
-  font-size:clamp(0.6em,1.3cqi, 0.91em);
-  font-weight: 200;
-  padding-bottom: 1em;
-
-}
 
 /*------------------------------------------------------------*/
 
@@ -334,6 +400,7 @@ body{
   font-size:clamp(0.6em,1.3cqi, 0.91em);
   font-weight: 200;
   padding-bottom: 1em;
+  animation: fadeIn 1s ease-in-out;
 
 }
 
@@ -346,6 +413,7 @@ body{
   display: flex;
   flex-direction: column;
   place-items: center;
+  animation: fadeIn 1s ease-in-out;
 
 }
 
@@ -396,6 +464,7 @@ body{
   align-self:center;
   justify-self:center ;
   justify-content: flex-end;
+  animation: slideInFromLeft 0.8s ease-in-out;
 }
 
 
@@ -403,7 +472,6 @@ body{
   width: 100%;
   border-radius: 2em 0em 0em 2em;
 }
-
 
 
 .Auth_Content_Form{
@@ -416,6 +484,7 @@ body{
   box-sizing: border-box;
   padding: 5.5em clamp(1em,5cqi,4.5em) 0.5em clamp(1em,5cqi,4.5em);
   position: relative;
+  animation: slideInFromLeft 0.9s ease-in-out;
 }
 
 .Auth_Form_BackArrow{
@@ -430,6 +499,7 @@ body{
   background-repeat: no-repeat;
   background-size: 100%;
   border-radius: clamp(0.2em,0.5cqi,0.6em);
+  animation: fadeIn 1s ease-in-out;
   
 }
 
@@ -446,6 +516,7 @@ font-family: Lalezar;
 font-size: clamp(1em, 2cqi, 1.4em);
 color: white;
 text-align: center;
+animation: slideInFromTop 0.6s ease-in-out;
 }
 
 .Auth_Form_Content{
@@ -461,6 +532,7 @@ text-align: center;
   font-weight: 200;
   font-size: clamp(0.6em,1cqi,0.9em);
   margin-bottom: 0.8em;
+  animation: slideInFromTop 0.7s ease-in-out;
 
 }
 
@@ -474,6 +546,8 @@ text-align: center;
   box-sizing: border-box;
   padding: 1em;
   font-size: clamp(0.5em,1.5cqi,1em);
+  animation: slideInFromTop 0.8s ease-in-out;
+
 }
 
 .Auth_Form_Data input::placeholder{
@@ -518,7 +592,7 @@ text-align: center;
 .Auth_Form_Terms p{
   font-weight: 500;
   margin: auto 0;
-
+  animation: slideInFromTop 0.8s ease-in-out;
 }
 
 .Auth_Form_Terms input{
@@ -529,6 +603,7 @@ text-align: center;
   color: var(--FORMTEXTBTN);
   background-color: transparent;
   border: 1px solid white;
+  animation: slideInFromBottom 1s ease-in-out;
 }
 
 
@@ -774,10 +849,12 @@ text-align: center;
   display: flex;
   gap: 1em;
   justify-content: space-between;
+  animation: slideInFromTop 0.5s ease-in-out;
 }
 
 .NavBar figure{
   margin: auto;
+  animation: slideInFromBottom 0.6s ease-in-out;
 }
 
 .NavBar img{
@@ -813,6 +890,7 @@ text-align: center;
   background-position: center;
   background-repeat: no-repeat;
   box-shadow: 1px 1px 8px var(--PROFILEBTNCOLOR);
+  animation: slideInFromRight 0.7s ease-in-out;
 }
 
 /*------------------------------------------------------------*/
@@ -851,6 +929,8 @@ text-align: center;
   justify-self:center ;
   justify-content: flex-end;
   box-sizing: border-box;
+  animation: slideInFromTop 0.3s ease-in-out;
+  
 }
 
 
@@ -876,6 +956,7 @@ text-align: center;
   background-repeat: no-repeat;
   background-size: 100%;
   border-radius: clamp(0.2em,0.5cqi,0.6em);
+  animation: fadeIn 1s ease-in-out;
   
 }
 
@@ -894,7 +975,6 @@ color: white;
 text-align: center;
 padding-top: 2em;
 position: relative;
-
 }
 
 .Profile_Form_Header p{
@@ -902,6 +982,8 @@ position: relative;
   font-weight: 200;
   font-size: clamp(0.6em,1cqi,0.9em);
   margin-top: 1em;
+  animation: slideInFromTop 0.8s ease-in-out;
+  
 }
 
 .Profile_Form_Header_ProfileIcon{
@@ -910,12 +992,14 @@ position: relative;
   width: 5em;
   height: 5em;
   position: relative;
+  animation: slideInFromTop 0.8s ease-in-out;
 }
 
 .Profile_Form_EditIcon{
   position: absolute;
   top: 70%;
   left: 60%;
+  animation: fadeIn 0.8s ease-in-out;
 }
 
 .Profile_Form_EditIcon:hover{
@@ -938,6 +1022,7 @@ position: relative;
   padding: 1em;
   font-size: clamp(0.5em,1.5cqi,1em);
   box-sizing: border-box;
+  animation: slideInFromTop 0.8s ease-in-out;
 }
 
 .Profile_Form_Content  input::placeholder{
@@ -976,11 +1061,13 @@ position: relative;
 .Profile_Form_Content input[type="date"]{
   padding-left: clamp(0.8em,3cqi,2em);
   color: #8e8b8b;
+  animation: slideInFromTop 0.8s ease-in-out;
 }
 
 .Profile_Form_Field {
   display: flex;
   gap: 0.5em;
+  
 }
 
 .Profile_Form_Btn{
@@ -991,6 +1078,7 @@ position: relative;
   border: none;
   border-radius: 0.5em;
   margin-bottom: 0.8em;
+  animation: slideInFromBottom 0.9s ease-in-out;
 }
 
 
@@ -998,6 +1086,7 @@ position: relative;
   box-shadow: 1px 1px 8px var(--PROFILEICONCOLOR);
   text-shadow: 1px 1px 8px var(--FORMTEXTBTN);
   cursor: pointer;
+  transform: scale(1.01);
  }
 
  /*------------------------------------------------------------*/
@@ -1016,6 +1105,7 @@ position: relative;
   font-weight: 600;
   font-size: clamp(0.5em,3cqi,1em);
   margin-bottom: 0.3em;
+  animation: slideInFromTop 0.8s ease-in-out;
 }
 
 .ProfileV_Form_Gender input:hover,
@@ -1041,6 +1131,7 @@ position: relative;
   height: 1.2em;
   margin-right: 2em;
   color: white;
+  animation: slideInFromTop 0.8s ease-in-out;
 
 }
 
@@ -1067,6 +1158,7 @@ position: relative;
   resize: none;
   margin-bottom: 0.8em;
   border: 1px solid white;
+  animation: slideInFromTop 0.7s ease-in-out;
 }
 
 .ProfileA_Form_Content textarea::placeholder{
@@ -1113,6 +1205,7 @@ color: white;
 font-weight: 200;
 text-align: center;
 position: relative;
+animation: slideInFromTop 0.8s ease-in-out;
 
 }
 
@@ -1131,6 +1224,7 @@ position: relative;
   font-size: clamp(0.5em, 1.2cqi, 1.1em);
   border-radius: 1em;
   margin-bottom: 0.8em;
+  animation: slideInFromTop 1s ease-in-out;
 }
 
 
@@ -1138,6 +1232,7 @@ position: relative;
   box-shadow: 1px 1px 8px var(--PROFILEICONCOLOR);
   text-shadow: 1px 1px 8px var(--FORMTEXTBTN);
   cursor: pointer;
+  transform: scale(1.01);
  }
 
 /*------------------------------------------------------------*/
@@ -1168,6 +1263,7 @@ position: relative;
   background-position: 0.5em center;
   cursor: pointer;
   background-color: var(--PROFILENAVBAR);
+  animation: slideInFromTop 0.6s ease-in-out;
 
 }
 
@@ -1200,8 +1296,33 @@ position: relative;
 
 .UserHome_BackArrow{
   position: absolute;
-  left: 1.5em;
+  left: 2em;
 }
+
+.UserHome_Post_AddPostBtn{
+  width: 10%;
+  position: absolute;
+  top: 5em;
+  display: flex;
+  align-items: center;
+  animation: fadeIn 1s ease-in-out;
+}
+
+.UserHome_Post_AddPostBtn button{
+  margin: auto;
+  border: none;
+  background-color: transparent;
+  background-image: url(./imgs/AddIconWhite.png);
+  background-size: 100%;
+  width: 2.5em;
+  height: 2.5em;
+  background-repeat: no-repeat;
+}
+
+.UserHome_Post_AddPostBtn button:hover{
+  background-size: 95%;
+}
+
 
 .UserHome_Post_Container{
   width: 75%;
@@ -1228,6 +1349,7 @@ position: relative;
   display: flex;
   flex-direction: column;
   gap: 0.5em;
+  animation: slideInFromTop 0.6s ease-in-out;
 }
 
 .Post_Header{
@@ -1246,6 +1368,7 @@ position: relative;
 
 .Post_Header_ProfileIcon{
   box-shadow: none;
+  animation: none;
 }
 
 .Post_Content{
@@ -1369,6 +1492,11 @@ position: relative;
   color: white;
 }
 
+.Post_btn:hover{
+  text-shadow: 1px 1px 8px var(--HomeTextColor);
+  font-size: clamp(0.45em,1cqi,0.95em);
+  opacity: 95%;
+}
 
 /*------------------------------------------------------------*/
 

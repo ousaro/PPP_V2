@@ -1,7 +1,9 @@
 import { useHistory} from "react-router-dom"
 import NavBar from "../Main Components/NavBar"
-import TestImg from "../../imgs/TestIimg.png" ;
+import { useEffect } from "react";
+import {usePostsContext} from "../../Hooks/usePostsContext"
 
+import PostsDetails from "../Main Components/PostsDetails"
 
 
 
@@ -14,6 +16,23 @@ const VuserHome = () => {
     const goBack = ()=>{
         history.goBack();
     }
+
+    const { posts, dispatch } = usePostsContext()
+
+    useEffect(()=>{
+        const fetchPosts = async ()=>{
+            const response = await fetch("/api/posts");
+            const json = await response.json();
+
+            if(response.ok){
+                dispatch({type: 'SET_POSTS', payload: json})
+            }
+
+        }
+
+        fetchPosts();
+    },[dispatch])
+
 
     return ( 
         <div className="ProfilePg UserHomePg">
@@ -31,41 +50,9 @@ const VuserHome = () => {
 
                 <section className="UserHome_Post_Container">
 
-                    <div className="UserHome_Post">
-
-                        <div className="Post_Header">
-                            <div className="Nav_ProfileIcon Post_Header_ProfileIcon"></div>
-                            <div className="Post_Header_Info">
-                                <p>Association name</p>
-                                <p>not verified</p>
-                            </div>
-                            <div className="Post_Header_Date">
-                                <p>10 min ago</p>
-                            </div>
-                        </div>
-                       
-                       <div className="Post_Content">
-
-                            
-                            <div className="Post_Content_Description">
-                                <p>Nous sommes à la recherche de bénévoles passionnés et engagés pour participer à notre programme de cours de soutien. 
-                                </p>
-                            </div>
-                            
-
-                            <figure className="Post_Content_Image">
-                                <img src={TestImg} alt="Post_image" width="641" height="341" />
-                            </figure>
-                            
-                            
-
-                       </div>
-
-                       <button className="Post_btn">Participate</button>
-
-
-                    </div>
-
+                    {posts && posts.map((post)=>(
+                            <PostsDetails key={post._id} post={post} canDelete={false} ></PostsDetails>
+                        ))}
                 </section>
                 
 

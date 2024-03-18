@@ -171,8 +171,7 @@ body{
 
 .Home_Content_Hero img{
   width:95%;
-  height:clamp(22rem, 32cqi,26rem);
-  margin-bottom: 3em;
+  height:clamp(22rem, 32vw,26rem);
   animation: slideInFromTop 0.8s ease-in-out;
 }
 
@@ -279,6 +278,7 @@ body{
   height: 100svh;
   display: flex;
   flex-direction: column;
+  box-sizing: border-box;
 }
 
 .About_Header{
@@ -286,7 +286,6 @@ body{
   flex-direction: row;
   gap: 2.5em;
   padding: clamp(1em,2cqi,2em) 0 0 clamp(2em,6cqi,7em);
-  
 }
 
 .About_Home_Btn,
@@ -325,8 +324,7 @@ body{
   flex-grow: 1;
   display: grid;
   grid-template-columns: 1fr 1.5fr;
-  grid-template-rows: 2fr 1fr;
-  
+  grid-template-rows: 2fr 0.5fr;
 }
 
 .About_Content_Hero{

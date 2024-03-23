@@ -1,4 +1,5 @@
 import { usePostsContext } from "../../Hooks/usePostsContext";
+import { useAuthContext } from "../../Hooks/useAuthContext";
 
 
 // date fns
@@ -7,11 +8,21 @@ import formatDistanceToNow from "date-fns/formatDistanceToNow"
 const PostsDetails = ({post, canDelete}) => {
 
     const {dispatch} = usePostsContext()
+    const {user} = useAuthContext()
 
     const handleDelete= async ()=>{
 
+        if(!user){
+            return
+        }
+
+
         const response = await fetch('/api/posts/' + post._id,{
-            method: 'DELETE'
+            method: 'DELETE',
+            headers : {
+                "Authorization" : `Bearer ${user.token}`
+            }
+            
         })
 
         const json = await response.json();

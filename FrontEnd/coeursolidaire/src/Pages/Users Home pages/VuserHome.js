@@ -2,8 +2,9 @@ import { useHistory} from "react-router-dom"
 import NavBar from "../Main Components/NavBar"
 import { useEffect } from "react";
 import {usePostsContext} from "../../Hooks/usePostsContext"
-
+import {useAuthContext} from "../../Hooks/useAuthContext"
 import PostsDetails from "../Main Components/PostsDetails"
+
 
 
 
@@ -18,10 +19,15 @@ const VuserHome = () => {
     }
 
     const { posts, dispatch } = usePostsContext()
+    const {user} = useAuthContext()
 
     useEffect(()=>{
         const fetchPosts = async ()=>{
-            const response = await fetch("/api/posts");
+            const response = await fetch("/api/posts", {
+                headers: {
+                    "Authorization" : `Bearer ${user.token}`
+                }
+            });
             const json = await response.json();
 
             if(response.ok){
@@ -30,8 +36,11 @@ const VuserHome = () => {
 
         }
 
-        fetchPosts();
-    },[dispatch])
+        if(user){
+            fetchPosts();
+        }
+        
+    },[dispatch, user])
 
 
     return ( 

@@ -2,7 +2,7 @@ import EditIcon from "../../imgs/EditIcon.png"
 import { Link , useHistory} from "react-router-dom"
 import NavBar from "../Main Components/NavBar"
 import Footer from "../Main Components/Footer"
-
+import { useLogout } from "../../Hooks/useLogout"
 
 
 
@@ -10,6 +10,7 @@ import Footer from "../Main Components/Footer"
 const ProfileV = () => {
 
 
+    const {logout} = useLogout()
     const history=useHistory();
 
     const goBack = ()=>{
@@ -18,6 +19,12 @@ const ProfileV = () => {
 
     const ChangePg=(e)=>{
         history.push(e);
+    }
+
+    const handleClick=()=>{
+
+        logout()
+        ChangePg("/")
     }
 
     return ( 
@@ -79,7 +86,7 @@ const ProfileV = () => {
                         <input type="text" placeholder="Email" />
 
                         <button type="submit" className=" Profile_Form_Btn ProfileV_Form_UpdateBtn">Update</button>
-                        <button className=" Profile_Form_Btn  ProfileV_Form_LogOutBtn" onClick={()=>ChangePg("/")} >Log out</button>
+                        <button className=" Profile_Form_Btn  ProfileV_Form_LogOutBtn" onClick={handleClick} >Log out</button>
 
                     </section>
                     

@@ -2,13 +2,18 @@ import { Link } from "react-router-dom"
 import { useHistory } from "react-router-dom"
 import Footer from "../Main Components/Footer"
 import FormFooter from "../Main Components/FormFooter"
+import { useSignIn } from "../../Hooks/useSignIn"
+import { useState } from "react"
 
 
 
 const SignInV = () => {
 
-    const history=useHistory();
+    const [email, setEmail] = useState()
+    const [password, setPassword] = useState()
 
+    const history=useHistory();
+    const {signup, error, isLoading , next} = useSignIn();
 
     const goBack=()=>{
         history.goBack();
@@ -18,9 +23,17 @@ const SignInV = () => {
         history.push(path)
     }
 
-    const OnSubmitHandler=(e)=>{
+    const OnSubmitHandler= async (e)=>{
         e.preventDefault();
-        changePg("/Volounteer/ProfileV");
+        
+
+        await signup(email, password);
+        
+
+        if(next){
+           changePg("/Volounteer/ProfileV");
+        }
+     
 
     }
 
@@ -52,7 +65,7 @@ const SignInV = () => {
                             <input type="text" placeholder="Last name" required/>
                         </div>
                        
-                        <input type="text" placeholder="Email" required/>
+                        <input type="text" placeholder="Email" required onChange={(e)=>{setEmail(e.target.value)}}/>
                         <input type="date" required/>
 
                         <p className="SignInV_Data_GenderTitle">Gender</p>
@@ -64,7 +77,7 @@ const SignInV = () => {
                         </div>
                         
                         <div className="SignInV_Data_Pass">
-                            <input type="password" placeholder="Password" required/>
+                            <input type="password" placeholder="Password" required onChange={(e)=>{setPassword(e.target.value)}}/>
                             <input type="password" placeholder="confirm Password" required/>
                         </div>
                         
@@ -86,7 +99,8 @@ const SignInV = () => {
                         </div>
 
 
-                        <button type="submit" className="Auth_Form_Btn SignInV_Form_Btn">Sign In</button>
+                        <button type="submit" className="Auth_Form_Btn SignInV_Form_Btn" disabled={isLoading}>Sign In</button>
+
 
 
                     </div>
@@ -94,7 +108,8 @@ const SignInV = () => {
             
                 </section>
                 
-
+                {error && <div className="Post_Footer">{error}</div>}
+                
                 <FormFooter></FormFooter>
                 
             </form>

@@ -2,6 +2,7 @@ import { useHistory} from "react-router-dom"
 import NavBar from "../Main Components/NavBar"
 import Footer from "../Main Components/Footer"
 import FormFooter from "../Main Components/FormFooter"
+import { useLogout } from "../../Hooks/useLogout"
 
 
 
@@ -9,7 +10,7 @@ import FormFooter from "../Main Components/FormFooter"
 const Settings = () => {
 
 
-
+    const {logout} = useLogout()
     const history=useHistory();
 
     const goBack = ()=>{
@@ -18,6 +19,12 @@ const Settings = () => {
 
     const ChangePg=(e)=>{
         history.push(e);
+    }
+
+    const handleClick=()=>{
+
+        logout()
+        ChangePg("/")
     }
 
 
@@ -38,7 +45,7 @@ const Settings = () => {
                         <button type="button" className="Setting_Btn  Setting_DeleteBtn">Delete my account</button>
                         <button type="button" className="Setting_Btn   Setting_DesactivateBtn" >Desactivate my account</button>
                         <button type="button" className="Setting_Btn  Setting_ChangePassBtn">Change my password</button>
-                        <button type="button" className="Setting_Btn Setting_LogOutBtn" onClick={()=>ChangePg("/")} >Log out</button>
+                        <button type="button" className="Setting_Btn Setting_LogOutBtn" onClick={handleClick} >Log out</button>
                    </div>
                     <FormFooter></FormFooter>
 

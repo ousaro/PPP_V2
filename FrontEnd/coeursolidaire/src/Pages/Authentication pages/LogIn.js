@@ -2,12 +2,16 @@ import { Link, useLocation } from "react-router-dom"
 import { useHistory } from "react-router-dom"
 import Footer from "../Main Components/Footer"
 import FormFooter from "../Main Components/FormFooter"
-
-
+import { useLogin } from "../../Hooks/useLogin"
+import { useState } from "react"
 
 
 const LogIn = () => {
 
+    const [email, setEmail] = useState()
+    const [password, setPassword] = useState()
+
+    const {login , error, isLoading, next } = useLogin()
     const history=useHistory();
     const location = useLocation();
     const currentPath = location.pathname;
@@ -22,9 +26,16 @@ const LogIn = () => {
     }
 
 
-    const OnSubmitHandler=(e)=>{
+    const OnSubmitHandler= async (e)=>{
         e.preventDefault();
-        changePg(currentPath==="/Volounteer/LogIn" ? '/Volounteer/ProfileV' : '/Association/ProfileA');
+        
+        await login(email, password)
+
+        if(next){
+
+            changePg(currentPath==="/Volounteer/LogIn" ? '/Volounteer/ProfileV' : '/Association/ProfileA');
+
+        }
     }
 
   
@@ -49,8 +60,8 @@ const LogIn = () => {
                         <p>Please fill your information below</p>
 
                         <section className="Auth_Form_Data LogIn_Form_Data">
-                            <input type="text" placeholder="Email" required/>
-                            <input type="password" placeholder="Password" required/>
+                            <input type="text" placeholder="Email" required onChange={(e)=>{setEmail(e.target.value)}}/>
+                            <input type="password" placeholder="Password" required onChange={(e)=>{setPassword(e.target.value)}}/>
                         </section>
 
                         <section className="LogIn_Form_ForgotPass">
@@ -67,10 +78,11 @@ const LogIn = () => {
                             <p>Not a member? <Link to={currentPath==="/Volounteer/LogIn" ? '/SignInV' : '/SignInA'}>SignIn</Link></p>
                         </section>
                        
-                        <button type="submit" className="Auth_Form_Btn  LogIn_Form_Btn">Log In</button>
+                        <button type="submit" className="Auth_Form_Btn  LogIn_Form_Btn" disabled={isLoading}>Log In</button>
 
                     </section>
                     
+                    {error && <div className="Post_Footer">{error}</div>}
 
                     <FormFooter></FormFooter>
 

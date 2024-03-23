@@ -2,7 +2,7 @@ import { useHistory} from "react-router-dom"
 import NavBar from "../Main Components/NavBar"
 import { useEffect } from "react";
 import {usePostsContext} from "../../Hooks/usePostsContext"
-
+import { useAuthContext } from "../../Hooks/useAuthContext";
 import PostsDetails from "../Main Components/PostsDetails"
 import AddPost from "../Main Components/AddPost";
 import { useState } from "react";
@@ -23,10 +23,15 @@ const AuserHome = () => {
     }
 
     const { posts, dispatch } = usePostsContext()
+    const {user} = useAuthContext()
 
     useEffect(()=>{
         const fetchPosts = async ()=>{
-            const response = await fetch("/api/posts");
+            const response = await fetch("/api/posts", {
+                headers: {
+                    "Authorization" : `Bearer ${user.token}`
+                }
+            })
             const json = await response.json();
 
             if(response.ok){
@@ -35,8 +40,11 @@ const AuserHome = () => {
 
         }
 
-        fetchPosts();
-    },[dispatch])
+        if(user){
+            fetchPosts();
+        }
+       
+    },[dispatch, user])
 
 
     return ( 

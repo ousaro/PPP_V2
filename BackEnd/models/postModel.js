@@ -13,7 +13,13 @@ const postSchema= new Schema({
     programType: {
         type: String,
         required: true,
+    },
+    association_id:{
+        type: String,
+        required: true,
+
     }
+
 
 },{ timestamps: true })
 

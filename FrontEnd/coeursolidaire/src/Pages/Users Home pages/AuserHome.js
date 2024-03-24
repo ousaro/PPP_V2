@@ -27,7 +27,9 @@ const AuserHome = () => {
 
     useEffect(()=>{
         const fetchPosts = async ()=>{
-            const response = await fetch("/api/posts", {
+
+
+            const response = await fetch("/api/posts/" + user._id, {
                 headers: {
                     "Authorization" : `Bearer ${user.token}`
                 }

@@ -9,18 +9,30 @@ const mongoose = require('mongoose');
 const getPosts = async (req,res)=>{
 
     const posts = await Post.find({}).sort({createdAt:-1})
-
     res.status(200).json(posts);
+    
 }
 
+// GET all posts for and association_id 
+const getPostsForId = async (req,res)=>{
 
-// GET a single post
+   const {id} = req.params;
 
+   if(!mongoose.Types.ObjectId.isValid(id)){
+        return res.status(404).json({error: "No such User"});
+    }
+
+    const posts = await Post.find({association_id : id}).sort({createdAt:-1})
+    res.status(200).json(posts);
+    
+}
 
 // Create new post
 
 const  createNewPost = async (req,res)=>{
     const {description, image, programType} = req.body;
+
+    const association_id = req.user._id;
 
     let emptyFields = [];
 
@@ -37,7 +49,7 @@ const  createNewPost = async (req,res)=>{
 
     // add doc to db
     try{
-        const post = await Post.create({description, image, programType})
+        const post = await Post.create({description, image, programType, association_id})
         res.status(200).json(post)
 
     }catch(error){
@@ -74,5 +86,6 @@ module.exports = {
     createNewPost,
     getPosts,
     deletePost,
+    getPostsForId,
 
 }

@@ -1,5 +1,6 @@
 import { createContext, useReducer, useEffect} from "react";
 
+
 export const AuthContext = createContext();
 
 
@@ -15,20 +16,24 @@ export const authReducer = (state,action)=>{
 }
 
 
+
 export const AuthContextProvider = (props)=>{
 
     const [state, dispatch] = useReducer(authReducer, {
-        user: null
+        user: null,
     })
+
 
     // we use this to make the front end knows if the loaclestorage is empty or not every time we refresh
     useEffect(()=>{
 
-        const user = JSON.parse(localStorage.getItem('user'))
+        const user = JSON.parse(localStorage.getItem('user'));
+       
 
         if(user){
-            dispatch({type: 'LOGIN', payload: user})
+            dispatch({type: 'LOGIN', payload : user})
         }
+
 
     }, [])
 

@@ -2,13 +2,18 @@ import { Link } from "react-router-dom"
 import { useHistory } from "react-router-dom"
 import Footer from "../Main Components/Footer"
 import FormFooter from "../Main Components/FormFooter"
-
+import { useASignUp } from "../../Hooks/useASignUp"
+import { useState } from "react"
 
 const SignInA = () => {
 
+    const [email, setEmail] = useState()
+    const [password, setPassword] = useState()
+    const [showPassword, setShowPassword] = useState(false);
+    const [name, setName] = useState()
 
     const history=useHistory();
-
+    const {asignup, aerror, aisLoading , anext} = useASignUp();
 
     const goBack=()=>{
         history.goBack();
@@ -18,9 +23,22 @@ const SignInA = () => {
         history.push(path)
     }
 
-    const OnSubmitHandler=(e)=>{
+
+    const togglePasswordVisibility = () => {
+        setShowPassword(!showPassword);
+    };
+
+    const OnSubmitHandler= async (e)=>{
         e.preventDefault();
-        changePg("/Association/ProfileA");
+        
+
+        await asignup(email, password, name);
+        
+
+        if(anext){
+            changePg("/Association/ProfileA");
+        }
+
     }
     
 
@@ -47,19 +65,25 @@ const SignInA = () => {
 
                     <section className="Auth_Form_Data SignInA_Form_Data">
                         <div className="SignInA_Data_FullName">
-                            <input type="text" placeholder="Association name" required/>
+                            <input type="text" placeholder="Association name" onChange={(e)=>{setName(e.target.value)}} required/>
                             <input type="address" placeholder="Address" required/>
                         </div>
                     
                         
                         <div className="SignInA_Data_EmailCity">
-                            <input type="text" placeholder="Email" id="email" required/>
+                            <input type="text" placeholder="Email" id="email" required onChange={(e)=>{setEmail(e.target.value)}}/>
                             <input type="text" placeholder="City"  id="city" required/>
                         </div>
 
                         
                         <div className="SignInA_Data_Pass">
-                            <input type="password" placeholder="Password" required/>
+                           <div className="SignIn_Data_PassCheckeer">
+                                <input type={showPassword ? "text" : "password"} className="SignInA_Data_Pass_input" 
+                                placeholder="Password" 
+                                required 
+                                onChange={(e)=>{setPassword(e.target.value)}}/>
+                                <input type="checkbox" className="PasswordVisibility_Chechbox" onChange={togglePasswordVisibility}/>
+                           </div>
                             <input type="password" placeholder="confirm Password" required/>
                         </div>
                         
@@ -71,7 +95,7 @@ const SignInA = () => {
 
                     <div className="SignInA_Form_footer">
 
-                        <button type="submit" className="Auth_Form_Btn SignInA_Form_Btn">Sign In</button>
+                        <button type="submit" className="Auth_Form_Btn SignInA_Form_Btn" disabled={aisLoading}>Sign In</button>
 
                         <div>
                             <section className="Auth_Form_Terms SignInA_Form_Terms">
@@ -90,6 +114,7 @@ const SignInA = () => {
             
                 </section>
                 
+                {aerror && <div className="Post_Footer">{aerror}</div>}
 
                 <FormFooter></FormFooter>
 

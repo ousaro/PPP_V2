@@ -2,19 +2,19 @@ import { useState} from "react"
 import {useAuthContext} from "./useAuthContext"
 
 
-export const useLogin = () => {
+export const useALogin = () => {
 
-    const [isLoading, setIsLoading]= useState(false)
-    const [error, setError] = useState(null)
-    const [next, setNext] = useState(false)
+    const [aisLoading, setIsLoading]= useState(false)
+    const [aerror, setError] = useState(null)
+    const [anext, setNext] = useState(false)
     const {dispatch} = useAuthContext();
 
 
-    const login = async (email, password)=>{
+    const alogin = async (email, password)=>{
         setError(null)
         setIsLoading(true);
 
-        const response = await fetch('/api/users/login',{
+        const response = await fetch('/api/users/association/login',{
             method: "POST",
             headers:{
                 'Content-Type' : "application/json"
@@ -43,6 +43,6 @@ export const useLogin = () => {
 
     }
 
-    return {login, error, isLoading , next}
+    return {alogin, aerror, aisLoading , anext}
 
 }

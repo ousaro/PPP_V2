@@ -5,6 +5,10 @@ const validator = require('validator')
 const Schema = mongoose.Schema;
 
 const userVSchema = new Schema({
+    userType:{
+        type: String,
+        default: "volounteer"
+    },
     firstName:{
         type: String,
         required: false,
@@ -34,7 +38,7 @@ const userVSchema = new Schema({
 })
 
 // creating a static signup
-userVSchema.statics.signup = async function(email,password){
+userVSchema.statics.vsignup = async function(email,password){
 
     // checking if some fields are empty
     if(!email || !password){
@@ -48,28 +52,28 @@ userVSchema.statics.signup = async function(email,password){
 
     // chechikng for a strong password
     if(!validator.isStrongPassword(password)){
-        throw Error("Password is weak")
+        throw Error("Weak Password")
     }
 
     // if the email already exist then didn't add it 
     const exists = await this.findOne({email})
 
     if(exists){
-        throw Error("Email already exist")
+        throw Error("Email already exist!")
     }
 
     // if not hash the password and add the user to the db
     const salt = await bcrypt.genSalt(10);
     const hash = await bcrypt.hash(password, salt);
 
-    const user = await this.create({email, password: hash});
+    const vuser = await this.create({email, password: hash});
 
-    return user;
+    return vuser;
 
 }
 
 // creating a static login
-userVSchema.statics.login = async function(email,password){
+userVSchema.statics.vlogin = async function(email,password){
 
     // checking if some fields are empty
     if(!email || !password){
@@ -78,20 +82,20 @@ userVSchema.statics.login = async function(email,password){
 
 
     // if the email doesn't exist then send error 
-    const user = await this.findOne({email})
+    const vuser = await this.findOne({email})
 
-    if(!user){
-        throw Error("Incorrect Email")
+    if(!vuser){
+        throw Error("Incorrect Email!")
     }
 
     // if the password doesn't match then send error 
-    const match = await bcrypt.compare(password, user.password)
+    const match = await bcrypt.compare(password, vuser.password)
 
     if(!match){
-        throw Error("Incorrect Password")
+        throw Error("Incorrect Password!")
     }
 
-    return user;
+    return vuser;
 
 }
 

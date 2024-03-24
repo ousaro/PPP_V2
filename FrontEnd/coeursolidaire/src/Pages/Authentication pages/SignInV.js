@@ -2,7 +2,7 @@ import { Link } from "react-router-dom"
 import { useHistory } from "react-router-dom"
 import Footer from "../Main Components/Footer"
 import FormFooter from "../Main Components/FormFooter"
-import { useSignIn } from "../../Hooks/useSignIn"
+import { useVSignUp } from "../../Hooks/useVSignUp"
 import { useState } from "react"
 
 
@@ -11,9 +11,10 @@ const SignInV = () => {
 
     const [email, setEmail] = useState()
     const [password, setPassword] = useState()
+    const [showPassword, setShowPassword] = useState(false);
 
     const history=useHistory();
-    const {signup, error, isLoading , next} = useSignIn();
+    const {vsignup, verror, visLoading , vnext} = useVSignUp();
 
     const goBack=()=>{
         history.goBack();
@@ -23,14 +24,19 @@ const SignInV = () => {
         history.push(path)
     }
 
+    const togglePasswordVisibility = () => {
+        setShowPassword(!showPassword);
+    };
+
+
     const OnSubmitHandler= async (e)=>{
         e.preventDefault();
         
 
-        await signup(email, password);
+        await vsignup(email, password);
         
 
-        if(next){
+        if(vnext){
            changePg("/Volounteer/ProfileV");
         }
      
@@ -77,7 +83,10 @@ const SignInV = () => {
                         </div>
                         
                         <div className="SignInV_Data_Pass">
-                            <input type="password" placeholder="Password" required onChange={(e)=>{setPassword(e.target.value)}}/>
+                            <div className="SignIn_Data_PassCheckeer">
+                                    <input type={showPassword ? "text" : "password"} className="SignInA_Data_Pass_input" placeholder="Password" required onChange={(e)=>{setPassword(e.target.value)}}/>
+                                    <input type="checkbox" className="PasswordVisibility_Chechbox" onChange={togglePasswordVisibility}/>
+                            </div>
                             <input type="password" placeholder="confirm Password" required/>
                         </div>
                         
@@ -99,7 +108,7 @@ const SignInV = () => {
                         </div>
 
 
-                        <button type="submit" className="Auth_Form_Btn SignInV_Form_Btn" disabled={isLoading}>Sign In</button>
+                        <button type="submit" className="Auth_Form_Btn SignInV_Form_Btn" disabled={visLoading}>Sign In</button>
 
 
 
@@ -108,7 +117,7 @@ const SignInV = () => {
             
                 </section>
                 
-                {error && <div className="Post_Footer">{error}</div>}
+                {verror && <div className="Post_Footer">{verror}</div>}
                 
                 <FormFooter></FormFooter>
                 

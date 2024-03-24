@@ -2,7 +2,8 @@ import { Link, useLocation } from "react-router-dom"
 import { useHistory } from "react-router-dom"
 import Footer from "../Main Components/Footer"
 import FormFooter from "../Main Components/FormFooter"
-import { useLogin } from "../../Hooks/useLogin"
+import { useVLogin } from "../../Hooks/useVLogin"
+import { useALogin } from "../../Hooks/useALogin"
 import { useState } from "react"
 
 
@@ -10,8 +11,10 @@ const LogIn = () => {
 
     const [email, setEmail] = useState()
     const [password, setPassword] = useState()
+    const [showPassword, setShowPassword] = useState(false);
 
-    const {login , error, isLoading, next } = useLogin()
+    const {vlogin , verror, visLoading, vnext } = useVLogin()
+    const {alogin , aerror, aisLoading, anext } = useALogin()
     const history=useHistory();
     const location = useLocation();
     const currentPath = location.pathname;
@@ -25,17 +28,39 @@ const LogIn = () => {
         history.push(path)
     }
 
+  
+
+    const togglePasswordVisibility = () => {
+      setShowPassword(!showPassword);
+    };
 
     const OnSubmitHandler= async (e)=>{
         e.preventDefault();
         
-        await login(email, password)
+      
+        if(currentPath==="/Volounteer/LogIn"){
+            
+            await vlogin(email, password)
 
-        if(next){
+            if(vnext){
 
-            changePg(currentPath==="/Volounteer/LogIn" ? '/Volounteer/ProfileV' : '/Association/ProfileA');
-
+                changePg('/Volounteer/ProfileV');
+    
+            }
         }
+
+        if(currentPath==="/Association/LogIn"){
+
+            await alogin(email, password)
+
+            if(anext){
+                changePg('/Association/ProfileA')
+            }
+         
+        }
+       
+
+        
     }
 
   
@@ -61,11 +86,10 @@ const LogIn = () => {
 
                         <section className="Auth_Form_Data LogIn_Form_Data">
                             <input type="text" placeholder="Email" required onChange={(e)=>{setEmail(e.target.value)}}/>
-                            <input type="password" placeholder="Password" required onChange={(e)=>{setPassword(e.target.value)}}/>
-                        </section>
-
-                        <section className="LogIn_Form_ForgotPass">
-                            <p><Link to="/ForgotPass">Forgot Password?</Link></p>
+                            <div className="LogIn_Form_Data_Password">
+                                <input type={showPassword ? "text" : "password"} placeholder="Password" required onChange={(e)=>{setPassword(e.target.value)}}/>
+                                <input type="checkbox" className="PasswordVisibility_Chechbox" onChange={togglePasswordVisibility}/>
+                            </div>
                         </section>
 
                         <section className="Auth_Form_Terms  LogIn_Form_Terms">
@@ -78,11 +102,13 @@ const LogIn = () => {
                             <p>Not a member? <Link to={currentPath==="/Volounteer/LogIn" ? '/SignInV' : '/SignInA'}>SignIn</Link></p>
                         </section>
                        
-                        <button type="submit" className="Auth_Form_Btn  LogIn_Form_Btn" disabled={isLoading}>Log In</button>
+                        <button type="submit" className="Auth_Form_Btn  LogIn_Form_Btn" disabled={currentPath==="/Volounteer/LogIn" ?visLoading : aisLoading}>Log In</button>
 
                     </section>
                     
-                    {error && <div className="Post_Footer">{error}</div>}
+                    {currentPath==="/Volounteer/LogIn" ? (verror && <div className="Post_Footer">{verror}</div>) :  (aerror && <div className="Post_Footer">{aerror}</div>)}
+                    
+                  
 
                     <FormFooter></FormFooter>
 

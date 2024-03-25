@@ -9,9 +9,15 @@ import { useState } from "react"
 
 const SignInV = () => {
 
-    const [email, setEmail] = useState()
-    const [password, setPassword] = useState()
+    const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
     const [showPassword, setShowPassword] = useState(false);
+    const [confirmPass, setConfirmPass] = useState('')
+    const [shoCofirmPassword, setShowConfirmPassword] = useState(false);
+    const [date, setDate] = useState('')
+    const [firstName, setFirstName] = useState('')
+    const [lastName, setLastName] = useState('')
+    const [gender, setGender] = useState('')
 
     const history=useHistory();
     const {vsignup, verror, visLoading , vnext} = useVSignUp();
@@ -28,12 +34,20 @@ const SignInV = () => {
         setShowPassword(!showPassword);
     };
 
+    const toggleConfirmPasswordVisibility = () => {
+        setShowConfirmPassword(!shoCofirmPassword);
+    };
+
+
+    const handleGenderChange = (event) => {
+        setGender(event.target.value);
+    };
 
     const OnSubmitHandler= async (e)=>{
         e.preventDefault();
         
 
-        await vsignup(email, password);
+        await vsignup(firstName,lastName,email,date,password,confirmPass, gender);
         
 
         if(vnext){
@@ -67,27 +81,51 @@ const SignInV = () => {
 
                     <section className="Auth_Form_Data SignInV_Form_Data">
                         <div className="SignInV_Data_FullName">
-                            <input type="text" placeholder="First name" required/>
-                            <input type="text" placeholder="Last name" required/>
+                            <input type="text" placeholder="First name" onChange={(e)=>{setFirstName(e.target.value)}} required/>
+                            <input type="text" placeholder="Last name" onChange={(e)=>{setLastName(e.target.value)}} required/>
                         </div>
                        
                         <input type="text" placeholder="Email" required onChange={(e)=>{setEmail(e.target.value)}}/>
-                        <input type="date" required/>
+                        <input type="date" onChange={(e)=>{setDate(e.target.value)}} required/>
 
                         <p className="SignInV_Data_GenderTitle">Gender</p>
                         <div className="SignInV_Data_Gender">
-                            <input type="radio" name="Gender" required/>
-                            <label htmlFor="" >Female</label>
-                            <input type="radio" name="Gender" required/>
-                            <label htmlFor="" >Male</label>
+                            <input
+                                type="radio"
+                                name="Gender"
+                                value="Female"
+                                checked={gender === 'Female'}
+                                onChange={handleGenderChange}
+                                required
+                            />
+                            <label htmlFor="female">Female</label>
+                            <input
+                                type="radio"
+                                name="Gender"
+                                value="Male"
+                                checked={gender === 'Male'}
+                                onChange={handleGenderChange}
+                                required
+                            />
+                            <label htmlFor="male">Male</label>
                         </div>
                         
                         <div className="SignInV_Data_Pass">
                             <div className="SignIn_Data_PassCheckeer">
-                                    <input type={showPassword ? "text" : "password"} className="SignInA_Data_Pass_input" placeholder="Password" required onChange={(e)=>{setPassword(e.target.value)}}/>
+                                    <input type={showPassword ? "text" : "password"} 
+                                    className="SignInA_Data_Pass_input" 
+                                    placeholder="Password"
+                                    onChange={(e)=>{setPassword(e.target.value)}}  required />
                                     <input type="checkbox" className="PasswordVisibility_Chechbox" onChange={togglePasswordVisibility}/>
                             </div>
-                            <input type="password" placeholder="confirm Password" required/>
+                            <div className="SignIn_Data_PassCheckeer">
+                                <input type={showPassword ? "text" : "password"} 
+                                    className="SignInA_Data_Pass_input"  
+                                    placeholder="confirm Password" 
+                                    onChange={(e)=>{setConfirmPass(e.target.value)}} required/>
+                                <input type="checkbox" className="PasswordVisibility_Chechbox" onChange={toggleConfirmPasswordVisibility}/>
+                            </div>
+                           
                         </div>
                         
                         

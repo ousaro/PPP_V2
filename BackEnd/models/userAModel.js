@@ -16,7 +16,7 @@ const userASchema = new schema({
     },
     address:{
         type: String,
-        required:false,
+        required:true,
     },
     email:{
         type: String,
@@ -25,7 +25,7 @@ const userASchema = new schema({
     },
     city:{
         type: String,
-        required : false,
+        required : true,
     },
     password:{
         type: String,
@@ -33,20 +33,20 @@ const userASchema = new schema({
     },
     confirmPass:{
         type: String,
-        required : false,
+        required : true,
     },
     description:{
         type: String,
-        required : false,
+        required : true,
     }
 
 
 })
 
 
-userASchema.statics.asignup = async function(email, password, name){
+userASchema.statics.asignup = async function(name,address,email,city, password, confirmPass, description){
 
-    if(!email || !password || !name){
+    if(!email || !password || !name || !address || !city || !confirmPass || !description){
         throw Error("All field must be filled");
     }
 
@@ -68,8 +68,15 @@ userASchema.statics.asignup = async function(email, password, name){
 
     const salt = await bcrypt.genSalt(10);
     const hash = await bcrypt.hash(password, salt);
+    const confirmHash = await bcrypt.hash(confirmPass, salt);
+;
+    const match = await bcrypt.compare(confirmPass, hash)
 
-    const auser = await this.create({email, password:hash, name})
+    if(!match){
+        throw Error("Password is not correct")
+    }
+
+    const auser = await this.create({email, password:hash, name, address, city, confirmPass: confirmHash, description})
 
     return auser
 

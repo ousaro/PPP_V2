@@ -11,11 +11,11 @@ const userVSchema = new Schema({
     },
     firstName:{
         type: String,
-        required: false,
+        required: true,
     },
     lastName:{
         type: String,
-        required:false,
+        required:true,
     },
     email:{
         type: String,
@@ -24,7 +24,7 @@ const userVSchema = new Schema({
     },
     date:{
         type: Date,
-        required : false,
+        required : true,
     },
     password:{
         type: String,
@@ -32,16 +32,20 @@ const userVSchema = new Schema({
     },
     confirmPass:{
         type: String,
-        required : false,
+        required : true,
+    },
+    gender:{
+        type: String,
+        required : true,
     }
 
 })
 
 // creating a static signup
-userVSchema.statics.vsignup = async function(email,password){
+userVSchema.statics.vsignup = async function(firstName,lastName,email,date,password,confirmPass, gender){
 
     // checking if some fields are empty
-    if(!email || !password){
+    if(!email || !password || !firstName || !lastName || !date || !confirmPass || !gender){
         throw Error("All field must be filled")
     }
 
@@ -65,8 +69,15 @@ userVSchema.statics.vsignup = async function(email,password){
     // if not hash the password and add the user to the db
     const salt = await bcrypt.genSalt(10);
     const hash = await bcrypt.hash(password, salt);
+    const confirmHash = await bcrypt.hash(confirmPass, salt);
 
-    const vuser = await this.create({email, password: hash});
+    const match = await bcrypt.compare(confirmPass, hash)
+
+    if(!match){
+        throw Error("Password is not correct")
+    }
+
+    const vuser = await this.create({email, password: hash,firstName,lastName,date,confirmPass: confirmHash, gender});
 
     return vuser;
 

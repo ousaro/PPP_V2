@@ -10,7 +10,7 @@ export const useASignUp = () => {
     const {dispatch} = useAuthContext();
 
 
-    const asignup = async (email, password, name)=>{
+    const asignup = async (name,address,email,city, password, confirmPass, description)=>{
         setError(null)
         setIsLoading(true);
 
@@ -19,7 +19,7 @@ export const useASignUp = () => {
             headers:{
                 'Content-Type' : "application/json"
             },
-            body: JSON.stringify({email, password, name})
+            body: JSON.stringify({name,address,email,city, password, confirmPass, description})
         })
 
         const json = await response.json();

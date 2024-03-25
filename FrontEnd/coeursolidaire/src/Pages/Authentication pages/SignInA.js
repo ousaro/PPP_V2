@@ -7,10 +7,16 @@ import { useState } from "react"
 
 const SignInA = () => {
 
-    const [email, setEmail] = useState()
-    const [password, setPassword] = useState()
+    const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
     const [showPassword, setShowPassword] = useState(false);
-    const [name, setName] = useState()
+    const [confirmPass, setConfirmPass] = useState('')
+    const [shoCofirmPassword, setShowConfirmPassword] = useState(false);
+    const [name, setName] = useState('')
+    const [address, setAddress] = useState('')
+    const [city, setCity] = useState('')
+    const [description, setDescription] = useState('')
+   
 
     const history=useHistory();
     const {asignup, aerror, aisLoading , anext} = useASignUp();
@@ -28,11 +34,16 @@ const SignInA = () => {
         setShowPassword(!showPassword);
     };
 
+    const toggleConfirmPasswordVisibility = () => {
+        setShowConfirmPassword(!shoCofirmPassword);
+    };
+
+
     const OnSubmitHandler= async (e)=>{
         e.preventDefault();
         
 
-        await asignup(email, password, name);
+        await asignup(name,address,email,city, password, confirmPass, description);
         
 
         if(anext){
@@ -66,13 +77,13 @@ const SignInA = () => {
                     <section className="Auth_Form_Data SignInA_Form_Data">
                         <div className="SignInA_Data_FullName">
                             <input type="text" placeholder="Association name" onChange={(e)=>{setName(e.target.value)}} required/>
-                            <input type="address" placeholder="Address" required/>
+                            <input type="address" placeholder="Address" onChange={(e)=>{setAddress(e.target.value)}} required/>
                         </div>
                     
                         
                         <div className="SignInA_Data_EmailCity">
                             <input type="text" placeholder="Email" id="email" required onChange={(e)=>{setEmail(e.target.value)}}/>
-                            <input type="text" placeholder="City"  id="city" required/>
+                            <input type="text" placeholder="City"  id="city" onChange={(e)=>{setCity(e.target.value)}} required/>
                         </div>
 
                         
@@ -84,10 +95,17 @@ const SignInA = () => {
                                 onChange={(e)=>{setPassword(e.target.value)}}/>
                                 <input type="checkbox" className="PasswordVisibility_Chechbox" onChange={togglePasswordVisibility}/>
                            </div>
-                            <input type="password" placeholder="confirm Password" required/>
+                           <div className="SignIn_Data_PassCheckeer">
+                                <input type={shoCofirmPassword ? "text" : "password"}
+                                placeholder="confirm Password" 
+                                className="SignInA_Data_Pass_input" 
+                                onChange={(e)=>{setConfirmPass(e.target.value)}} required/>
+                                <input type="checkbox" className="PasswordVisibility_Chechbox" onChange={toggleConfirmPasswordVisibility}/>
+                           </div>
+                            
                         </div>
                         
-                        <textarea name="Description" placeholder="Description of the main goal of the association" required></textarea>
+                        <textarea name="Description" placeholder="Description of the main goal of the association" onChange={(e)=>{setDescription(e.target.value)}} required></textarea>
         
                         
                     </section>

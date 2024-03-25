@@ -2,13 +2,14 @@ import EditIcon from "../../imgs/EditIcon.png"
 import { Link , useHistory} from "react-router-dom"
 import NavBar from "../Main Components/NavBar"
 import Footer from "../Main Components/Footer"
+import { useAuthContext } from "../../Hooks/useAuthContext"
 
 
 
 
 const ProfileA = () => {
 
-
+    const {user} = useAuthContext()
 
     const history=useHistory();
 
@@ -51,17 +52,17 @@ const ProfileA = () => {
 
                     <section className="Profile_Form_Content ProfileA_Form_Content">
 
-                        <textarea name="description" placeholder="Description of main goals of the association"></textarea>
+                        <textarea name="description" placeholder="Description of main goals of the association">{user.description}</textarea>
                         
                         <section className="Profile_Form_Field ProfileA_Form_Field">
-                            <input type="text" placeholder="Association name" />
-                            <input type="address" placeholder="Address" />
+                            <input type="text" placeholder="Association name" value={user.name}/>
+                            <input type="address" placeholder="Address" value={user.address}/>
                         </section>
             
 
                         <section className="Profile_Form_Field ProfileA_Form_Field">
-                            <input type="text" placeholder="Email" />
-                            <input type="text" placeholder="City" />
+                            <input type="text" placeholder="Email" value={user.email}/>
+                            <input type="text" placeholder="City" value={user.city}/>
                         </section>
 
                         <section className="Profile_Form_Field ProfileA_Form_Field">

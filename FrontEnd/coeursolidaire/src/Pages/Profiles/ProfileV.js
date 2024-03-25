@@ -3,6 +3,8 @@ import { Link , useHistory} from "react-router-dom"
 import NavBar from "../Main Components/NavBar"
 import Footer from "../Main Components/Footer"
 import { useLogout } from "../../Hooks/useLogout"
+import {useAuthContext} from "../../Hooks/useAuthContext"
+
 
 
 
@@ -12,6 +14,9 @@ const ProfileV = () => {
 
     const {logout} = useLogout()
     const history=useHistory();
+    const {user} = useAuthContext()
+
+    const formattedDate = new Date(user.date).toISOString().substr(0, 10);
 
     const goBack = ()=>{
         history.goBack();
@@ -60,30 +65,30 @@ const ProfileV = () => {
 
 
                         <section className="Profile_Form_Field ProfileV_Form_Field">
-                            <input type="text" placeholder="First name" />
-                            <input type="text" placeholder="Last name" />
+                            <input type="text" placeholder="First name" value={user.firstName} />
+                            <input type="text" placeholder="Last name" value={user.lastName} />
                         </section>
             
 
                         <section className="Profile_Form_Field ProfileV_Form_Field">
                             <input type="password" placeholder="Change password" />
-                            <input type="date" />
+                            <input type="date" value={formattedDate} />
                         </section>
 
                         
                         <section className="ProfileV_Form_Gender">
                             <label >Gender</label>
                             <div className="ProfileV_Gender_Options">
-                                <input type="radio" name="gender" />
+                                <input type="radio" name="gender" checked={user.gender === "Male"}/>
                                 <label>Male</label>
 
-                                <input type="radio" name="gender" />
+                                <input type="radio" name="gender" checked={user.gender === "Female"}/>
                                 <label>Female</label>
                             </div>
                             
                         </section>
                             
-                        <input type="text" placeholder="Email" />
+                        <input type="text" placeholder="Email" value={user.email}/>
 
                         <button type="submit" className=" Profile_Form_Btn ProfileV_Form_UpdateBtn">Update</button>
                         <button className=" Profile_Form_Btn  ProfileV_Form_LogOutBtn" onClick={handleClick} >Log out</button>

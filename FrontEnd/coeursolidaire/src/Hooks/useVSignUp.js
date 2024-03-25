@@ -10,7 +10,7 @@ export const useVSignUp = () => {
     const {dispatch} = useAuthContext();
 
 
-    const vsignup = async (email, password)=>{
+    const vsignup = async (firstName,lastName,email,date,password,confirmPass, gender)=>{
         setError(null)
         setIsLoading(true);
 
@@ -19,7 +19,7 @@ export const useVSignUp = () => {
             headers:{
                 'Content-Type' : "application/json"
             },
-            body: JSON.stringify({email, password})
+            body: JSON.stringify({firstName,lastName,email,date,password,confirmPass, gender})
         })
 
         const json = await response.json();

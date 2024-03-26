@@ -109,7 +109,6 @@ const LogIn = () => {
                     {currentPath==="/Volounteer/LogIn" ? (verror && <div className="Post_Footer">{verror}</div>) :  (aerror && <div className="Post_Footer">{aerror}</div>)}
                     
                   
-
                     <FormFooter></FormFooter>
 
                     

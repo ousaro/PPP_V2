@@ -2,12 +2,15 @@ import logo from "../../imgs/HomeLogo.png"
 import igIcon from "../../imgs/InstagramIcon.png"
 import fbIcon from "../../imgs/facebookIcon.png"
 import inIcon from "../../imgs/LinkdinIcon.png"
+import { useAuthContext } from "../../Hooks/useAuthContext"
 
 
 const FormFooter = () => {
+
+    const {user} = useAuthContext();
     return ( 
 
-        <section className="Form_Footer">
+        <section className={user ? "Form_Footer" : "Form_Footer Form_Footer_Auth"}>
 
                         <figure className="Form_Footer_Logo ">
                             <img src={logo} alt="Logo" width="109" height="105"/>

@@ -148,35 +148,33 @@ body{
   position: relative;
   top: 10px;
   width:clamp(6rem,11cqi,8rem);
-  height:clamp(5rem,11cqi,8rem);
+  height:clamp(6rem,11cqi,8rem);
   animation: slideInFromTop 0.5s ease-in-out;
 }
 
 .Home_Content {
   flex-grow: 1;
-  display: grid;
-  grid-template-columns: 50% 50%;
-  grid-template-rows: 50% 50%;
+  display: flex;
+  flex-direction: column;
   box-sizing: border-box;
 }
 
 
 .Home_Content_Hero{
-  grid-row: span 2;
+  order: 2;
   display: flex;
-  justify-content: flex-end;
-  
-  
+  justify-content: center;
 }
 
 .Home_Content_Hero img{
   width:95%;
-  height:clamp(10rem, 32vw,26rem);
+  height:clamp(11rem, 32vw,25rem);
   animation: slideInFromTop 0.8s ease-in-out;
 }
 
 
 .Home_Content_Title{
+  order: 1;
   display: grid;
   place-items: center;
 }
@@ -185,39 +183,41 @@ body{
   width: 80%;
   color: var(--HomeTextColor);
   font-weight: bold;
-  font-size: clamp(2.2rem,4.5vw,4rem);
+  font-size: clamp(1rem,10vw,2.5rem);
   animation: slideInFromTop 0.7s ease-in-out;
   animation: fadeIn 0.7s ease-in-out;
 }
 
 .Home_Content_Btn{
-  flex-direction: column;
-  gap: 1em;
+  padding: 0 1em 0 1em;
+  order: 3;
+  gap: 0.6em;
   display: flex;
-  margin: 2.5em auto;
+  flex-direction: column;
+  margin: 1em auto;
 }
 
 .Home_Content_Btn button{
   color: white;
   border: 1px solid white;
   border-radius: 3em;
-  padding: 0 9em;
+  padding: 0 clamp(0.5rem,30vw, 4rem);
   font-weight: bold;
 
 }
 
 .Btn_Volunteer{
   background-color: var(--BtnColor1);
-  height: 4.1rem;
-  font-size:clamp(0.7rem,1.45vw, 1.34rem);
+  font-size:clamp(0.2rem,5vw, 0.74rem);
+  height: 2.5rem;
   animation: slideInFromTop 1.2s ease-in-out;
  
 }
 
 .Btn_Association{
   background-color: var(--BtnColor2);
-  font-size:clamp(0.7rem,1.4vw, 1.3rem);
-  height: 4rem;
+  font-size:clamp(0.2rem,5vw, 0.67rem);
+  height: 2.5rem;
   animation: slideInFromTop 0.8s ease-in-out;
 }
 
@@ -230,27 +230,31 @@ body{
 
 
 .Home_Footer{
-  margin: auto;
+
   display: flex;
-  width: 90%;
-  padding: 0.5rem;
+  flex-direction: column;
+  width: 100%;
+  gap: 1em;
+  padding: 0.2rem;
   color: white;
-  margin-bottom: 0.4rem;
+  margin-bottom: 0.2rem;
   box-sizing: border-box;
   animation: fadeIn 1s ease-in-out;
 }
 
 .Home_Footer ul{
+  margin:auto;
   display: flex;
   flex-grow: 1;
-  gap: 5em;
+  gap: 2em;
   list-style: none;
-  font-size:clamp(0.8rem,1.6cqi, 1.2rem);
+  font-size:clamp(0.4em,30vw, 0.75em);
   font-weight: 300;
 }
 
 .Home_Footer a{
   text-decoration: none;
+  color: white;
 }
 
 .Home_Footer a:hover{
@@ -261,12 +265,14 @@ body{
 
 
 .Home_Footer a:visited{
+  text-decoration: none;
   color: white;
 }
 
 .Home_Footer p{
-  justify-self:end;
-  font-size:clamp(0.7rem,1.4cqi, 1rem);
+  display: flex;
+  justify-content: center;
+  font-size:clamp(0.4rem,5vw, 0.5rem);
   font-weight: 100;
 }
 
@@ -419,6 +425,11 @@ body{
   left: 40%;
 
 }
+
+.Form_Footer_Auth{
+  left: 42%;
+}
+
 
 .Form_Footer_Logo img{
   width: clamp(2em,5cqi,5em);
@@ -1597,6 +1608,1531 @@ animation: slideInFromTop 0.8s ease-in-out;
 
 /* || media query*/
 
-@media (max-width: 762px) {
+@media (min-width: 320px) {
+  .Home{
+    background-color: red;
+    background-size: 0;
+
+  }
+
+}
+
+@media (min-width: 375px) {
+  .Home{
+    background-color: blue;
+    background-size: 0;
+  }
+
+}
+
+@media (min-width: 425px) {
+  .Home{
+    background-color: green;
+    background-size: 0;
+  }
+
+}
+
+@media (min-width: 768px) {
+  .Home{
+    background-color: yellow;
+    background-size: 0;
+  }
+
+}
+
+@media (min-width: 1024px) {
+        /*------------------------------------------------------------*/
+
+      /* || Home */
+
+      .Home{
+        display: flex;
+        flex-direction: column;
+        gap: 1.5em;
+        background: linear-gradient(to right,var(--AboutColor3),var(--AboutColor2),var(--AboutColor1));
+        background-image: url("./imgs/HomeBg.png");
+        background-repeat: no-repeat;
+        background-size: 100% 100vh;
+        height: 100svh;
+        box-sizing: border-box;
+      }
+
+      .Home_Header_Logo{
+        display: grid;
+        place-items: center;
+        animation: fadeIn 0.5s ease-in-out;
+      }
+      .Home_Header_Logo img{
+        position: relative;
+        top: 10px;
+        width:clamp(6rem,11cqi,8rem);
+        height:clamp(5rem,11cqi,8rem);
+        animation: slideInFromTop 0.5s ease-in-out;
+      }
+
+      .Home_Content {
+        flex-grow: 1;
+        display: grid;
+        grid-template-columns: 50% 50%;
+        grid-template-rows: 50% 50%;
+        box-sizing: border-box;
+      }
+
+
+      .Home_Content_Hero{
+        order: 1 ;
+        grid-row: span 2;
+        display: flex;
+        justify-content: flex-end;
+        
+        
+      }
+
+      .Home_Content_Hero img{
+        width:95%;
+        height:clamp(10rem, 32vw,26rem);
+        animation: slideInFromTop 0.8s ease-in-out;
+      }
+
+
+      .Home_Content_Title{
+        order: 2 ;
+        display: grid;
+        place-items: center;
+      }
+
+      .Home_Content_Title h1{
+        width: 80%;
+        color: var(--HomeTextColor);
+        font-weight: bold;
+        font-size: clamp(2.2rem,4.5vw,4rem);
+        animation: slideInFromTop 0.7s ease-in-out;
+        animation: fadeIn 0.7s ease-in-out;
+      }
+
+      .Home_Content_Btn{
+        order: 3 ;
+        flex-direction: column;
+        gap: 1em;
+        display: flex;
+        margin: 2.5em auto;
+      }
+
+      .Home_Content_Btn button{
+        color: white;
+        border: 1px solid white;
+        border-radius: 3em;
+        padding: 0 9em;
+        font-weight: bold;
+
+      }
+
+      .Btn_Volunteer{
+        background-color: var(--BtnColor1);
+        height: 4.1rem;
+        font-size:clamp(0.7rem,1.45vw, 1.34rem);
+        animation: slideInFromTop 1.2s ease-in-out;
+      
+      }
+
+      .Btn_Association{
+        background-color: var(--BtnColor2);
+        font-size:clamp(0.7rem,1.4vw, 1.3rem);
+        height: 4rem;
+        animation: slideInFromTop 0.8s ease-in-out;
+      }
+
+      .Btn_Volunteer:hover,
+      .Btn_Association:hover{
+      box-shadow: 1px 1px 8px var(--HomeTextColor);
+      text-shadow: 1px 1px 8px var(--HomeTextColor);
+      transform: scale(1.01);
+      }
+
+
+      .Home_Footer{
+        margin: auto;
+        display: flex;
+        width: 90%;
+        padding: 0.5rem;
+        color: white;
+        margin-bottom: 0.4rem;
+        box-sizing: border-box;
+        animation: fadeIn 1s ease-in-out;
+      }
+
+      .Home_Footer ul{
+        display: flex;
+        flex-grow: 1;
+        gap: 5em;
+        list-style: none;
+        font-size:clamp(0.8rem,1.6cqi, 1.2rem);
+        font-weight: 300;
+      }
+
+      .Home_Footer a{
+        text-decoration: none;
+      }
+
+      .Home_Footer a:hover{
+        opacity: 80%;
+        font-weight: 250;
+        text-shadow: 1px 1px 8px var(--FORMTEXTBTN);
+      }
+
+
+      .Home_Footer a:visited{
+        color: white;
+      }
+
+      .Home_Footer p{
+        justify-self:end;
+        font-size:clamp(0.7rem,1.4cqi, 1rem);
+        font-weight: 100;
+      }
+
+      /*------------------------------------------------------------*/
+
+      /* || AboutPg */
+      .AboutPg{
+        background: linear-gradient(to right,var(--AboutColor3),var(--AboutColor2),var(--AboutColor1));
+        height: 100svh;
+        display: flex;
+        flex-direction: column;
+        box-sizing: border-box;
+      }
+
+      .About_Header{
+        display: flex;
+        flex-direction: row;
+        gap: 2.5em;
+        padding: clamp(1em,2cqi,2em) 0 0 clamp(2em,6cqi,7em);
+      }
+
+      .About_Home_Btn,
+      .About_LogIn_Btn{
+        color: white;
+        border: 0.1px solid var(--Border1);
+        font-size: clamp(0.7em,1.5cqi,1em);
+        width: clamp(8em,10cqi,11em);
+        height: clamp(2.2em,3cqi,3em);
+        background-color: transparent;
+        border-radius: 2em;
+        animation: slideInFromTop 0.7s ease-in-out;
+      }
+
+      .About_LogIn_Btn{
+        animation: slideInFromTop 0.9s ease-in-out;
+      }
+
+      .About_Home_Btn:hover,
+      .About_LogIn_Btn:hover{
+      box-shadow: 1px 1px 8px var(--HomeTextColor);
+      text-shadow: 1px 1px 8px var(--HomeTextColor);
+      cursor: pointer;
+      transform: scale(1.01);
+      }
+
+      .About_Header a{
+        text-decoration: none;
+      }
+
+      .About_Header a:visited{
+        color: var(--HomeTextColor);
+      }
+
+      .About_Content{
+        flex-grow: 1;
+        display: grid;
+        grid-template-columns: 1fr 1.5fr;
+        grid-template-rows: 2fr 0.5fr;
+      }
+
+      .About_Content_Hero{
+        display: grid;
+        justify-items: center;
+        align-items: center;
+        grid-row: span 2;
+        animation: slideInFromLeft 0.9s ease-in-out;
+      }
+
+      .About_Content_Hero img{
+        width: 50%;
+        height:auto;
+        border-radius: clamp(1em,2cqi,3em);
+      }
+
+      .About_Content_Desc{
+        padding-top:6em;
+        display: flex;
+        flex-direction: column;
+        gap: 1em;
+        color:var(--HomeTextColor);
+        animation: fadeIn 1.2s ease-in-out;
+      }
+
+      .About_Content_Desc_Logo{
+        padding-left: clamp(7em,19cqi,18em);
+        animation: slideInFromTop 0.7s ease-in-out;;
+      }
+
+      .About_Content_Desc_Logo img{
+        width: clamp(4.5em,7cqi,7em);
+        height: auto;
+      }
+
+      .About_Content_Desc p {
+        font-size: clamp(1em,2cqi,1.5em);
+        text-align: justify;
+        width: 80%;
+        align-self: start;
+      }
+
+      .About_Content_SocialLinks{
+        padding-top: 2em;
+        animation: slideInFromBottom 1s ease-in-out;
+      }
+
+      .About_Content_SocialLinks ul{
+        display: flex;
+        list-style: none;
+      }
+
+      .About_Content_SocialLinks li:hover{
+        opacity: 85%;
+      }
+
+      .About_Content_SocialLinks li img{
+        width:clamp(1.5em,3cqi,2.5em);
+        height: auto;
+      }
+
+
+      /*------------------------------------------------------------*/
+
+      /* || Page footer */
+
+      .Footer{
+        display: grid;
+        place-items: center;
+        color : white;
+        font-size:clamp(0.6em,1.3cqi, 0.91em);
+        font-weight: 200;
+        animation: fadeIn 1s ease-in-out;
+        position: absolute;
+        bottom: 5px;
+        left: 40%;
+
+      }
+
+      /*------------------------------------------------------------*/
+
+      /* || Form footer */
+
+
+      .Form_Footer{
+        display: flex;
+        flex-direction: column;
+        place-items: center;
+        animation: fadeIn 1s ease-in-out;
+        position: absolute;
+        bottom: 10px;
+        left: 40%;
+
+      }
+
+      .Form_Footer_Auth{
+        left: 42%;
+      }
+
+
+      .Form_Footer_Logo img{
+        width: clamp(2em,5cqi,5em);
+        height: auto;
+      }
+
+      .Form_Footer_SocialLinks ul{
+        display: flex;
+        list-style: none;
+      }
+
+      .Form_Footer_SocialLinks li:hover{
+        opacity: 85%;
+      }
+
+      .Form_Footer_SocialLinks li img{
+        width:clamp(1em,2cqi,1.5em);
+        height: auto;
+      }
+
+
+
+      /*------------------------------------------------------------*/
+
+      /* || AuthenticationPg */
+
+      .AuthenticationPg{
+        display: flex;
+        flex-direction: column;
+        gap:1.5em;
+        box-sizing: border-box;
+        background: linear-gradient(to right,var(--AboutColor3),var(--AboutColor2),var(--AboutColor1));
+        background-image: url("./imgs/HomeBg.png");
+        background-repeat: no-repeat;
+        background-size: 100% 100svh;
+        height: 100svh;
+      }
+
+      .Auth_Content{
+        flex-grow: 1;
+        display: flex;
+        background-repeat: no-repeat;
+        background-size: 70% 100%;
+        border-radius: 3em;
+        width: 70%;
+        max-height:86%;
+        margin-top: 2em;
+        align-self:center;
+        justify-self:center ;
+        justify-content: flex-end;
+        animation: slideInFromLeft 0.8s ease-in-out;
+        position: relative;
+      }
+
+
+      .Auth_Content_Hero img{
+        width: 100%;
+        border-radius: 2em 0em 0em 2em;
+      }
+
+
+      .Auth_Content_Form{
+        background-color: var(--FormColor);
+        width: 45%;
+        height: inherit;
+        border-radius: 4em;
+        display: flex;
+        flex-direction: column;
+        box-sizing: border-box;
+        padding: 5em clamp(1em,5cqi,4.5em) 0.5em clamp(1em,5cqi,4.5em);
+        position: relative;
+        animation: slideInFromLeft 0.9s ease-in-out;
+      }
+
+      .Auth_Form_BackArrow{
+        display: flex;
+        width: clamp(1em,3cqi,2em);
+        height: clamp(1em,3cqi,2em);
+        position: absolute;
+        top:2.5em;
+        left: clamp(1em,3cqi,2.5em);
+        box-sizing: border-box;
+        background-image: url(imgs/arrow-left_w.png);
+        background-repeat: no-repeat;
+        background-size: 100%;
+        border-radius: clamp(0.2em,0.5cqi,0.6em);
+        animation: fadeIn 1s ease-in-out;
+        
+      }
+
+      .Auth_Form_BackArrow:hover{
+        width: clamp(0.9em,2.8cqi,1.9em);
+        height: clamp(0.9em,2.8cqi,1.9em);
+        opacity: 85%;
+        box-shadow: 1px 1px 4px var(--FORMTEXTBTN);
+      }
+
+
+      .Auth_Form_Header{
+      font-family: Lalezar;
+      font-size: clamp(1em, 2cqi, 1.4em);
+      box-sizing: border-box;
+      color: white;
+      text-align: center;
+      animation: slideInFromTop 0.6s ease-in-out;
+      }
+
+      .Auth_Form_Content{
+        display: flex;
+        flex-direction: column;
+      }
+
+
+      .Auth_Form_Content p{
+        color: white;
+        font-weight: 200;
+        font-size: clamp(0.6em,1cqi,0.9em);
+        margin-bottom: 0.8em;
+        animation: slideInFromTop 0.7s ease-in-out;
+
+      }
+
+
+      .Auth_Form_Data input{
+        border-radius: 0.5em;
+        margin-bottom: 0.7em;
+        border: none;
+        height:clamp(1em,3.5cqi,3em);
+        width: 100%;
+        box-sizing: border-box;
+        padding: 1em;
+        font-size: clamp(0.5em,1.5cqi,1em);
+        animation: slideInFromTop 0.8s ease-in-out;
+
+      }
+
+      .Auth_Form_Data input::placeholder{
+        text-align: center;
+      
+      }
+
+      .Auth_Form_Data input:focus,
+      .Auth_Form_Data input:hover{
+        outline: none;
+        border: 1px solid var(--FORMTEXTBTN);
+        box-shadow: 1px 1px 3px var(--FORMTEXTBTN);
+      }
+
+      .Auth_Form_Data input:hover::placeholder
+      ,.Auth_Form_Data input:focus::placeholder
+      {
+        opacity: 50%;
+      }
+
+      .Auth_Form_Content a{
+        color: white;
+        text-decoration: none;
+      }
+
+      .Auth_Form_Content a:visited{
+        color: white;
+        text-decoration: none;
+      }
+
+      .Auth_Form_Content a:hover{
+        opacity: 80%;
+        text-shadow: 1px 1px 8px var(--FORMTEXTBTN);
+      }
+
+      .Auth_Form_Terms{
+        display: flex;
+        gap: 0.4em;
+        margin-bottom: 0.7em;
+      }
+
+      .Auth_Form_Terms p{
+        font-weight: 500;
+        margin: auto 0;
+        animation: slideInFromTop 0.8s ease-in-out;
+      }
+
+      .Auth_Form_Terms input{
+        width: clamp(0.8em,1cqi,1.3em);
+      }
+
+      .Auth_Form_Btn{
+        color: var(--FORMTEXTBTN);
+        background-color: transparent;
+        border: 1px solid white;
+        animation: slideInFromBottom 1s ease-in-out;
+      }
+
+
+      .Auth_Form_Btn:hover{
+        box-shadow: 1px 1px 8px var(--FORMTEXTBTN);
+        text-shadow: 1px 1px 8px var(--FORMTEXTBTN);
+        cursor: pointer;
+      }
+
+      
+      .SignIn_Data_PassCheckeer{
+        position: relative;
+      }
+
+      .Auth_Form_Data .PasswordVisibility_Chechbox {
+        background-color: red;
+        width: 1em;
+        position: absolute;
+        left: 82%;
+      }
+
+      .SignIn_Data_PassCheckeer .PasswordVisibility_Chechbox:hover,
+      .SignIn_Data_PassCheckeer .PasswordVisibility_Chechbox:focus
+      {
+        box-shadow: none;
+      }
+      
+      /*------------------------------------------------------------*/
+
+      /* || LogInPg */
+
+      .LogIn_Content{
+        background-image: url(imgs/LogInHero.JPG);
+      }
+
+      .LogIn_Form_Data_Password{
+        position: relative;
+      }
+
+      .LogIn_Form_Data .PasswordVisibility_Chechbox {
+        background-color: red;
+        width: 1em;
+        position: absolute;
+        left: 92%;
+        border: none;
+      }
+
+      .LogIn_Form_Data .PasswordVisibility_Chechbox:hover,
+      .LogIn_Form_Data .PasswordVisibility_Chechbox:focus
+      {
+        box-shadow: none;
+      }
+
+      .LogIn_Form_Btn{
+        border-radius: 0.7em;
+        font-size:clamp(0.6em,1.2cqi, 0.9em);
+        width: 100%;
+        height: 2.8em;
+
+      }
+
+
+      /*------------------------------------------------------------*/
+
+      /* || SignInVPg */
+
+      .SignInV_Content{
+        background-image: url(imgs/SignInHero.png);
+      }
+
+      .SignInV_Content_Form{
+        width: 45%;
+        height: inherit;
+        padding: 3em clamp(1em,5cqi,4em) 0.5em clamp(1em,5cqi,4em);
+      }
+
+      .SignInV_Form_Content{
+        padding-top: 0;
+      }
+
+      .SignInV_Form_Header{
+        font-size: clamp(1em, 2cqi, 1.2em);
+
+        }
+
+      .SignInV_Form_Data input{
+        border-radius: 0.5em;
+        margin-bottom: 0.8em;
+        border: none;
+        height:clamp(1em,3.5cqi,2.7em);
+        width: 100%;
+        box-sizing: border-box;
+        padding: 1em;
+        font-size: clamp(0.5em,1.5cqi,0.9em);
+      }
+
+
+      .SignInV_Data_FullName,
+      .SignInV_Data_Pass{
+        display: flex;
+        gap: 0.5em;
+      }
+
+      .SignInV_Content .SignIn_Data_GenderTitle{
+        font-weight: 600;
+        font-size: clamp(0.5em,3cqi,1em);
+        margin-bottom: 0.2em;
+      }
+
+      .SignInV_Data_Gender{
+        display: flex;
+        box-sizing: border-box;
+        margin-bottom: 0.4em;
+      }
+
+      .SignInV_Form_Content input[type="date"]{
+        padding-left: clamp(0.8em,3cqi,2em);
+        color: #8e8b8b;
+      }
+
+      .SignInV_Data_Gender input{
+        height:clamp(0.8em,2cqi,1.2em);
+        width: 9%;
+        margin: auto 0;
+      }
+
+      .SignInV_Data_Gender input:hover,
+      .SignInV_Data_Gender input:focus
+      {
+        box-shadow: none;
+      }
+
+      .SignInV_Data_Gender label{
+        margin: auto 0;
+        font-size: clamp(0.5em,1.5cqi,0.8em);
+        height: 1.2em;
+        margin-right: 2em;
+        color: white;
+
+      }
+
+      .SignInV_Form_footer{
+        display: flex;
+        gap: 0.5em;
+        margin-top: 0.2em;
+      }
+
+      .SignInV_Form_Btn{
+        border-radius: 1em;
+        font-size:clamp(0.6em,1.2cqi, 0.9em);
+        width: 30%;
+        height: 3em;
+
+      }
+
+      /*------------------------------------------------------------*/
+
+      /* || SignInAPg */
+
+
+      .SignInA_Content{
+        background-image: url(imgs/SignInAHero.png);
+      }
+
+      .SignInA_Content_Form{
+        width: 45%;
+        height: inherit;
+        padding: 3em clamp(1em,5cqi,4em) 0.5em clamp(1em,5cqi,4em);
+      }
+
+      .SignInA_Form_Content{
+        padding-top: 0;
+      }
+
+      .SignInA_Form_Header{
+        font-size: clamp(1em, 2cqi, 1.2em);
+        }
+
+      .SignInA_Form_Data input{
+        border-radius: 0.5em;
+        margin-bottom: 0.8em;
+        border: none;
+        height:clamp(1em,3.5cqi,2.7em);
+        width: 100%;
+        box-sizing: border-box;
+        padding: 1em;
+        font-size: clamp(0.5em,1.5cqi,0.9em);
+      }
+
+
+      .SignInA_Data_FullName,
+      .SignInA_Data_Pass,
+      .SignInA_Data_EmailCity{
+        display: flex;
+        gap: 0.5em;
+      }
+
+      .SignInA_Content{
+        font-weight: 600;
+        font-size: clamp(0.5em,3cqi,1em);
+        margin-bottom: 0.3em;
+      }
+
+      #city{
+        width:clamp(3em,7cqi,8em);
+      }
+
+      .SignInA_Form_Data textarea{
+        width: 100%;
+        font-size: clamp(0.5em,1.2cqi,0.8em);
+        font-weight: 600;
+        border-radius: 0.5em;
+        padding: 1.3em;
+        box-sizing: border-box;
+        resize: none;
+      }
+
+      .SignInA_Form_Data textarea::placeholder{
+        text-align: center;
+      }
+
+
+      .Auth_Form_Data textarea:focus,
+      .Auth_Form_Data textarea:hover{
+        outline: none;
+        border: 1px solid var(--FORMTEXTBTN);
+        box-shadow: 1px 1px 3px var(--FORMTEXTBTN);
+      }
+
+      .Auth_Form_Data textarea:hover::placeholder
+      ,.Auth_Form_Data textarea:focus::placeholder
+      {
+        opacity: 50%;
+      }
+
+      .SignInA_Form_footer{
+        margin-top: 0.3em;
+      }
+
+      .SignInA_Form_Btn{
+        border-radius: 0.7em;
+        font-size:clamp(0.6em,1.2cqi, 0.9em);
+        width: 100%;
+        height: 3em;
+        margin-bottom: 0.4em;
+      }
+
+
+      .Auth_Form_Content .SignInA_Data_Pass_input{
+        padding-right: 1.8em;
+      }
+
+
+      /*------------------------------------------------------------*/
+
+      /* || ForgotPass */
+
+
+      .ForgotPass_Content{
+        background-image: url(imgs/SignInAHero.png);
+      }
+
+      .ForgotPass_Form_Btn{
+        border-radius: 0.7em;
+        font-size:clamp(0.6em,1.2cqi, 0.9em);
+        width: 100%;
+        height: 3em;
+      }
+
+      /*------------------------------------------------------------*/
+
+      /* || NavBar */
+
+
+      .NavBar{
+        background-color: var(--PROFILENAVBAR);
+        width: 65%;
+        height: 3.5em;
+        border-radius: 3em;
+        margin: 0 auto;
+        padding: 0.3em 0.3em 0.3em 0.3em;
+        box-sizing: border-box;
+        display: flex;
+        gap: 1em;
+        justify-content: space-between;
+        animation: slideInFromTop 0.5s ease-in-out;
+      }
+
+      .NavBar figure{
+        margin: auto;
+        animation: slideInFromBottom 0.6s ease-in-out;
+      }
+
+      .NavBar img{
+        width: 1.8em;  height: auto;
+
+      }
+
+      .Nav_Logo img{
+        width: 3.5em;
+      }
+
+      .NavBar img:hover,
+      .NavBar img:focus{
+        border-bottom: 4px solid var(--PROFILEBTNCOLOR);
+        margin-top: 0.7em;
+        padding-bottom: 0.3em;
+      }
+
+      .Nav_Logo img:hover,
+      .Nav_Logo img:focus{
+        border: none;
+        margin-top: 0em;
+      }
+
+
+      .Nav_ProfileIcon{
+        width: 3em;
+        height: 3em;
+        background-color: var(--PROFILEICONCOLOR);
+        border-radius: 5em;
+        background-image: url(./imgs/ProfileIcon.png);
+        background-size: 70%;
+        background-position: center;
+        background-repeat: no-repeat;
+        box-shadow: 1px 1px 8px var(--PROFILEBTNCOLOR);
+        animation: slideInFromRight 0.7s ease-in-out;
+      }
+
+      /*------------------------------------------------------------*/
+
+      /* || Profile commun style*/
+
+      .ProfilePg{
+        display: flex;
+        flex-direction: column;
+        background: linear-gradient(to right,var(--AboutColor3),var(--AboutColor2),var(--AboutColor1));
+        background-image: url("./imgs/ProfilePg.png");
+        background-repeat: no-repeat;
+        background-size: 100% 100svh;
+        height: 100svh;
+        padding-top: 2em;
+        box-sizing: border-box;
+      }
+
+
+      .Profile_Header_ProfileIcon:hover{
+        width: 2.9em;
+        height: 2.9em;
+      }
+
+
+      .Profile_Content{
+        display: flex;
+        background-color: var(--PROFILECONTENTCOLOR);
+        background-repeat: no-repeat;
+        background-size: 70% 100%;
+        border-radius: 3em;
+        width: 65%;
+        max-height: 84%;
+        margin: 1em 0 1em 0;
+        flex-grow: 1;
+        align-self:center;
+        justify-self:center ;
+        justify-content: flex-end;
+        box-sizing: border-box;
+        animation: slideInFromTop 0.3s ease-in-out;
+        
+      }
+
+
+      .Profile_Content_Form{
+        width: 35%;
+        margin: 0 auto;
+        height: inherit;
+        display: flex;
+        flex-direction: column;
+        box-sizing: border-box;
+        position: relative;
+      }
+
+      .Profile_Form_BackArrow{
+        display: flex;
+        width: clamp(1em,3cqi,2em);
+        height: clamp(1em,3cqi,2em);
+        position: absolute;
+        top:2em;
+        left:clamp(-16em,-18cqi,-5em);
+        box-sizing: border-box;
+        background-image: url(imgs/arrow-left_w.png);
+        background-repeat: no-repeat;
+        background-size: 100%;
+        border-radius: clamp(0.2em,0.5cqi,0.6em);
+        animation: fadeIn 1s ease-in-out;
+        
+      }
+
+      .Profile_Form_BackArrow:hover{
+        width: clamp(0.9em,2.8cqi,1.9em);
+        height: clamp(0.9em,2.8cqi,1.9em);
+        opacity: 85%;
+        box-shadow: 1px 1px 4px var(--FORMTEXTBTN);
+      }
+
+
+      .Profile_Form_Header{
+      font-family: Lalezar;
+      font-size: clamp(1em, 2cqi, 1.4em);
+      color: white;
+      text-align: center;
+      padding-top: 2em;
+      position: relative;
+      }
+
+      .Profile_Form_Header p{
+        color: white;
+        font-weight: 200;
+        font-size: clamp(0.6em,1cqi,0.9em);
+        margin-top: 0.5em;
+        animation: slideInFromTop 0.8s ease-in-out;
+        
+      }
+
+      .Profile_Form_Header_ProfileIcon{
+        margin: auto;
+        box-shadow: none;
+        width: 5em;
+        height: 5em;
+        position: relative;
+        animation: slideInFromTop 0.8s ease-in-out;
+      }
+
+      .Profile_Form_EditIcon{
+        position: absolute;
+        top: 70%;
+        left: 60%;
+        animation: fadeIn 0.8s ease-in-out;
+      }
+
+      .Profile_Form_EditIcon:hover{
+        opacity: 80%;
+      
+      }
+
+      .Profile_Form_Content{
+        padding-top: 0.3em;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .Profile_Form_Content input{
+        border-radius: 0.5em;
+        margin-bottom: 0.7em;
+        border: none;
+        height:clamp(1em,3.5cqi,2.3em);
+        width: 100%;
+        padding: 1em;
+        font-size: clamp(0.5em,1.5cqi,1em);
+        box-sizing: border-box;
+        animation: slideInFromTop 0.8s ease-in-out;
+      }
+
+      .Profile_Form_Content  input::placeholder{
+        text-align: center;
+      
+      }
+
+      .Profile_Form_Content  input:focus,
+      .Profile_Form_Content input:hover{
+        outline: none;
+        border: 1px solid var(--FORMTEXTBTN);
+        box-shadow: 1px 1px 3px var(--FORMTEXTBTN);
+      }
+
+      .Profile_Form_Content  input:hover::placeholder
+      ,.Profile_Form_Content input:focus::placeholder
+      {
+        opacity: 50%;
+      }
+
+      .Profile_Form_Content a{
+        color: white;
+        text-decoration: none;
+      }
+
+      .Profile_Form_Content a:visited{
+        color: white;
+        text-decoration: none;
+      }
+
+      .Profile_Form_Content a:hover{
+        opacity: 80%;
+        text-shadow: 1px 1px 10px var(--PROFILEICONCOLOR);
+      }
+
+      .Profile_Form_Content input[type="date"]{
+        padding-left: clamp(0.8em,3cqi,2em);
+        color: #8e8b8b;
+        animation: slideInFromTop 0.8s ease-in-out;
+      }
+
+      .Profile_Form_Field {
+        display: flex;
+        gap: 0.5em;
+        
+      }
+
+      .Profile_Form_Btn{
+        color: var(--PROFILECONTENTCOLOR);
+        background-color: var(--PROFILEICONCOLOR);
+        height:clamp(1em,3.5cqi,3em);
+        width: 100%;
+        border: none;
+        border-radius: 0.5em;
+        margin-bottom: 0.7em;
+        animation: slideInFromBottom 0.9s ease-in-out;
+      }
+
+
+      .Profile_Form_Btn:hover{
+        box-shadow: 1px 1px 8px var(--PROFILEICONCOLOR);
+        text-shadow: 1px 1px 8px var(--FORMTEXTBTN);
+        cursor: pointer;
+        transform: scale(1.01);
+      }
+
+      /*------------------------------------------------------------*/
+
+      /* || ProfilePgV*/
+
+      .ProfileV_Form_Gender{
+        display: flex;
+        flex-direction: column;
+        gap: 0.2em;
+        box-sizing: border-box;
+      }
+
+      .ProfileV_Form_Gender label{
+        color: white;
+        font-weight: 600;
+        font-size: clamp(0.5em,3cqi,1em);
+        margin-bottom: 0.3em;
+        animation: slideInFromTop 0.8s ease-in-out;
+      }
+
+      .ProfileV_Form_Gender input:hover,
+      .ProfileV_Form_Gender input:focus
+      {
+        box-shadow: none;
+      }
+
+      .ProfileV_Gender_Options{
+        display: flex;
+
+      }
+
+      .ProfileV_Gender_Options input{
+        height:clamp(0.8em,2cqi,1em);
+        width: 6%;
+      }
+
+      .ProfileV_Gender_Options label{
+        margin-right: 3em;
+        margin-left: 0.4em;
+        font-size: clamp(0.5em,1.5cqi,0.8em);
+        height: 1.2em;
+        margin-right: 2em;
+        color: white;
+        animation: slideInFromTop 0.8s ease-in-out;
+
+      }
+
+
+
+      /*------------------------------------------------------------*/
+
+      /* || ProfilePgA*/
+
+
+      .ProfileA_Form_Header{
+        padding-top: 1em;
+        }
+
+
+      .ProfileA_Form_Content textarea{
+        width: 100%;
+        height:clamp(1em,7em,4.5em);
+        font-size: clamp(0.5em,1.2cqi,0.85em);
+        font-weight: 600;
+        border-radius: 0.5em;
+        padding: 1em;
+        box-sizing: border-box;
+        resize: none;
+        margin-bottom: 0.8em;
+        border: 1px solid white;
+        animation: slideInFromTop 0.7s ease-in-out;
+      }
+
+      .ProfileA_Form_Content textarea::placeholder{
+        text-align: center;
+      }
+
+
+      .ProfileA_Form_Content textarea:focus,
+      .ProfileA_Form_Content textarea:hover{
+        outline: none;
+        border: 1px solid var(--FORMTEXTBTN);
+        box-shadow: 1px 1px 3px var(--FORMTEXTBTN);
+      }
+
+      .ProfileA_Form_Content textarea:hover::placeholder
+      ,.ProfileA_Form_Content textarea:focus::placeholder
+      {
+        opacity: 50%;
+      }
+
+
+
+      /*------------------------------------------------------------*/
+
+      /* || Setting*/
+
+
+      .Profile_Content_Form{
+        width: 35%;
+        margin: 0 auto;
+        height: inherit;
+        display: flex;
+        flex-direction: column;
+        box-sizing: border-box;
+        position: relative;
+        padding-top: 1em;
+      }
+
+
+      .Setting_Title{
+      font-family: Lalezar;
+      font-size: clamp(1em, 7cqi, 6em);
+      color: white;
+      font-weight: 200;
+      text-align: center;
+      position: relative;
+      animation: slideInFromTop 0.8s ease-in-out;
+
+      }
+
+      .Setting_Btns{
+        flex-grow: 1;
+        width: 80%;
+        margin: 0 auto;
+      }
+
+      .Setting_Btn{
+        color: white;
+        background-color: var(--SETTINGBTNCOLOR);
+        height:clamp(1em,4cqi,2.8em);
+        width: 100%;
+        border: none;
+        font-size: clamp(0.5em, 1.2cqi, 1.1em);
+        border-radius: 1em;
+        margin-bottom: 0.8em;
+        animation: slideInFromTop 1s ease-in-out;
+      }
+
+
+      .Setting_Btn:hover{
+        box-shadow: 1px 1px 8px var(--PROFILEICONCOLOR);
+        text-shadow: 1px 1px 8px var(--FORMTEXTBTN);
+        cursor: pointer;
+        transform: scale(1.01);
+      }
+
+      /*------------------------------------------------------------*/
+
+      /* || UserHomePg*/
+
+      .UserHome_Content{
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+        padding-top: 2em;
+        margin-bottom: 0;
+        max-height: 100svh;
+      }
+
+      .UserHome_SearchBar{
+        width: 60%;
+        height: 2em;
+        border-radius: 1em;
+        padding-left: 2.5em;
+        box-sizing: border-box;
+        margin: 0 auto;
+        margin-bottom:2em;
+        background-image: url(./imgs/searchIcon.png);
+        background-repeat: no-repeat;
+        background-size: 1.5em;
+        background-position: 0.5em center;
+        cursor: pointer;
+        background-color: var(--PROFILENAVBAR);
+        animation: slideInFromTop 0.6s ease-in-out;
+
+      }
+
+      .UserHome_SearchBar:hover{
+        box-shadow: 1px 1px 8px var(--PROFILEICONCOLOR);
+      }
+
+      .UserHome_SearchBar input{
+        width: 100%;
+        height: 2.2em;
+        padding-top: 0.3em;
+        border-radius: 2em;
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+        border: none ;
+        box-sizing: border-box;
+        background-color: var(--PROFILENAVBAR);
+      }
+
+      .UserHome_SearchBar input::placeholder{
+        color: var(--PROFILEBTNCOLOR);
+      }
+
+
+      .UserHome_SearchBar input:hover,
+      .UserHome_SearchBar input:focus{
+        outline: none;
+        
+      }
+
+      .UserHome_BackArrow{
+        position: absolute;
+        left: 2em;
+      }
+
+      .UserHome_Post_AddPostBtn{
+        width: 10%;
+        position: absolute;
+        top: 5em;
+        display: flex;
+        align-items: center;
+        animation: fadeIn 1s ease-in-out;
+      }
+
+      .UserHome_Post_AddPostBtn button{
+        margin: auto;
+        border: none;
+        background-color: transparent;
+        background-image: url(./imgs/AddIconWhite.png);
+        background-size: 100%;
+        width: 2.5em;
+        height: 2.5em;
+        background-repeat: no-repeat;
+      }
+
+      .UserHome_Post_AddPostBtn button:hover{
+        background-size: 95%;
+      }
+
+
+      .UserHome_Post_Container{
+        width: 75%;
+        max-height: 70svh;
+        margin: 0 auto;
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 1em;
+        overflow-x: hidden; 
+        overflow-y: auto; 
+        padding-bottom: 0.5em;
+
+      }
+
+      .UserHome_Post_Container::-webkit-scrollbar {
+        display: none;
+      }
+
+
+      .UserHome_Post{
+        background-color: var(--PROFILENAVBAR);
+        border-radius: 1em;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5em;
+        animation: slideInFromTop 0.6s ease-in-out;
+      }
+
+      .Post_Header{
+        display: flex;
+        gap: 1em;
+        padding: 1em 1em 0 1em;
+      }
+
+      .Post_Header_Info{
+        display: flex;
+        flex-direction: column;
+        font-size: clamp(0.5em,1cqi,0.8em);
+        margin: auto 0;
+        flex-grow: 1;
+      }
+
+      .Post_Header_ProfileIcon{
+        box-shadow: none;
+        animation: none;
+      }
+
+      .Post_Content{
+        padding: 0.2em 1em 0 1em;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5em;
+        position: relative;
+      }
+
+      .Post_Content textarea{
+        width: 100%;
+        height: 7em;
+        resize: none;
+        border-radius: 1em;
+        border: none;
+        box-sizing: border-box;
+        padding: 1.5em;
+        padding-right: 5em;
+        background-color: var(--DESCFIELDCOLOR);
+        
+      }
+
+      .Post_Content textarea::placeholder{
+        text-align: center;
+        font-weight: 700;
+        padding-top: 1.2em;
+        font-size: clamp(0.8em,2cqi,1.2em);
+
+      }
+
+      .Post_Content textarea:focus{
+        outline: none;
+        border: none;
+      }
+
+      .Post_Content .Post_Content_Error{
+        border: 1px solid red;
+      }
+
+      .Post_custom-file-upload {
+        display: flex;
+        cursor: pointer;
+        background-image: url(imgs/GalleryIcon.png);
+        background-repeat: no-repeat;
+        background-size: 100%;
+        width: 2.5em;
+        height: 2.5em;
+        margin: auto;
+        position: absolute;
+        left: 90%;
+        top: 2em;
+      }
+
+      .Post_custom-file-upload:hover {
+        background-size: 90%;
+        opacity: 80%;
+      }
+
+      #Post_file-upload {
+        display: none;
+      }
+
+
+      .Post_Content_ProgramType-Title{
+        color: var(--PROFILEICONCOLOR);
+        font-weight: 700;
+      }
+
+      .Post_Content_ProgramType {
+        border: none;
+        border-radius: 1em;
+        padding: 0.5em 1em;
+        margin-bottom: 0.5em;
+        width: 20%;
+        font-size: clamp(0.5em, 1em, 0.9em);
+        background-color: transparent;
+        color: var(--PROFILEBTNCOLOR); 
+        transition: box-shadow 0.3s ease;
+      }
+
+      .Post_Content_ProgramType:focus {
+        outline: none;
+        background-color: var(--DESCFIELDCOLOR);
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+      }
+
+      .Post_Content_ProgramType:hover {
+        box-shadow: 1px 1px 4px var(--FormColor);
+      }
+
+      .Post_Content_ProgramType option {
+        background-color: var(--DESCFIELDCOLOR);
+        color: var(--PROFILEICONCOLOR);
+        font-weight: 500;
+        padding: 0.5em;
+      }
+
+      .Post_Content_ProgramType option:checked {
+        color: var(--PROFILEBTNCOLOR);
+      }
+
+      .Post_Footer{
+        color: rgb(228, 78, 78);
+        font-weight: 700;
+        padding-left: 1em;
+      }
+
+      .Post_btn{
+        border:none;
+        border-bottom-left-radius: 1em;
+        border-bottom-right-radius: 1em;
+        background-color: var(--PROFILEBTNCOLOR);
+        width: 100%;
+        height: 3.5em;
+        font-size: clamp(0.5em,1cqi,1em);
+        font-weight: 700;
+        box-sizing: border-box;
+        box-shadow: 0 2px 2px var(--FormColor);
+        color: white;
+      }
+
+      .Post_btn:hover{
+        text-shadow: 1px 1px 8px var(--HomeTextColor);
+        font-size: clamp(0.45em,1cqi,0.95em);
+        opacity: 95%;
+      }
+
+      /*------------------------------------------------------------*/
+
+      /* || V userHome*/
+
+      .Post_Header_Date{
+        font-family: Abhaya Libre;
+        font-weight: 600;
+      }
+
+      .Post_Header_DeleteBtn{
+        width: 2em;
+        height: 2em;
+        background-color: transparent;
+        background-image: url(./imgs/trash.png);
+        border: none;
+        background-size: 100%;
+        background-repeat: no-repeat;
+      }
+
+      .Post_Header_DeleteBtn:hover{
+        background-size: 95%;
+        opacity: 90%;
+      }
+
+      .Post_Content_Description{
+        width: 100%;
+        color: var(--POSTTEXTCOLOR);
+        box-sizing: border-box;
+        font-family: Abhaya Libre;
+        font-size: clamp(0.8em,2cqi,1.2em);
+
+      }
+
+      .Post_Content_Image{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-items: center;
+
+      }
+
+      .Post_Content_Image img{
+        width: clamp(10em,25cqi,20em);
+        height: auto;
+      }
+
+
+}
+
+@media (min-width: 1440px) {
+  .Home{
+    background-color: grey;
+    background-size: 0;
+  }
+
+}
+
+@media (min-width: 2560px) {
+  .Home{
+    background-color: brown;
+    background-size: 0;
+  }
 
 }

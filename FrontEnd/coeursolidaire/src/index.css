@@ -285,12 +285,14 @@ body{
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
+  position: relative;
 }
 
 .About_Header{
   display: flex;
   flex-direction: row;
-  gap: 2.5em;
+  justify-content: space-around;
+  gap: 1em;
   padding: clamp(1em,2cqi,2em) 0 0 clamp(2em,6cqi,7em);
 }
 
@@ -299,14 +301,17 @@ body{
   color: white;
   border: 0.1px solid var(--Border1);
   font-size: clamp(0.7em,1.5cqi,1em);
-  width: clamp(8em,10cqi,11em);
-  height: clamp(2.2em,3cqi,3em);
+  width: clamp(5em,50cqi,10em);
+  height: clamp(1.5em,10cqi,2.2em);
   background-color: transparent;
   border-radius: 2em;
   animation: slideInFromTop 0.7s ease-in-out;
 }
 
+
+
 .About_LogIn_Btn{
+  border: 0.1px solid var(--FormColor);
   animation: slideInFromTop 0.9s ease-in-out;
 }
 
@@ -327,54 +332,60 @@ body{
 }
 
 .About_Content{
+  position: absolute;
+  top: 15%;
   flex-grow: 1;
-  display: grid;
-  grid-template-columns: 1fr 1.5fr;
-  grid-template-rows: 2fr 0.5fr;
+  display: flex;
+  gap: 0.1em;
+  flex-direction: column;
 }
 
 .About_Content_Hero{
   display: grid;
   justify-items: center;
   align-items: center;
-  grid-row: span 2;
   animation: slideInFromLeft 0.9s ease-in-out;
 }
 
 .About_Content_Hero img{
-  width: 50%;
+  width: 40%;
   height:auto;
   border-radius: clamp(1em,2cqi,3em);
 }
 
 .About_Content_Desc{
-  padding-top:6em;
+  padding-top: 1em;
   display: flex;
   flex-direction: column;
-  gap: 1em;
+  gap: 2em;
   color:var(--HomeTextColor);
   animation: fadeIn 1.2s ease-in-out;
 }
 
 .About_Content_Desc_Logo{
-  padding-left: clamp(7em,19cqi,18em);
-  animation: slideInFromTop 0.7s ease-in-out;;
+  order: 2;
+  display: flex;
+  justify-content: center;
+  animation: slideInFromTop 0.7s ease-in-out;
 }
 
 .About_Content_Desc_Logo img{
-  width: clamp(4.5em,7cqi,7em);
+  width: clamp(3em,15cqi,5em);
   height: auto;
 }
 
 .About_Content_Desc p {
-  font-size: clamp(1em,2cqi,1.5em);
+  font-size: clamp(0.5em,5cqi,1em);
   text-align: justify;
   width: 80%;
-  align-self: start;
+  align-self: center;
 }
 
 .About_Content_SocialLinks{
-  padding-top: 2em;
+  width: 80%;
+  align-self: center;
+  display: flex;
+  justify-content: center;
   animation: slideInFromBottom 1s ease-in-out;
 }
 
@@ -388,7 +399,7 @@ body{
 }
 
 .About_Content_SocialLinks li img{
-  width:clamp(1.5em,3cqi,2.5em);
+  width:clamp(1em,6cqi,3em);
   height: auto;
 }
 
@@ -398,6 +409,7 @@ body{
 /* || Page footer */
 
 .Footer{
+  width: 100%;
   display: grid;
   place-items: center;
   color : white;
@@ -405,8 +417,7 @@ body{
   font-weight: 200;
   animation: fadeIn 1s ease-in-out;
   position: absolute;
-  bottom: 5px;
-  left: 40%;
+  bottom: 15px;
 
 }
 
@@ -432,7 +443,7 @@ body{
 
 
 .Form_Footer_Logo img{
-  width: clamp(2em,5cqi,5em);
+  width: clamp(2em,15cqi,5em);
   height: auto;
 }
 
@@ -446,7 +457,7 @@ body{
 }
 
 .Form_Footer_SocialLinks li img{
-  width:clamp(1em,2cqi,1.5em);
+  width:clamp(1em,5cqi,1.5em);
   height: auto;
 }
 
@@ -472,14 +483,15 @@ body{
   flex-grow: 1;
   display: flex;
   background-repeat: no-repeat;
-  background-size: 70% 100%;
+  background-size: 100% 100%;
   border-radius: 3em;
-  width: 70%;
+  width: 90%;
   max-height:86%;
   margin-top: 2em;
   align-self:center;
   justify-self:center ;
-  justify-content: flex-end;
+  place-content: center;
+  align-items: flex-endo;
   animation: slideInFromLeft 0.8s ease-in-out;
   position: relative;
 }
@@ -493,21 +505,21 @@ body{
 
 .Auth_Content_Form{
   background-color: var(--FormColor);
-  width: 45%;
-  height: inherit;
-  border-radius: 4em;
+  width: 100%;
+  height: 70%;
+  border-radius: 3em;
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
-  padding: 5em clamp(1em,5cqi,4.5em) 0.5em clamp(1em,5cqi,4.5em);
+  padding: 4em clamp(1em,5cqi,4.5em) 0.5em clamp(1em,5cqi,4.5em);
   position: relative;
   animation: slideInFromLeft 0.9s ease-in-out;
 }
 
 .Auth_Form_BackArrow{
   display: flex;
-  width: clamp(1em,3cqi,2em);
-  height: clamp(1em,3cqi,2em);
+  width: clamp(1em,10cqi,2em);
+  height: clamp(1em,10cqi,2em);
   position: absolute;
   top:2.5em;
   left: clamp(1em,3cqi,2.5em);
@@ -515,14 +527,14 @@ body{
   background-image: url(imgs/arrow-left_w.png);
   background-repeat: no-repeat;
   background-size: 100%;
-  border-radius: clamp(0.2em,0.5cqi,0.6em);
+  border-radius: clamp(0.2em,3cqi,0.6em);
   animation: fadeIn 1s ease-in-out;
   
 }
 
 .Auth_Form_BackArrow:hover{
-  width: clamp(0.9em,2.8cqi,1.9em);
-  height: clamp(0.9em,2.8cqi,1.9em);
+  width: clamp(1em,10cqi,1.9em);
+  height: clamp(1em,10cqi,1.9em);
   opacity: 85%;
   box-shadow: 1px 1px 4px var(--FORMTEXTBTN);
 }
@@ -530,7 +542,7 @@ body{
 
 .Auth_Form_Header{
 font-family: Lalezar;
-font-size: clamp(1em, 2cqi, 1.4em);
+font-size: clamp(1em, 10cqi, 1.4em);
 box-sizing: border-box;
 color: white;
 text-align: center;
@@ -540,13 +552,14 @@ animation: slideInFromTop 0.6s ease-in-out;
 .Auth_Form_Content{
   display: flex;
   flex-direction: column;
+ 
 }
 
 
 .Auth_Form_Content p{
   color: white;
   font-weight: 200;
-  font-size: clamp(0.6em,1cqi,0.9em);
+  font-size: clamp(0.6em,3cqi,0.9em);
   margin-bottom: 0.8em;
   animation: slideInFromTop 0.7s ease-in-out;
 
@@ -557,11 +570,11 @@ animation: slideInFromTop 0.6s ease-in-out;
   border-radius: 0.5em;
   margin-bottom: 0.7em;
   border: none;
-  height:clamp(1em,3.5cqi,3em);
+  height:clamp(1em,10cqi,5em);
   width: 100%;
   box-sizing: border-box;
   padding: 1em;
-  font-size: clamp(0.5em,1.5cqi,1em);
+  font-size: clamp(0.5em,10cqi,1em);
   animation: slideInFromTop 0.8s ease-in-out;
 
 }
@@ -612,7 +625,7 @@ animation: slideInFromTop 0.6s ease-in-out;
 }
 
 .Auth_Form_Terms input{
-  width: clamp(0.8em,1cqi,1.3em);
+  width: clamp(0.8em,5cqi,1.3em);
 }
 
 .Auth_Form_Btn{
@@ -663,7 +676,7 @@ animation: slideInFromTop 0.6s ease-in-out;
   background-color: red;
   width: 1em;
   position: absolute;
-  left: 92%;
+  left: 90%;
   border: none;
 }
 
@@ -675,9 +688,9 @@ animation: slideInFromTop 0.6s ease-in-out;
 
 .LogIn_Form_Btn{
   border-radius: 0.7em;
-  font-size:clamp(0.6em,1.2cqi, 0.9em);
+  font-size:clamp(0.6em,3cqi, 0.9em);
   width: 100%;
-  height: 2.8em;
+  height: 2.5em;
 
 }
 
@@ -691,9 +704,9 @@ animation: slideInFromTop 0.6s ease-in-out;
 }
 
 .SignInV_Content_Form{
-  width: 45%;
-  height: inherit;
-  padding: 3em clamp(1em,5cqi,4em) 0.5em clamp(1em,5cqi,4em);
+  width: 100%;
+  height: 80%;
+  padding: 4em clamp(1em,5cqi,4em) 0.5em clamp(1em,5cqi,4em);
 }
 
 .SignInV_Form_Content{
@@ -701,19 +714,19 @@ animation: slideInFromTop 0.6s ease-in-out;
 }
 
 .SignInV_Form_Header{
-  font-size: clamp(1em, 2cqi, 1.2em);
+  font-size: clamp(0.8em, 5cqi, 1em);
 
   }
 
 .SignInV_Form_Data input{
   border-radius: 0.5em;
-  margin-bottom: 0.8em;
+  margin-bottom: 0.6em;
   border: none;
-  height:clamp(1em,3.5cqi,2.7em);
+  height:clamp(1em,10cqi,3.5em);
   width: 100%;
   box-sizing: border-box;
   padding: 1em;
-  font-size: clamp(0.5em,1.5cqi,0.9em);
+  font-size: clamp(0.5em,3cqi,1em);
 }
 
 
@@ -724,15 +737,15 @@ animation: slideInFromTop 0.6s ease-in-out;
 }
 
 .SignInV_Content .SignIn_Data_GenderTitle{
-  font-weight: 600;
-  font-size: clamp(0.5em,3cqi,1em);
+  font-weight: 700;
+  font-size: clamp(0.5em,5cqi,4em);
   margin-bottom: 0.2em;
 }
 
 .SignInV_Data_Gender{
   display: flex;
   box-sizing: border-box;
-  margin-bottom: 0.4em;
+  margin-bottom: 0.3em;
 }
 
 .SignInV_Form_Content input[type="date"]{
@@ -741,7 +754,7 @@ animation: slideInFromTop 0.6s ease-in-out;
 }
 
 .SignInV_Data_Gender input{
-  height:clamp(0.8em,2cqi,1.2em);
+  height:clamp(0.8em,5cqi,1.2em);
   width: 9%;
   margin: auto 0;
 }
@@ -754,7 +767,7 @@ animation: slideInFromTop 0.6s ease-in-out;
 
 .SignInV_Data_Gender label{
   margin: auto 0;
-  font-size: clamp(0.5em,1.5cqi,0.8em);
+  font-size: clamp(0.5em,5cqi,0.8em);
   height: 1.2em;
   margin-right: 2em;
   color: white;
@@ -763,13 +776,13 @@ animation: slideInFromTop 0.6s ease-in-out;
 
 .SignInV_Form_footer{
   display: flex;
-  gap: 0.5em;
-  margin-top: 0.2em;
+  gap: 1em;
+  margin-top: 0.1em;
 }
 
 .SignInV_Form_Btn{
   border-radius: 1em;
-  font-size:clamp(0.6em,1.2cqi, 0.9em);
+  font-size:clamp(0.6em,4cqi, 0.9em);
   width: 30%;
   height: 3em;
 
@@ -785,9 +798,9 @@ animation: slideInFromTop 0.6s ease-in-out;
 }
 
 .SignInA_Content_Form{
-  width: 45%;
-  height: inherit;
-  padding: 3em clamp(1em,5cqi,4em) 0.5em clamp(1em,5cqi,4em);
+  width: 100%;
+  height: 80%;
+  padding: 5em clamp(1em,5cqi,4em) 0.5em clamp(1em,5cqi,4em);
 }
 
 .SignInA_Form_Content{
@@ -795,18 +808,18 @@ animation: slideInFromTop 0.6s ease-in-out;
 }
 
 .SignInA_Form_Header{
-  font-size: clamp(1em, 2cqi, 1.2em);
+  font-size: clamp(1em, 5cqi, 1.2em);
   }
 
 .SignInA_Form_Data input{
   border-radius: 0.5em;
   margin-bottom: 0.8em;
   border: none;
-  height:clamp(1em,3.5cqi,2.7em);
   width: 100%;
   box-sizing: border-box;
   padding: 1em;
-  font-size: clamp(0.5em,1.5cqi,0.9em);
+  font-size: clamp(0.5em,3cqi,1em);
+  height:clamp(1em,10cqi,3.5em);
 }
 
 
@@ -824,12 +837,12 @@ animation: slideInFromTop 0.6s ease-in-out;
 }
 
 #city{
-  width:clamp(3em,7cqi,8em);
+  width:clamp(3em,20cqi,8em);
 }
 
 .SignInA_Form_Data textarea{
   width: 100%;
-  font-size: clamp(0.5em,1.2cqi,0.8em);
+  font-size: clamp(0.5em,5cqi,1em);
   font-weight: 600;
   border-radius: 0.5em;
   padding: 1.3em;
@@ -861,9 +874,9 @@ animation: slideInFromTop 0.6s ease-in-out;
 
 .SignInA_Form_Btn{
   border-radius: 0.7em;
-  font-size:clamp(0.6em,1.2cqi, 0.9em);
+  font-size:clamp(0.6em,5cqi, 1.5em);
   width: 100%;
-  height: 3em;
+  height: 2.5em;
   margin-bottom: 0.4em;
 }
 
@@ -1806,6 +1819,7 @@ animation: slideInFromTop 0.8s ease-in-out;
       .About_Header{
         display: flex;
         flex-direction: row;
+        justify-content: flex-start;
         gap: 2.5em;
         padding: clamp(1em,2cqi,2em) 0 0 clamp(2em,6cqi,7em);
       }

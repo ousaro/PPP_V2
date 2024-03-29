@@ -3,13 +3,14 @@ import { Link , useHistory} from "react-router-dom"
 import NavBar from "../Main Components/NavBar"
 import Footer from "../Main Components/Footer"
 import { useAuthContext } from "../../Hooks/useAuthContext"
-
+import { useLogout } from "../../Hooks/useLogout"
 
 
 
 const ProfileA = () => {
 
     const {user} = useAuthContext()
+    const {logout} = useLogout()
 
     const history=useHistory();
 
@@ -21,6 +22,12 @@ const ProfileA = () => {
         history.push(e);
     }
 
+
+    const handleClick=()=>{
+
+        logout()
+        ChangePg("/")
+    }
 
     return ( 
         <div className="ProfilePg ProfileVPg">
@@ -71,7 +78,7 @@ const ProfileA = () => {
                         </section>
             
                         <button type="submit" className=" Profile_Form_Btn ProfileA_Form_UpdateBtn">Update</button>
-                        <button className=" Profile_Form_Btn  ProfileA_Form_LogOutBtn" onClick={()=>ChangePg("/")} >Log out</button>
+                        <button className=" Profile_Form_Btn  ProfileA_Form_LogOutBtn" onClick={handleClick} >Log out</button>
 
                     </section>
                     

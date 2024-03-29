@@ -293,7 +293,7 @@ body{
   flex-direction: row;
   justify-content: space-around;
   gap: 1em;
-  padding: clamp(1em,2cqi,2em) 0 0 clamp(2em,6cqi,7em);
+  padding: clamp(1em,2cqi,2em) 0 0 0;
 }
 
 .About_Home_Btn,
@@ -1649,19 +1649,120 @@ animation: slideInFromTop 0.8s ease-in-out;
 /* || media query*/
 
 @media (min-width: 320px) {
-  .Home{
-    background-color: red;
-    background-size: 0;
 
-  }
+  /*------------------------------------------------------------*/
 
-}
+    /* || AboutPg */
+
+    .About_Content{
+      top: 13%;
+    }
+
+    .About_Content_Hero img{
+      width: 35%;
+    }
+
+    .About_Content_Desc p {
+      font-size: clamp(0.5em,4.7cqi,1em);
+    }
+
+    /*------------------------------------------------------------*/
+
+    /* || Page footer */
+
+    .Footer{
+      bottom: 9px;
+    }
+
+    /*------------------------------------------------------------*/
+
+    /* || AuthenticationPg */
+
+    .Auth_Content_Form{
+      height: 75%;
+    }
+  
+    /*------------------------------------------------------------*/
+
+    /* || SignInVPg */
+
+
+    .SignInV_Content_Form{
+      height: 85%;
+    }
+
+    /*------------------------------------------------------------*/
+
+    /* || SignInAPg */
+
+    .SignInA_Content_Form{
+      height: 85%;
+    }
+ 
+    .SignInA_Form_Header{
+      font-size: clamp(1em, 7cqi, 1.5em);
+      }
+    /*------------------------------------------------------------*/
+
+    /* || ForgotPass */
+
+
+    .ForgotPass_Content{
+      background-image: url(imgs/SignInAHero.png);
+    }
+
+    .ForgotPass_Form_Btn{
+      border-radius: 0.7em;
+      font-size:clamp(0.6em,1.2cqi, 0.9em);
+      width: 100%;
+      height: 3em;
+    }
+  
+
+}   
 
 @media (min-width: 375px) {
-  .Home{
-    background-color: blue;
-    background-size: 0;
+  
+  /*------------------------------------------------------------*/
+
+    /* || Home */
+
+  .Home_Content_Hero img{
+    height:clamp(10rem, 32vw,26rem);;
   }
+
+    /*------------------------------------------------------------*/
+
+    /* || AuthenticationPg */
+
+    .Auth_Content{
+      min-height: 90%;
+    }
+  
+    /*------------------------------------------------------------*/
+
+    /* || SignInVPg */
+
+
+    .SignInV_Content_Form{
+      height: 89%;
+    }
+
+    /*------------------------------------------------------------*/
+
+    /* || SignInAPg */
+
+    .SignInA_Content_Form{
+      height: 89%;
+    }
+
+    /*------------------------------------------------------------*/
+
+    /* || Setting*/
+
+    .Setting_Content_Form{
+      max-height: 90%;
+    }
 
 }
 

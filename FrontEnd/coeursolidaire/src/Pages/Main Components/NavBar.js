@@ -16,11 +16,11 @@ const NavBar = () => {
 
         <nav className="NavBar">
 
-            <figure>
+            <figure className="Nav_Setting">
                 <Link to={currentPath.startsWith("/Volounteer") ? '/Volounteer/Settings' : '/Association/Settings'}><img src={SettingIcon} alt="settingIcon" width="39" height="39"/></Link>
             </figure>
 
-            <figure>
+            <figure className="Nav_Home">
                 <Link to={currentPath.startsWith("/Volounteer") ? '/Volounteer/VuserHome' : '/Association/AuserHome'}><img src={HomeIcon} alt="HomeIcon" width="39" height="39"/></Link>
             </figure>
 
@@ -28,15 +28,15 @@ const NavBar = () => {
                 <img src={ProfileLogo} alt="Logo" width="262" height="236"/>
             </figure>
 
-            <figure>
+            <figure className="Nav_Messanger">
                 <Link to="#"><img src={MessangerIcon} alt="MessangerIcon" width="39" height="39"/></Link>
             </figure>
 
-            <figure>
+            <figure className="Nav_Notification">
                 <Link to="#"><img src={NotificationIcon} alt="NotificationIcon" width="39" height="39"/></Link>
             </figure>
 
-            <Link to={currentPath.startsWith("/Volounteer") ? '/Volounteer/ProfileV' : '/Association/ProfileA'}><div className="Nav_ProfileIcon"></div></Link>
+            <Link className="Nav_Profile" to={currentPath.startsWith("/Volounteer") ? '/Volounteer/ProfileV' : '/Association/ProfileA'}><div className="Nav_ProfileIcon"></div></Link>
         </nav>
 
      );

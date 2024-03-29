@@ -35,7 +35,7 @@ const Settings = () => {
 
             <main className="Profile_Content Setting_Content">
 
-                <div className="Profile_Content_Form">
+                <div className="Profile_Content_Form Setting_Content_Form">
 
                     <h1 className="Setting_Title">Setting</h1>
 

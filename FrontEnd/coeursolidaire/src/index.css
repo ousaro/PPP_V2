@@ -491,7 +491,7 @@ body{
   align-self:center;
   justify-self:center ;
   place-content: center;
-  align-items: flex-endo;
+  align-items: flex-end;
   animation: slideInFromLeft 0.8s ease-in-out;
   position: relative;
 }
@@ -909,15 +909,13 @@ animation: slideInFromTop 0.6s ease-in-out;
 
 .NavBar{
   background-color: var(--PROFILENAVBAR);
-  width: 65%;
+  width: 100%;
   height: 3.5em;
-  border-radius: 3em;
   margin: 0 auto;
   padding: 0.3em 0.3em 0.3em 0.3em;
   box-sizing: border-box;
   display: flex;
-  gap: 1em;
-  justify-content: space-between;
+  gap: 0.1em;
   animation: slideInFromTop 0.5s ease-in-out;
 }
 
@@ -927,12 +925,46 @@ animation: slideInFromTop 0.6s ease-in-out;
 }
 
 .NavBar img{
-  width: 1.8em;  height: auto;
+  width: 1.5em;  
+  height: auto;
 
 }
 
+.Nav_Logo{
+order: 1;
+}
+
+.Nav_Setting{
+
+  order: 5;
+
+}
+
+.Nav_Home{
+
+  order: 2;
+
+}
+
+.Nav_Messanger{
+
+  order: 3;
+
+}
+
+.Nav_Notification{
+
+  order: 4;
+
+}
+
+.Nav_Profile{
+  order: 6;
+}
+
+
 .Nav_Logo img{
-  width: 3.5em;
+  width: 3em;
 }
 
 .NavBar img:hover,
@@ -950,8 +982,8 @@ animation: slideInFromTop 0.6s ease-in-out;
 
 
 .Nav_ProfileIcon{
-  width: 3em;
-  height: 3em;
+  width: 2.3em;
+  height: 2.3em;
   background-color: var(--PROFILEICONCOLOR);
   border-radius: 5em;
   background-image: url(./imgs/ProfileIcon.png);
@@ -974,7 +1006,6 @@ animation: slideInFromTop 0.6s ease-in-out;
   background-repeat: no-repeat;
   background-size: 100% 100svh;
   height: 100svh;
-  padding-top: 2em;
   box-sizing: border-box;
 }
 
@@ -990,37 +1021,24 @@ animation: slideInFromTop 0.6s ease-in-out;
   background-color: var(--PROFILECONTENTCOLOR);
   background-repeat: no-repeat;
   background-size: 70% 100%;
-  border-radius: 3em;
-  width: 65%;
-  max-height: 84%;
-  margin: 1em 0 1em 0;
+  width: 100%;
   flex-grow: 1;
   align-self:center;
   justify-self:center ;
-  justify-content: flex-end;
   box-sizing: border-box;
   animation: slideInFromTop 0.3s ease-in-out;
-  
 }
 
 
-.Profile_Content_Form{
-  width: 35%;
-  margin: 0 auto;
-  height: inherit;
-  display: flex;
-  flex-direction: column;
-  box-sizing: border-box;
-  position: relative;
-}
+
 
 .Profile_Form_BackArrow{
   display: flex;
-  width: clamp(1em,3cqi,2em);
-  height: clamp(1em,3cqi,2em);
+  width: clamp(1em,8cqi,2em);
+  height: clamp(1em,8cqi,2em);
   position: absolute;
   top:2em;
-  left:clamp(-16em,-18cqi,-5em);
+  left:clamp(-2em,-25cqi,-1em);
   box-sizing: border-box;
   background-image: url(imgs/arrow-left_w.png);
   background-repeat: no-repeat;
@@ -1031,8 +1049,8 @@ animation: slideInFromTop 0.6s ease-in-out;
 }
 
 .Profile_Form_BackArrow:hover{
-  width: clamp(0.9em,2.8cqi,1.9em);
-  height: clamp(0.9em,2.8cqi,1.9em);
+  width: clamp(0.9em,8cqi,1.9em);
+  height: clamp(0.9em,8cqi,1.9em);
   opacity: 85%;
   box-shadow: 1px 1px 4px var(--FORMTEXTBTN);
 }
@@ -1040,7 +1058,7 @@ animation: slideInFromTop 0.6s ease-in-out;
 
 .Profile_Form_Header{
 font-family: Lalezar;
-font-size: clamp(1em, 2cqi, 1.4em);
+font-size: clamp(1em, 7cqi, 1.4em);
 color: white;
 text-align: center;
 padding-top: 2em;
@@ -1087,10 +1105,10 @@ position: relative;
   border-radius: 0.5em;
   margin-bottom: 0.7em;
   border: none;
-  height:clamp(1em,3.5cqi,2.3em);
+  height:clamp(1em,10cqi,3em);
   width: 100%;
   padding: 1em;
-  font-size: clamp(0.5em,1.5cqi,1em);
+  font-size: clamp(0.5em,3cqi,1em);
   box-sizing: border-box;
   animation: slideInFromTop 0.8s ease-in-out;
 }
@@ -1143,7 +1161,7 @@ position: relative;
 .Profile_Form_Btn{
   color: var(--PROFILECONTENTCOLOR);
   background-color: var(--PROFILEICONCOLOR);
-  height:clamp(1em,3.5cqi,3em);
+  height:clamp(1em,10cqi,3em);
   width: 100%;
   border: none;
   border-radius: 0.5em;
@@ -1173,7 +1191,7 @@ position: relative;
 .ProfileV_Form_Gender label{
   color: white;
   font-weight: 600;
-  font-size: clamp(0.5em,3cqi,1em);
+  font-size: clamp(0.5em,4cqi,1em);
   margin-bottom: 0.3em;
   animation: slideInFromTop 0.8s ease-in-out;
 }
@@ -1190,14 +1208,14 @@ position: relative;
 }
 
 .ProfileV_Gender_Options input{
-  height:clamp(0.8em,2cqi,1em);
+  height:clamp(0.8em,4cqi,1.5em);
   width: 6%;
 }
 
 .ProfileV_Gender_Options label{
   margin-right: 3em;
   margin-left: 0.4em;
-  font-size: clamp(0.5em,1.5cqi,0.8em);
+  font-size: clamp(0.5em,4cqi,0.8em);
   height: 1.2em;
   margin-right: 2em;
   color: white;
@@ -1219,7 +1237,7 @@ position: relative;
 
 .ProfileA_Form_Content textarea{
   width: 100%;
-  height:clamp(1em,7em,4.5em);
+  height:clamp(1em,10em,8em);
   font-size: clamp(0.5em,1.2cqi,0.85em);
   font-weight: 600;
   border-radius: 0.5em;
@@ -1257,7 +1275,7 @@ position: relative;
 
 
 .Profile_Content_Form{
-  width: 35%;
+  width: 70%;
   margin: 0 auto;
   height: inherit;
   display: flex;
@@ -1268,9 +1286,14 @@ position: relative;
 }
 
 
+.Setting_Content_Form{
+  max-height: 80%;
+}
+
 .Setting_Title{
+padding-top: 2em;
 font-family: Lalezar;
-font-size: clamp(1em, 7cqi, 6em);
+font-size: clamp(1em, 15cqi, 6em);
 color: white;
 font-weight: 200;
 text-align: center;
@@ -1280,7 +1303,6 @@ animation: slideInFromTop 0.8s ease-in-out;
 }
 
 .Setting_Btns{
-  flex-grow: 1;
   width: 80%;
   margin: 0 auto;
 }
@@ -1288,10 +1310,10 @@ animation: slideInFromTop 0.8s ease-in-out;
 .Setting_Btn{
   color: white;
   background-color: var(--SETTINGBTNCOLOR);
-  height:clamp(1em,4cqi,2.8em);
+  height:clamp(1em,10cqi,2.8em);
   width: 100%;
   border: none;
-  font-size: clamp(0.5em, 1.2cqi, 1.1em);
+  font-size: clamp(0.5em, 4cqi, 1.1em);
   border-radius: 1em;
   margin-bottom: 0.8em;
   animation: slideInFromTop 1s ease-in-out;
@@ -1315,19 +1337,19 @@ animation: slideInFromTop 0.8s ease-in-out;
   flex-direction: column;
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
-  padding-top: 2em;
+  padding-top: 0.5em;
   margin-bottom: 0;
   max-height: 100svh;
 }
 
 .UserHome_SearchBar{
-  width: 60%;
+  width: 85%;
   height: 2em;
   border-radius: 1em;
   padding-left: 2.5em;
   box-sizing: border-box;
-  margin: 0 auto;
   margin-bottom:2em;
+  margin-left: 15%;
   background-image: url(./imgs/searchIcon.png);
   background-repeat: no-repeat;
   background-size: 1.5em;
@@ -1367,13 +1389,15 @@ animation: slideInFromTop 0.8s ease-in-out;
 
 .UserHome_BackArrow{
   position: absolute;
-  left: 2em;
+  top: 0.7em;
+  left:0.7em;
 }
 
 .UserHome_Post_AddPostBtn{
   width: 10%;
   position: absolute;
-  top: 5em;
+  top: 3em;
+  left: 0.6em;
   display: flex;
   align-items: center;
   animation: fadeIn 1s ease-in-out;
@@ -1396,9 +1420,9 @@ animation: slideInFromTop 0.8s ease-in-out;
 
 
 .UserHome_Post_Container{
-  width: 75%;
-  max-height: 70svh;
-  margin: 0 auto;
+  width: 95%;
+  height: 70svh;
+  margin : 0.5em auto;
   flex-grow: 1;
   display: flex;
   flex-direction: column;
@@ -1425,14 +1449,14 @@ animation: slideInFromTop 0.8s ease-in-out;
 
 .Post_Header{
   display: flex;
-  gap: 1em;
+  gap: 0.5em;
   padding: 1em 1em 0 1em;
 }
 
 .Post_Header_Info{
   display: flex;
   flex-direction: column;
-  font-size: clamp(0.5em,1cqi,0.8em);
+  font-size: clamp(0.5em,5cqi,0.7em);
   margin: auto 0;
   flex-grow: 1;
 }
@@ -1443,6 +1467,7 @@ animation: slideInFromTop 0.8s ease-in-out;
 }
 
 .Post_Content{
+
   padding: 0.2em 1em 0 1em;
   display: flex;
   flex-direction: column;
@@ -1467,7 +1492,7 @@ animation: slideInFromTop 0.8s ease-in-out;
   text-align: center;
   font-weight: 700;
   padding-top: 1.2em;
-  font-size: clamp(0.8em,2cqi,1.2em);
+  font-size: clamp(0.8em,5cqi,1.2em);
 
 }
 
@@ -1490,7 +1515,7 @@ animation: slideInFromTop 0.8s ease-in-out;
   height: 2.5em;
   margin: auto;
   position: absolute;
-  left: 90%;
+  left: 75%;
   top: 2em;
 }
 
@@ -1507,6 +1532,7 @@ animation: slideInFromTop 0.8s ease-in-out;
 .Post_Content_ProgramType-Title{
   color: var(--PROFILEICONCOLOR);
   font-weight: 700;
+  font-size: clamp(0.5em, 1em, 0.9em);
 }
 
 .Post_Content_ProgramType {
@@ -1514,7 +1540,7 @@ animation: slideInFromTop 0.8s ease-in-out;
   border-radius: 1em;
   padding: 0.5em 1em;
   margin-bottom: 0.5em;
-  width: 20%;
+  width: 45%;
   font-size: clamp(0.5em, 1em, 0.9em);
   background-color: transparent;
   color: var(--PROFILEBTNCOLOR); 
@@ -1556,7 +1582,7 @@ animation: slideInFromTop 0.8s ease-in-out;
   background-color: var(--PROFILEBTNCOLOR);
   width: 100%;
   height: 3.5em;
-  font-size: clamp(0.5em,1cqi,1em);
+  font-size: clamp(0.5em,5cqi,1em);
   font-weight: 700;
   box-sizing: border-box;
   box-shadow: 0 2px 2px var(--FormColor);
@@ -1565,7 +1591,7 @@ animation: slideInFromTop 0.8s ease-in-out;
 
 .Post_btn:hover{
   text-shadow: 1px 1px 8px var(--HomeTextColor);
-  font-size: clamp(0.45em,1cqi,0.95em);
+  font-size: clamp(0.45em,5cqi,0.95em);
   opacity: 95%;
 }
 
@@ -1576,11 +1602,12 @@ animation: slideInFromTop 0.8s ease-in-out;
 .Post_Header_Date{
   font-family: Abhaya Libre;
   font-weight: 600;
+  font-size: clamp(0.6em,5cqi,0.8em);
 }
 
 .Post_Header_DeleteBtn{
-  width: 2em;
-  height: 2em;
+  width: 1.3em;
+  height: 1.3em;
   background-color: transparent;
   background-image: url(./imgs/trash.png);
   border: none;
@@ -1598,7 +1625,7 @@ animation: slideInFromTop 0.8s ease-in-out;
   color: var(--POSTTEXTCOLOR);
   box-sizing: border-box;
   font-family: Abhaya Libre;
-  font-size: clamp(0.8em,2cqi,1.2em);
+  font-size: clamp(0.8em,5cqi,1.2em);
 
 }
 

@@ -72,7 +72,7 @@ const ProfileV = () => {
 
                         <section className="Profile_Form_Field ProfileV_Form_Field">
                             <input type="password" placeholder="Change password" />
-                            <input type="date" value={formattedDate} />
+                            <input type="date"  />
                         </section>
 
                         

@@ -694,6 +694,130 @@ animation: slideInFromTop 0.6s ease-in-out;
 
 }
 
+.LogIn_Form_Btn_google{
+  margin-top: 0.5em;
+  background-color: white;
+  color: black;
+  border: 1px solid black;
+  border-radius: 0.5em;
+  font-size:clamp(0.6em,3cqi, 0.9em);
+  width: 100%;
+  height: 2.5em;
+}
+
+/*------------------------------------------------------------*/
+
+/* || SignUpPg */
+
+.SignUp_Content{
+  background-image: url(imgs/SignInHero.png);
+}
+
+.SignUp_Content_Form{
+  width: 100%;
+  height: 80%;
+  padding: 4em clamp(1em,5cqi,4em) 0.5em clamp(1em,5cqi,4em);
+}
+
+.SignUp_Form_Content{
+  padding-top: 0;
+}
+
+.SignUp_Form_Header{
+  font-size: clamp(0.8em, 5cqi, 1em);
+
+}
+
+.SignUp_Form_Data input{
+  border-radius: 0.5em;
+  margin-bottom: 0.6em;
+  border: none;
+  height:clamp(1em,10cqi,3.5em);
+  width: 100%;
+  box-sizing: border-box;
+  padding: 1em;
+  font-size: clamp(0.5em,3cqi,1em);
+}
+
+.SignUp_Data_PassCheckeer{
+  position: relative;
+}
+
+.Auth_Form_Data .SignUp_PasswordVisibility_Chechbox{
+  background-color: red;
+  width: 1em;
+  position: absolute;
+  left: 92%;
+}
+
+.SignUp_Data_PassCheckeer .SignUp_PasswordVisibility_Chechbox:hover,
+.SignUp_Data_PassCheckeer .SignUp_PasswordVisibility_Chechbox:focus
+ {
+  box-shadow: none;
+}
+
+
+.SignUp_Form_footer{
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+.SignUp_Form_Btn{
+ 
+  border-radius: 1em;
+  font-size:clamp(0.6em,5cqi, 1.1em);
+  width: 100%;
+  height: 2.5em;
+
+}
+
+.google_btn{
+  background-image: url(./imgs/googleIcon.png);
+  background-size: 1.5em;
+  background-repeat: no-repeat;
+  background-position: 25%;
+}
+
+.SignUp_or{
+  margin: auto;
+}
+
+.SignUp_Form_UserType {
+  border: none;
+  border-radius: 0.5em;
+  padding: 0.5em 1em;
+  margin-bottom: 5em;
+  width:100%;
+  height:clamp(1em,10cqi,3em);
+  font-size: clamp(0.5em, 1em, 1.2em);
+  text-align: center;
+  color: var(--PROFILEBTNCOLOR); 
+  transition: box-shadow 0.3s ease;
+}
+
+.SignUp_Form_UserType:focus {
+  outline: none;
+  background-color: var(--PROFILENAVBAR);
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.SignUp_Form_UserType:hover {
+  opacity: 95%;;
+}
+
+.SignUp_Form_UserType option {
+  background-color: var(--DESCFIELDCOLOR);
+  color: var(--PROFILEICONCOLOR);
+  font-weight: 600;
+  padding: 0.5em;
+}
+
+.SignUp_Form_UserType option:checked {
+  color: var(--PROFILEBTNCOLOR);
+}
+
 
 /*------------------------------------------------------------*/
 

@@ -1,3 +1,4 @@
+
 import { Link, useLocation } from "react-router-dom"
 import { useHistory } from "react-router-dom"
 import Footer from "../Main Components/Footer"
@@ -5,6 +6,8 @@ import FormFooter from "../Main Components/FormFooter"
 import { useVLogin } from "../../Hooks/useVLogin"
 import { useALogin } from "../../Hooks/useALogin"
 import { useState } from "react"
+
+const apiUrl = process.env.REACT_APP_API_URL;
 
 
 const LogIn = () => {
@@ -63,7 +66,15 @@ const LogIn = () => {
         
     }
 
-  
+    const googleAuth=()=>{
+        if(currentPath==="/Volounteer/LogIn"){
+            window.open(apiUrl + "/api/users/google/callback", "_self") // "_self" to open in the same tab
+        }
+
+        if(currentPath==="/Association/LogIn"){
+            window.open(apiUrl +  "/api/users/google/callback", "_self") // "_self" to open in the same tab
+        }
+    }
 
     return ( 
         <div className="AuthenticationPg LogInPg">
@@ -103,6 +114,7 @@ const LogIn = () => {
                         </section>
                        
                         <button type="submit" className="Auth_Form_Btn  LogIn_Form_Btn" disabled={currentPath==="/Volounteer/LogIn" ?visLoading : aisLoading}>Log In</button>
+                        <button type="submit" className="Auth_Form_Btn  LogIn_Form_Btn_google" disabled={currentPath==="/Volounteer/LogIn" ?visLoading : aisLoading} onClick={googleAuth}>Log In With google</button>
 
                     </section>
                     

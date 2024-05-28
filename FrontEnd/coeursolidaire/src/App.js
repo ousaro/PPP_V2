@@ -4,6 +4,8 @@ import About from "./Pages/About";
 import LogIn from "./Pages/Authentication pages/LogIn";
 import SignInV from "./Pages/Authentication pages/SignInV";
 import SignInA from "./Pages/Authentication pages/SignInA";
+import SignUp from "./Pages/Authentication pages/SignUp";
+import UserType from "./Pages/Authentication pages/UserType"
 import ForgotPass from "./Pages/Authentication pages/ForgotPass";
 import ProfileV from "./Pages/Profiles/ProfileV";
 import ProfileA from "./Pages/Profiles/ProfileA";
@@ -26,6 +28,9 @@ function App() {
             <Route path="/About"><About></About></Route>
 
             <Route path="/ForgotPass"><ForgotPass></ForgotPass></Route>
+
+            <Route path="/SignUp"><SignUp></SignUp></Route>
+            <Route path="/UserType"><UserType></UserType></Route>
 
             <Route path="/Volounteer/LogIn">{!user || (user && user.userType==="association") ? <LogIn></LogIn>: <Redirect to="/Volounteer/ProfileV"/>}</Route>
             <Route path="/SignInV">{!user ||( user && user.userType==="association") ? <SignInV></SignInV>: <Redirect to="/Volounteer/ProfileV"/> }</Route>

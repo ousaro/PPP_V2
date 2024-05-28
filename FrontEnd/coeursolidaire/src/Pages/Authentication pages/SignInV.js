@@ -18,6 +18,8 @@ const SignInV = () => {
     const [firstName, setFirstName] = useState('')
     const [lastName, setLastName] = useState('')
     const [gender, setGender] = useState('')
+    const apiUrl = process.env.REACT_APP_API_URL;
+
 
     const history=useHistory();
     const {vsignup, verror, visLoading , vnext} = useVSignUp();
@@ -55,6 +57,10 @@ const SignInV = () => {
         }
      
 
+    }
+
+    const googleAuth=()=>{
+        window.open(apiUrl + "/api/users/google/callback", "_self") // "_self" to open in the same tab}
     }
 
     return ( 
@@ -147,7 +153,7 @@ const SignInV = () => {
 
 
                         <button type="submit" className="Auth_Form_Btn SignInV_Form_Btn" disabled={visLoading}>Sign In</button>
-
+                        <button type="submit" className="Auth_Form_Btn SignInV_Form_Btn" disabled={visLoading} onClick={googleAuth}>Sign In with google</button>
 
 
                     </div>

@@ -44,12 +44,20 @@ const userSchema = new Schema({
     },
     description:{
         type: String,
+    },
+    verificationToken:{
+        type: String,
+        unique: true
+    },
+    verified:{
+        type: Boolean,
+        default : false
     }
 
 })
 
 // creating a static signup
-userSchema.statics.signup = async function(fullName,email, password, confirmPass, photo, userType){
+userSchema.statics.signup = async function(fullName,email, password, confirmPass, photo, userType, verificationToken){
 
     // checking if some fields are empty
     if(!password || !confirmPass || !userType){
@@ -84,7 +92,7 @@ userSchema.statics.signup = async function(fullName,email, password, confirmPass
         throw Error("Password is not correct")
     }
 
-    const user = await this.create({userType,email, password: hash,confirmPass: confirmHash,fullName, photo});
+    const user = await this.create({userType,email, password: hash,confirmPass: confirmHash,fullName, photo, verificationToken});
 
     return user;
 

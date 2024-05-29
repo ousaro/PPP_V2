@@ -30,7 +30,8 @@ router.get('/google', passport.authenticate('google', { scope: ['profile', 'emai
 router.post('/login',loginUser)
 // signUp request
 router.post('/UserType',signupUser) 
-
+// email verification for association account
+//router.post('/verification')
 
 
 module.exports = router;

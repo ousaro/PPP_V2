@@ -1,5 +1,6 @@
 const User = require("../models/userModel")
 const jwt = require('jsonwebtoken');
+const crypto = require('crypto');
 
 
 const createToken = (_id)=>{
@@ -39,8 +40,12 @@ const signupUser = async (req, res)=>{
 
     const {fullName,email, password, confirmPass, photo, userType} = req.body;
 
+    // Generate a verification token
+    const verificationToken = crypto.randomBytes(32).toString('hex');
+
+
     try{
-        const user = await User.signup(fullName,email, password, confirmPass, photo, userType)
+        const user = await User.signup(fullName,email, password, confirmPass, photo, userType , verificationToken)
 
         // create token
         const token = createToken(user._id);

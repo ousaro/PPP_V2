@@ -3,7 +3,7 @@ import Home from "./Pages/Home";
 import About from "./Pages/About";
 import SignUp from "./Pages/Authentication pages/SignUp";
 import UserType from "./Pages/Authentication pages/UserType"
-import ForgotPass from "./Pages/Authentication pages/ForgotPass";
+import VerificationForm from "./Pages/Authentication pages/VerificationForm";
 import ProfileV from "./Pages/Profiles/ProfileV";
 import ProfileA from "./Pages/Profiles/ProfileA";
 import Settings from "./Pages/feature pages/Settings";
@@ -25,7 +25,7 @@ function App() {
             <Route path="/" exact>{!user ? <Home></Home> : user.userType==="volounteer" ? <Redirect to="/Volounteer/ProfileV"/> :<Redirect to="/Association/ProfileA"/>}</Route>
             <Route path="/About">{!user ? <About></About> : <Redirect to="/"/>}</Route>
 
-            <Route path="/ForgotPass"><ForgotPass></ForgotPass></Route>
+            <Route path="/verificationForm"><VerificationForm></VerificationForm></Route>
 
             <Route path="/SignUp">{!user ? <SignUp/> : <Redirect to="/" />}</Route>
             <Route path="/UserType">{!user ? <UserType /> : <Redirect to="/" />}</Route>

@@ -662,50 +662,6 @@ animation: slideInFromTop 0.6s ease-in-out;
  
 /*------------------------------------------------------------*/
 
-/* || LogInPg */
-
-.LogIn_Content{
-  background-image: url(imgs/LogInHero.JPG);
-}
-
-.LogIn_Form_Data_Password{
-  position: relative;
-}
-
-.LogIn_Form_Data .PasswordVisibility_Chechbox {
-  background-color: red;
-  width: 1em;
-  position: absolute;
-  left: 90%;
-  border: none;
-}
-
-.LogIn_Form_Data .PasswordVisibility_Chechbox:hover,
-.LogIn_Form_Data .PasswordVisibility_Chechbox:focus
- {
-  box-shadow: none;
-}
-
-.LogIn_Form_Btn{
-  border-radius: 0.7em;
-  font-size:clamp(0.6em,3cqi, 0.9em);
-  width: 100%;
-  height: 2.5em;
-
-}
-
-.LogIn_Form_Btn_google{
-  margin-top: 0.5em;
-  background-color: white;
-  color: black;
-  border: 1px solid black;
-  border-radius: 0.5em;
-  font-size:clamp(0.6em,3cqi, 0.9em);
-  width: 100%;
-  height: 2.5em;
-}
-
-/*------------------------------------------------------------*/
 
 /* || SignUpPg */
 
@@ -821,210 +777,85 @@ animation: slideInFromTop 0.6s ease-in-out;
 
 /*------------------------------------------------------------*/
 
-/* || SignInVPg */
 
-.SignInV_Content{
-  background-image: url(imgs/SignInHero.png);
-}
+/* || verificationForm */
 
-.SignInV_Content_Form{
+.verificationForm_Content_Form{
   width: 100%;
   height: 80%;
   padding: 4em clamp(1em,5cqi,4em) 0.5em clamp(1em,5cqi,4em);
+  background-color: var(--FormColor);
+  border-radius: 1em;
+  color: var(--HomeTextColor)
 }
 
-.SignInV_Form_Content{
+.verificationForm_Form_Content{
   padding-top: 0;
+ 
 }
 
-.SignInV_Form_Header{
+.verificationForm_Form_BackArrow{
+  display: flex;
+  width: clamp(1em,10cqi,2em);
+  height: clamp(1em,10cqi,2em);
+  position: absolute;
+  top:5em;
+  left: clamp(1em,3cqi,2.5em);
+  box-sizing: border-box;
+  background-image: url(imgs/arrow-left_w.png);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  border-radius: clamp(0.2em,3cqi,0.6em);
+  animation: fadeIn 1s ease-in-out;
+  
+}
+
+.verificationForm_Form_BackArrow:hover{
+  width: clamp(1em,10cqi,1.9em);
+  height: clamp(1em,10cqi,1.9em);
+  opacity: 85%;
+  box-shadow: 1px 1px 4px var(--FORMTEXTBTN);
+}
+
+
+.verificationForm_Form_Header{
   font-size: clamp(0.8em, 5cqi, 1em);
 
-  }
+}
 
-.SignInV_Form_Data input{
+.verificationForm_Form_Data{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.verificationForm_Form_Data input{
   border-radius: 0.5em;
   margin-bottom: 0.6em;
   border: none;
-  height:clamp(1em,10cqi,3.5em);
-  width: 100%;
+  height:clamp(1em,8cqi,2em);
+  width: 80%;
   box-sizing: border-box;
   padding: 1em;
   font-size: clamp(0.5em,3cqi,1em);
+ 
 }
 
 
-.SignInV_Data_FullName,
-.SignInV_Data_Pass{
+.verificationForm_Form_footer{
   display: flex;
-  gap: 0.5em;
-}
-
-.SignInV_Content .SignIn_Data_GenderTitle{
-  font-weight: 700;
-  font-size: clamp(0.5em,5cqi,4em);
-  margin-bottom: 0.2em;
-}
-
-.SignInV_Data_Gender{
-  display: flex;
-  box-sizing: border-box;
-  margin-bottom: 0.3em;
-}
-
-.SignInV_Form_Content input[type="date"]{
-  padding-left: clamp(0.8em,3cqi,2em);
-  color: #8e8b8b;
-}
-
-.SignInV_Data_Gender input{
-  height:clamp(0.8em,5cqi,1.2em);
-  width: 9%;
-  margin: auto 0;
-}
-
-.SignInV_Data_Gender input:hover,
-.SignInV_Data_Gender input:focus
-{
-  box-shadow: none;
-}
-
-.SignInV_Data_Gender label{
-  margin: auto 0;
-  font-size: clamp(0.5em,5cqi,0.8em);
-  height: 1.2em;
-  margin-right: 2em;
-  color: white;
-
-}
-
-.SignInV_Form_footer{
-  display: flex;
+  flex-direction: column;
   gap: 1em;
-  margin-top: 0.1em;
 }
 
-.SignInV_Form_Btn{
+.verificationForm_Form_Btn{
+ 
   border-radius: 1em;
-  font-size:clamp(0.6em,4cqi, 0.9em);
-  width: 30%;
-  height: 3em;
-
-}
-
-/*------------------------------------------------------------*/
-
-/* || SignInAPg */
-
-
-.SignInA_Content{
-  background-image: url(imgs/SignInAHero.png);
-}
-
-.SignInA_Content_Form{
-  width: 100%;
-  height: 80%;
-  padding: 5em clamp(1em,5cqi,4em) 0.5em clamp(1em,5cqi,4em);
-}
-
-.SignInA_Form_Content{
-  padding-top: 0;
-}
-
-.SignInA_Form_Header{
-  font-size: clamp(1em, 5cqi, 1.2em);
-  }
-
-.SignInA_Form_Data input{
-  border-radius: 0.5em;
-  margin-bottom: 0.8em;
-  border: none;
-  width: 100%;
-  box-sizing: border-box;
-  padding: 1em;
-  font-size: clamp(0.5em,3cqi,1em);
-  height:clamp(1em,10cqi,3.5em);
-}
-
-
-.SignInA_Data_FullName,
-.SignInA_Data_Pass,
-.SignInA_Data_EmailCity{
-  display: flex;
-  gap: 0.5em;
-}
-
-.SignInA_Content{
-  font-weight: 600;
-  font-size: clamp(0.5em,3cqi,1em);
-  margin-bottom: 0.3em;
-}
-
-#city{
-  width:clamp(3em,20cqi,8em);
-}
-
-.SignInA_Form_Data textarea{
-  width: 100%;
-  font-size: clamp(0.5em,5cqi,1em);
-  font-weight: 600;
-  border-radius: 0.5em;
-  padding: 1.3em;
-  box-sizing: border-box;
-  resize: none;
-}
-
-.SignInA_Form_Data textarea::placeholder{
-  text-align: center;
-}
-
-
-.Auth_Form_Data textarea:focus,
-.Auth_Form_Data textarea:hover{
-  outline: none;
-  border: 1px solid var(--FORMTEXTBTN);
-  box-shadow: 1px 1px 3px var(--FORMTEXTBTN);
-}
-
-.Auth_Form_Data textarea:hover::placeholder
-,.Auth_Form_Data textarea:focus::placeholder
- {
-  opacity: 50%;
-}
-
-.SignInA_Form_footer{
-  margin-top: 0.3em;
-}
-
-.SignInA_Form_Btn{
-  border-radius: 0.7em;
-  font-size:clamp(0.6em,5cqi, 1.5em);
+  font-size:clamp(0.6em,5cqi, 1.1em);
   width: 100%;
   height: 2.5em;
-  margin-bottom: 0.4em;
+
 }
 
-
-.Auth_Form_Content .SignInA_Data_Pass_input{
-  padding-right: 1.8em;
-}
-
-
-/*------------------------------------------------------------*/
-
-/* || ForgotPass */
-
-
-.ForgotPass_Content{
-  background-image: url(imgs/SignInAHero.png);
-}
-
-.ForgotPass_Form_Btn{
-  border-radius: 0.7em;
-  font-size:clamp(0.6em,1.2cqi, 0.9em);
-  width: 100%;
-  height: 3em;
-}
 
 /*------------------------------------------------------------*/
 

@@ -16,8 +16,6 @@ const ProfileV = () => {
     const history=useHistory();
     const {user} = useAuthContext()
 
-    const formattedDate = new Date(user.date).toISOString().substr(0, 10);
-
     const goBack = ()=>{
         history.goBack();
     }

@@ -4,8 +4,9 @@ require('dotenv').config();
 const express = require("express");
 const router = express.Router();
 const passport = require('passport')
+const passportSetup = require('../APIs/googleAuth') // this is essential to make the google auth work
 
-const  {loginUserV, signupUserV, loginUserA, signupUserA, loginUser, signupUser} = require('../Controllers/usersController')
+const  {loginUser, signupUser} = require('../Controllers/usersController')
 
 
 router.get('/google/callback', 
@@ -29,43 +30,6 @@ router.get('/google', passport.authenticate('google', { scope: ['profile', 'emai
 router.post('/login',loginUser)
 // signUp request
 router.post('/UserType',signupUser) 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// Auth for volounteer users
-// login request
-router.post('/volounteer/login',loginUserV)
-
-// signIn request
-router.post('/volounteer/signup',signupUserV)
-
-
-
-
-// Auth for association users
-
-// login request
-router.post('/association/login',loginUserA)
-
-// signIn request
-router.post('/association/signup',signupUserA)
 
 
 

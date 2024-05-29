@@ -1,6 +1,6 @@
 require('dotenv').config();
 
-const { useLocation } = require("react-router-dom");
+
 const GoogleStrategy = require('passport-google-oauth20').Strategy;
 const passport = require('passport');
 

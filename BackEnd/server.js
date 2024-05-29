@@ -5,8 +5,6 @@ const mongoose = require("mongoose");
 const postsRoutes= require("./routes/posts");
 const userRoutes= require("./routes/user")
 const passport = require('passport')
-const passportSEtup = require('./APIs/passport')
-const cookieSession = require('cookie-session')
 const session = require('express-session');
 
 // express app

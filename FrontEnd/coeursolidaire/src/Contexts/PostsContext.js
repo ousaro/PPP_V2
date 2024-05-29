@@ -3,6 +3,8 @@ import React, {createContext, useReducer} from "react";
 
 export const PostsContext = createContext();
 
+
+
 export const PostsReducer = (state,action)=>{
 
     switch(action.type){
@@ -27,7 +29,7 @@ export const PostsReducer = (state,action)=>{
 export const PostsProvider = (props) => {
 
     const [state, dispatch] = useReducer(PostsReducer,{
-        posts:null
+        posts:[]
     })
 
     return (  

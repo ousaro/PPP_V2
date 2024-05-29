@@ -1,5 +1,3 @@
-const Vuser = require('../models/userVModel')
-const Auser = require('../models/userAModel')
 const User = require("../models/userModel")
 const jwt = require('jsonwebtoken');
 
@@ -24,8 +22,9 @@ const loginUser = async (req, res)=>{
 
         // create token
         const token = createToken(user._id);
+        const _id = user._id
 
-        res.status(200).json({email, token, userType, fullName, photo})
+        res.status(200).json({_id,email, token, userType, fullName, photo})
 
     }catch(error){
         res.status(400).json({error: error.message})
@@ -45,57 +44,9 @@ const signupUser = async (req, res)=>{
 
         // create token
         const token = createToken(user._id);
+        const _id = user._id
 
-        res.status(200).json({email, token, userType, fullName,photo})
-
-    }catch(error){
-        res.status(400).json({error: error.message})
-    }
-
-}
-
-
-
-// Auth for volounteer users 
-
-// LogIn 
-
-const loginUserV = async (req, res)=>{
-    const {email , password} = req.body;
-
-    
-    try{
-        const vuser = await Vuser.vlogin(email, password)
-
-        const {userType , firstName, lastName, date, gender} = vuser;
-
-        // create token
-        const token = createToken(vuser._id);
-
-        res.status(200).json({email, token, userType, firstName, lastName, date, gender})
-
-    }catch(error){
-        res.status(400).json({error: error.message})
-    }
-}
-
-// SignIn
-
-const signupUserV = async (req, res)=>{
-
-    const {firstName,lastName,email,date,password,confirmPass, gender} = req.body;
-
-   
-
-    try{
-        const vuser = await Vuser.vsignup(firstName,lastName,email,date,password,confirmPass, gender)
-
-        const {userType} = vuser;
-
-        // create token
-        const token = createToken(vuser._id);
-
-        res.status(200).json({email, token, userType, firstName,lastName,date, gender})
+        res.status(200).json({_id,email, token, userType, fullName,photo})
 
     }catch(error){
         res.status(400).json({error: error.message})
@@ -105,53 +56,4 @@ const signupUserV = async (req, res)=>{
 
 
 
-
-// Auth for Associaition users 
-
-// LogIn 
-
-const loginUserA = async (req, res)=>{
-    const {email , password} = req.body;
-
-    try{
-        const auser = await Auser.alogin(email, password)
-
-        const {userType, name, address , city, description} = auser;
-
-        const {_id} = auser;
-
-        // create token
-        const token = createToken(auser._id);
-
-        res.status(200).json({email, token, userType, _id, name ,address ,city , description})
-
-    }catch(error){
-        res.status(400).json({error: error.message})
-    }
-}
-
-// SignIn
-
-const signupUserA = async (req, res)=>{
-
-    const {name,address,email,city, password, confirmPass, description} = req.body;
-
-    try{
-        const auser = await Auser.asignup(name,address,email,city, password, confirmPass, description)
-
-        const {userType} = auser;
-        const {_id} = auser;
-
-        // create token
-        const token = createToken(auser._id);
-
-        res.status(200).json({email, token, userType, _id, name ,address ,city , description})
-
-    }catch(error){
-        res.status(400).json({error: error.message})
-    }
-
-}
-
-
-module.exports = {loginUserV, signupUserV, loginUserA, signupUserA, loginUser, signupUser};
+module.exports = {loginUser, signupUser};

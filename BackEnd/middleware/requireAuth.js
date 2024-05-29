@@ -1,8 +1,8 @@
 const jwt = require("jsonwebtoken")
-const Vuser =require('../models/userVModel')
+const User =require('../models/userModel')
 
 
-const vrequireAuth = async (req, res, next)=> {
+const requireAuth = async (req, res, next)=> {
 
     // verify authentication
     const { authorization } = req.headers
@@ -18,7 +18,7 @@ const vrequireAuth = async (req, res, next)=> {
         const {_id} = jwt.verify(token, process.env.SECRET)
 
         // this for attaching a user proprity to req so after this widdleware (next) it can be use from req of other controllers
-        //req.user = await Vuser.findOne({_id}).select("_id") 
+        req.user = await User.findOne({_id}).select("_id") 
 
         next()
 
@@ -30,4 +30,4 @@ const vrequireAuth = async (req, res, next)=> {
 
 }
 
-module.exports = vrequireAuth;
+module.exports = requireAuth;

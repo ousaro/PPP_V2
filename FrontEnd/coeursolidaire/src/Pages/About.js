@@ -13,7 +13,7 @@ const About = () => {
 
             <header className="About_Header">
                 <Link to="/"><button className="About_Home_Btn">Home</button></Link>
-                <Link to="/SignInV"><button className="About_LogIn_Btn">Sign In</button></Link>
+                <Link to="/SignUp"><button className="About_LogIn_Btn">Join us!</button></Link>
             </header>
 
             <main className="About_Content">

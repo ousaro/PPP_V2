@@ -36,9 +36,6 @@ const userSchema = new Schema({
     gender:{
         type: String,
     },
-    associationName:{
-        type: String,
-    },
     address:{
         type: String,
     },

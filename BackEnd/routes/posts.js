@@ -1,16 +1,14 @@
 const express = require('express');
 
 const {createNewPost, getPosts,getPostsForId, deletePost} = require("../Controllers/postsController")
-const vrequireAuth = require("../middleware/vrequireAuth")
-const arequireAuth = require("../middleware/arequireAuth")
+const requireAuth = require("../middleware/requireAuth")
 
 
 const router=express.Router();
 
 // middleware to protect the api
 // require auth for all the posts routes
-router.use(vrequireAuth);
-router.use(arequireAuth);
+router.use(requireAuth);
 
 // GET all posts
 router.get('/', getPosts)

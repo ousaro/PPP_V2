@@ -7,7 +7,7 @@ import { useState } from "react"
 
 
 
-const SignUP = () => {
+const SignUP = ({onSignUp}) => {
 
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
@@ -46,7 +46,6 @@ const SignUP = () => {
                 changePg("/Association/ProfileA");
             }
         }
-     
 
     }
 
@@ -102,7 +101,7 @@ const SignUP = () => {
 
                         <div className="SignUp_or"><p>-or-</p></div>
 
-                        <button type="submit" className="Auth_Form_Btn SignUp_Form_Btn google_btn" disabled={isLoading} onClick={googleAuth}>Sign In with google</button>
+                        <button type="submit" className="Auth_Form_Btn SignUp_Form_Btn google_btn" disabled={isLoading} onClick={googleAuth}>Sign Up with google</button>
 
 
                     </div>

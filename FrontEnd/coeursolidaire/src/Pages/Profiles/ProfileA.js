@@ -59,17 +59,17 @@ const ProfileA = () => {
 
                     <section className="Profile_Form_Content ProfileA_Form_Content">
 
-                        <textarea name="description" placeholder="Description of main goals of the association">{user.description}</textarea>
+                        <textarea name="description" placeholder="Description of main goals of the association"></textarea>
                         
                         <section className="Profile_Form_Field ProfileA_Form_Field">
-                            <input type="text" placeholder="Association name" value={user.name}/>
-                            <input type="address" placeholder="Address" value={user.address}/>
+                            <input type="text" placeholder="Association name" />
+                            <input type="address" placeholder="Address" />
                         </section>
             
 
                         <section className="Profile_Form_Field ProfileA_Form_Field">
                             <input type="text" placeholder="Email" value={user.email}/>
-                            <input type="text" placeholder="City" value={user.city}/>
+                            <input type="text" placeholder="City" />
                         </section>
 
                         <section className="Profile_Form_Field ProfileA_Form_Field">

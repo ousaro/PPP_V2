@@ -11,7 +11,7 @@ import {BrowserRouter, Route, Switch, Redirect} from "react-router-dom"
 import AuserHome from "./Pages/Users Home pages/AuserHome"
 import VuserHome from "./Pages/Users Home pages/VuserHome";
 import { useAuthContext } from "./Hooks/useAuthContext";
-;
+
 
 function App() {
 
@@ -25,7 +25,7 @@ function App() {
             <Route path="/" exact>{!user ? <Home></Home> : user.userType==="volounteer" ? <Redirect to="/Volounteer/ProfileV"/> :<Redirect to="/Association/ProfileA"/>}</Route>
             <Route path="/About">{!user ? <About></About> : <Redirect to="/"/>}</Route>
 
-            <Route path="/verificationForm"><VerificationForm></VerificationForm></Route>
+            <Route path="/verificationForm">{user && !user.verified ? <VerificationForm /> : <Redirect to="/"/>}</Route>
 
             <Route path="/SignUp">{!user ? <SignUp/> : <Redirect to="/" />}</Route>
             <Route path="/UserType">{!user ? <UserType /> : <Redirect to="/" />}</Route>

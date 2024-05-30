@@ -1,15 +1,19 @@
 import { useHistory } from "react-router-dom"
 import Footer from "../Main Components/Footer"
-import FormFooter from "../Main Components/FormFooter"
-import { useSignUp } from "../../Hooks/useSignUp"
 import { useState } from "react"
 import { FaInfoCircle } from 'react-icons/fa';
+import logo from "../../imgs/HomeLogo.png"
+import igIcon from "../../imgs/InstagramIcon.png"
+import fbIcon from "../../imgs/facebookIcon.png"
+import inIcon from "../../imgs/LinkdinIcon.png"
+import { useAuthContext } from "../../Hooks/useAuthContext";
+import { useVerifyAccount } from "../../Hooks/useVerifyAccount";
 
 
 
 const VerificationForm = () => {
 
-    const [user, setUser] = useState(null);
+    const {user}= useAuthContext()
     const [showInfo, setShowInfo] = useState(false)
     const [formData, setFormData] = useState({
         name: '',
@@ -18,33 +22,22 @@ const VerificationForm = () => {
         physicalAddress: '',
         phoneNumber: '',
         website: '',
-        file: null
+        file: null,
+        email: user.email,
+        verificationToken: user._verificationToken 
       });
 
     const history=useHistory();
-    const {signup, error, isLoading , next} = useSignUp()
+    const {verifyAccount, error, isLoading , next} = useVerifyAccount()
 
     const goBack=()=>{
         history.goBack();
     }
 
-    const OnSubmitHandler= async (e)=>{
-        e.preventDefault();
-        if (user) {
-            // Access specific profile information
-             //const id = user.id;
-             const displayName = user.displayName;
-             const email = user.emails[0].value;  // Assuming there's at least one email
-             //const givenName = user.name.givenName;
-             //const familyName = user.name.familyName;
-             const profilePicture = user.photos[0].value;  // Assuming there's at least one photo
-
-             //await signup(displayName,email,password, confirmPass,profilePicture,userType);
-            
-            }
+    const changePg=(path)=>{
+        history.push(path)
     }
 
-    
     
       const handleChange = (e) => {
         const { name,files, value } = e.target;
@@ -57,12 +50,22 @@ const VerificationForm = () => {
         
       };
     
-      const handleSubmit = (e) => {
+      const handleSubmit = async (e) => {
         e.preventDefault();
+
+        await verifyAccount(formData);
+
+        if(next){
+            changePg("/")
+        }
+      
         // Add form submission logic here
         console.log('Form data submitted:', formData);
+        console.log('User submitted:', user);
+        console.log("verificationToken", user.verificationToken)
       };
-    
+
+      
 
     return (
 
@@ -74,7 +77,7 @@ const VerificationForm = () => {
 
                         
             <form className="verificationForm_Content_Form" onSubmit={(e)=>    
-                        {OnSubmitHandler(e)}}>
+                        {handleSubmit(e)}}>
 
                 <div className="verificationForm_Form_BackArrow" onClick={goBack}></div>
 
@@ -122,13 +125,24 @@ const VerificationForm = () => {
                                 <input type="url" name="website" value={formData.website} onChange={handleChange} required />
                                 <br></br>
                             </label>
-                            <label>
+                            <label className="custom-button">
                                 Upload Document:
-                                <input type="file" name="file" accept=".pdf,.doc,.docx" onChange={handleChange} required />
-                                <FaInfoCircle onMouseEnter={() => setShowInfo(true)} onMouseLeave={() => setShowInfo(false)} />
+                                <input type="file" name="file" style={ {display: "none"}} accept=".pdf,.doc,.docx" onChange={handleChange} required />
+                                <FaInfoCircle className="info-icon" onMouseEnter={() => setShowInfo(true)} onMouseLeave={() => setShowInfo(false)} />
                                 {showInfo && (
-                                <div style={{ marginLeft: '10px', display: 'inline' }}>
-                                    <span>Click here to register your account</span>
+                                <div className="infoPopupStyle">
+                                     <p className="infoTextStyle">
+                                        <h1 >The document should contain: </h1><br />
+                                        <ol>
+                                            <li>Board Members <span>*</span></li>
+                                            <li>Financial Statements <span>*</span></li>
+                                            <li>Mission <span>*</span></li>
+                                            <li>Activities <span>*</span></li>
+                                            <li>Partners <span>*</span></li>
+                                            <li>References <span>*</span></li>
+                                            <li>Testimonials <span>*</span></li>
+                                        </ol>
+                                    </p>
                                 </div>
                                 )}
                             </label>
@@ -147,7 +161,21 @@ const VerificationForm = () => {
                 
                 {error && <div className="Post_Footer">{error}</div>}
                 
-                <FormFooter></FormFooter>
+                <section className="Form_Footer verification_Footer" >
+
+                        <figure className="Form_Footer_Logo ">
+                            <img src={logo} alt="Logo" width="109" height="105"/>
+                        </figure>
+
+                        <div className="Form_Footer_SocialLinks">
+                            <ul>
+                                <li><a href="/"  rel="noopener noreferrer"><img src={inIcon} alt="Linkdin" width="40" height="38" /></a></li>
+                                <li><a href="/"  rel="noopener noreferrer"><img src={fbIcon} alt="Facebook" width="40" height="38"/></a></li>
+                                <li><a href="/"  rel="noopener noreferrer"><img src={igIcon} alt="Instagram" width="40" height="38"/></a></li>
+                            </ul>
+                        </div>
+
+                </section>
                 
             </form>
 

@@ -5,8 +5,11 @@ const express = require("express");
 const router = express.Router();
 const passport = require('passport')
 const passportSetup = require('../APIs/googleAuth') // this is essential to make the google auth work
+const User = require('../models/userModel')
 
-const  {loginUser, signupUser} = require('../Controllers/usersController')
+
+
+const  {loginUser, signupUser, sendEmailToAdmin, verifyEmail, deleteUser} = require('../Controllers/usersController')
 
 
 router.get('/google/callback', 
@@ -30,8 +33,14 @@ router.get('/google', passport.authenticate('google', { scope: ['profile', 'emai
 router.post('/login',loginUser)
 // signUp request
 router.post('/UserType',signupUser) 
-// email verification for association account
-//router.post('/verification')
 
+// email verification for association account
+router.post('/verifyAccount',sendEmailToAdmin)
+
+// send response to the user
+router.get('/verify/:token', verifyEmail);
+
+// DELETE user
+router.delete('/:id', deleteUser)
 
 module.exports = router;

@@ -23,7 +23,12 @@ const AddPost = () => {
             return
         }
 
-        const post = {description, image, programType}
+        if(!user.verified){
+            setError("You are not verified!!")
+            return
+        }
+
+        const post = {description, image, programType, user}
 
         const response = await fetch("/api/posts",{
             method: "POST",
@@ -61,11 +66,12 @@ const AddPost = () => {
     return (  
         <form className="UserHome_Post" onSubmit={handleSubmit}>
 
+           
             <div className="Post_Header">
-                <div className="Nav_ProfileIcon Post_Header_ProfileIcon"></div>
+                {user.photo ? <img src={user.photo} alt="profile" className="AddPost_Profile_img"/>:  <div className="Nav_ProfileIcon Post_Header_ProfileIcon"></div>}
                 <div className="Post_Header_Info">
-                    <p>Association name</p>
-                    <p>not verified</p>
+                    <p>{user.fullName}</p>
+                    <p>{user.verified ? "Verified": "Not Verified"}</p>
                 </div>
             </div>
                                 

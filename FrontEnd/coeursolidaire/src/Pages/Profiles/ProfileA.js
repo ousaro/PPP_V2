@@ -7,17 +7,19 @@ import { useLogout } from "../../Hooks/useLogout"
 
 
 
+
 const ProfileA = () => {
 
     const {user} = useAuthContext()
     const {logout} = useLogout()
+
 
     const history=useHistory();
 
     const goBack = ()=>{
         history.goBack();
     }
-
+ 
     const ChangePg=(e)=>{
         history.push(e);
     }
@@ -28,6 +30,8 @@ const ProfileA = () => {
         logout()
         ChangePg("/")
     }
+
+
 
     return ( 
         <div className="ProfilePg ProfileVPg">
@@ -45,15 +49,20 @@ const ProfileA = () => {
                     <section className="Profile_Form_Header ProfileA_Form_Header">
 
                        
-                        <div className="Nav_ProfileIcon Profile_Form_Header_ProfileIcon ProfileA_Form_Header_ProfileIcon">
-                            <figure className="Profile_Form_EditIcon ProfileA_Form_EditIcon">
+                    {user.photo ? <div className="profileImage">
+                            <img src={user.photo} alt="profile" className="AddPost_Profile_img"/>
+                            <figure className=" ProfileV_Form_EditIcon">
                                 <Link to="#"><img src={EditIcon} alt="EditIcon" width="39" height="39"/></Link>
                             </figure>
-                        </div>
+                            </div>:  
+                            <div className="Nav_ProfileIcon Profile_Form_Header_ProfileIcon ProfileA_Form_Header_ProfileIcon">
+                                <figure className="Profile_Form_EditIcon">
+                                    <Link to="#"><img src={EditIcon} alt="EditIcon" width="39" height="39"/></Link>
+                                </figure>
+                            </div>}
 
                         
-
-                        <p>Not verified</p>
+                        <p>{user.verified ? "Verified": "Not Verified"}</p>
 
                     </section>
 
@@ -62,7 +71,7 @@ const ProfileA = () => {
                         <textarea name="description" placeholder="Description of main goals of the association"></textarea>
                         
                         <section className="Profile_Form_Field ProfileA_Form_Field">
-                            <input type="text" placeholder="Association name" />
+                            <input type="text" placeholder="Association name" value = {user.fullName}/>
                             <input type="address" placeholder="Address" />
                         </section>
             
@@ -73,8 +82,8 @@ const ProfileA = () => {
                         </section>
 
                         <section className="Profile_Form_Field ProfileA_Form_Field">
-                            <input type="password" placeholder="Change password" />
-                            <button type="button" className=" Profile_Form_Btn  ProfileA_Form_LogOutBtn"  onClick={()=>ChangePg("/verificationForm")}>Verify</button>
+                            <button type="button" className=" Profile_Form_Btn  ProfileA_Form_LogOutBtn"  onClick={()=>ChangePg("/")}>Change Password</button>
+                            <button type="button" className=" Profile_Form_Btn  ProfileA_Form_LogOutBtn" disabled={user.verified}  onClick={()=>ChangePg("/verificationForm")}>Verify</button>
                         </section>
             
                         <button type="submit" className=" Profile_Form_Btn ProfileA_Form_UpdateBtn">Update</button>

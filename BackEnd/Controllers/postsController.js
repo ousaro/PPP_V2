@@ -30,9 +30,12 @@ const getPostsForId = async (req,res)=>{
 // Create new post
 
 const  createNewPost = async (req,res)=>{
-    const {description, image, programType} = req.body;
+    const {description, image, programType,user} = req.body;
 
     const association_id = req.user._id;
+    const association_profile = user.photo 
+    const association_name = user.fullName;
+    const association_verified = user.verified;
 
     let emptyFields = [];
 
@@ -49,7 +52,7 @@ const  createNewPost = async (req,res)=>{
 
     // add doc to db
     try{
-        const post = await Post.create({description, image, programType, association_id})
+        const post = await Post.create({description, image, programType, association_id, association_profile,association_name,association_verified})
         res.status(200).json(post)
 
     }catch(error){

@@ -46,14 +46,17 @@ const ProfileV = () => {
 
                     <section className="Profile_Form_Header ProfileV_Form_Header">
 
-                       
-                        <div className="Nav_ProfileIcon Profile_Form_Header_ProfileIcon ProfileV_Form_Header_ProfileIcon">
-                            <figure className="Profile_Form_EditIcon ProfileV_Form_EditIcon">
+                        {user.photo ? <div className="profileImage">
+                            <img src={user.photo} alt="profile" className="AddPost_Profile_img"/>
+                            <figure className=" ProfileV_Form_EditIcon">
                                 <Link to="#"><img src={EditIcon} alt="EditIcon" width="39" height="39"/></Link>
                             </figure>
-                        </div>
-
-                        
+                            </div>:  
+                            <div className="Nav_ProfileIcon Profile_Form_Header_ProfileIcon ProfileV_Form_Header_ProfileIcon">
+                                <figure className="Profile_Form_EditIcon">
+                                    <Link to="#"><img src={EditIcon} alt="EditIcon" width="39" height="39"/></Link>
+                                </figure>
+                            </div>}
 
                         <p>Volounteer</p>
 

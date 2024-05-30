@@ -4,12 +4,14 @@ import HomeIcon from "../../imgs/HomeIcon.png"
 import MessangerIcon from "../../imgs/MessangerIcon.png"
 import NotificationIcon from "../../imgs/NotificationIcon.png"
 import { Link,useLocation } from "react-router-dom"
+import { useAuthContext } from "../../Hooks/useAuthContext"
 
 
 const NavBar = () => {
 
    const location = useLocation()
    const currentPath = location.pathname;
+   const {user} = useAuthContext()
 
 
     return ( 
@@ -36,7 +38,7 @@ const NavBar = () => {
                 <Link to="#"><img src={NotificationIcon} alt="NotificationIcon" width="39" height="39"/></Link>
             </figure>
 
-            <Link className="Nav_Profile" to={currentPath.startsWith("/Volounteer") ? '/Volounteer/ProfileV' : '/Association/ProfileA'}><div className="Nav_ProfileIcon"></div></Link>
+            <Link className="Nav_Profile" to={currentPath.startsWith("/Volounteer") ? '/Volounteer/ProfileV' : '/Association/ProfileA'}>{user.photo ? <div className="Nav_ProfileIcon_photo"><img src={user.photo} alt="profile"/></div>:  <div className="Nav_ProfileIcon"></div>}</Link>
         </nav>
 
      );

@@ -39,10 +39,10 @@ const PostsDetails = ({post, canDelete}) => {
         <div className="UserHome_Post">
   
             <div className="Post_Header">
-                <div className="Nav_ProfileIcon Post_Header_ProfileIcon"></div>
+                {user.photo ? <img src={post.association_profile} alt="profile" className="AddPost_Profile_img"/>:  <div className="Nav_ProfileIcon Post_Header_ProfileIcon"></div>}
                 <div className="Post_Header_Info">
-                    <p>Association name</p>
-                    <p>not verified</p>
+                    <p>{post.association_name}</p>
+                    <p>{post.association_verified ? "Verified": "Not Verified"}</p>
                 </div>
 
                 <div className="Post_Header_Date">

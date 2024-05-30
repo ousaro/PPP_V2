@@ -18,6 +18,18 @@ const postSchema= new Schema({
         type: String,
         required: true,
 
+    },
+    association_profile:{
+        type: String,
+        required: true
+    },
+    association_name:{
+        type: String,
+        required: true
+    },
+    association_verified:{
+        type: Boolean,
+        required: true
     }
 
 

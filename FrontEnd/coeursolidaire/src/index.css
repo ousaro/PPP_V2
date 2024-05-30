@@ -830,13 +830,19 @@ animation: slideInFromTop 0.6s ease-in-out;
 
 .verificationForm_Form_Data input{
   border-radius: 0.5em;
-  margin-bottom: 0.6em;
+  margin-bottom: 0.8em;
   border: none;
   height:clamp(1em,8cqi,2em);
-  width: 80%;
+  width: 90%;
   box-sizing: border-box;
   padding: 1em;
   font-size: clamp(0.5em,3cqi,1em);
+ 
+}
+
+.verificationForm_Form_Data label{
+  font-size: clamp(0.5em,10cqi,1em);
+  font-weight: 700;
  
 }
 
@@ -853,9 +859,75 @@ animation: slideInFromTop 0.6s ease-in-out;
   font-size:clamp(0.6em,5cqi, 1.1em);
   width: 100%;
   height: 2.5em;
+  margin-top: 1em;
 
 }
 
+
+.custom-button {
+  margin-top: 1em;
+  position: absolute;
+  background-color: transparent; /* Green background color */
+  color: white; /* White text color */
+  padding: 10px 20px; /* Padding for size */
+  border-radius: 5px; /* Rounded corners */
+  border: 1px solid var(--HomeTextColor); /* No border */
+  cursor: pointer; /* Pointer cursor on hover */
+  font-size: 1em; /* Font size */
+  font-family: Arial, sans-serif; /* Font family */
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Box shadow for depth */
+  transition: background-color 0.3s ease; /* Transition for hover effect */
+}
+
+.custom-button:hover {
+  box-shadow: 0px 1px 8px var(--PROFILENAVBAR); /* Box shadow for depth */
+}
+
+.info-icon {
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+.infoPopupStyle{
+  position: absolute;
+  top: 85%; 
+  left: 85%;
+  transform: translateX(-50%);
+  background-color: #333;
+  color: #fff;
+  border-Radius: 8px;
+  padding: 15px; 
+  box-Shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
+  z-Index: 1000;
+  font-Family: Arial, sans-serif;
+  font-Size: 0.9em; 
+  white-Space: nowrap;
+}
+
+.infoTextStyle{
+  margin: 0;
+  padding: 0;
+  line-Height: 1.5;
+
+}
+
+.infoTextStyle h1{
+  font-size: 1.2em;
+}
+
+.infoTextStyle ol{
+  padding-left: 1.5em;
+}
+
+.infoTextStyle span{
+  color: rgb(252, 78, 78);
+  font-size: 1.4em;
+}
+
+.verification_Footer{
+  position: absolute;
+  right: 45%;
+}
 
 /*------------------------------------------------------------*/
 
@@ -949,6 +1021,27 @@ order: 1;
   animation: slideInFromRight 0.7s ease-in-out;
 }
 
+.Nav_Profile .Nav_ProfileIcon_photo{
+  background-color: red;
+  width: 3em;
+  height: 3em;
+  border-radius: 50%;
+  box-shadow: 1px 1px 8px var(--PROFILEBTNCOLOR);
+  animation: slideInFromRight 0.7s ease-in-out;
+}
+
+.Nav_ProfileIcon_photo img{
+  width: 100%  !important;
+  height:  100%;
+  border-radius: 50%;
+}
+
+.Nav_ProfileIcon_photo img:hover{
+  border-bottom: none !important;
+  margin-top: 0 !important; 
+  padding-bottom: 0 !important
+}
+
 /*------------------------------------------------------------*/
 
 /* || Profile commun style*/
@@ -1036,6 +1129,16 @@ position: relative;
   height: 5em;
   position: relative;
   animation: slideInFromTop 0.8s ease-in-out;
+}
+
+.AddPost_Profile_img{
+  border-radius: 50%;
+  width: 5em;
+  height: 5em;
+}
+
+.profileImage{
+  position: relative;
 }
 
 .Profile_Form_EditIcon{
@@ -1135,6 +1238,18 @@ position: relative;
  /*------------------------------------------------------------*/
 
 /* || ProfilePgV*/
+
+.ProfileV_Form_EditIcon{
+  position: absolute;
+  top: 65%;
+  left: 52%;
+  animation: fadeIn 0.8s ease-in-out;
+}
+
+.ProfileV_Form_EditIcon:hover{
+  opacity: 80%;
+ 
+}
 
 .ProfileV_Form_Gender{
   display: flex;

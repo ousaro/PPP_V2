@@ -38,7 +38,7 @@ const Settings = () => {
     const handleDelteAccount= async ()=>{
 
         if(!user){
-            return
+            return 
         }
 
 

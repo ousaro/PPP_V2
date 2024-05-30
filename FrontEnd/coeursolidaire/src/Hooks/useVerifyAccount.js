@@ -7,7 +7,6 @@ export const useVerifyAccount = () => {
 
     const [isLoading, setIsLoading]= useState(false)
     const [error, setError] = useState(null)
-    const [next, setNext] = useState(false)
 
     const verifyAccount = async (data)=>{
         setError(null)
@@ -26,18 +25,16 @@ export const useVerifyAccount = () => {
         if(!response.ok){
             setIsLoading(false)
             setError(json.error)
-            setNext(false)
         }
 
         if(response.ok){
            
             setIsLoading(false)
-            setNext(true)
             
         }
 
     }
 
-    return {verifyAccount, error, isLoading , next}
+    return {verifyAccount, error, isLoading }
 
 }

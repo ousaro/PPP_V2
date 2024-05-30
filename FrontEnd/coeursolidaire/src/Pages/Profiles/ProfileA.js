@@ -49,20 +49,20 @@ const ProfileA = () => {
                     <section className="Profile_Form_Header ProfileA_Form_Header">
 
                        
-                    {user.photo ? <div className="profileImage">
-                            <img src={user.photo} alt="profile" className="AddPost_Profile_img"/>
-                            <figure className=" ProfileV_Form_EditIcon">
-                                <Link to="#"><img src={EditIcon} alt="EditIcon" width="39" height="39"/></Link>
-                            </figure>
-                            </div>:  
-                            <div className="Nav_ProfileIcon Profile_Form_Header_ProfileIcon ProfileA_Form_Header_ProfileIcon">
-                                <figure className="Profile_Form_EditIcon">
+                        {user.photo ? <div className="profileImage">
+                                <img src={user.photo} alt="profile" className="AddPost_Profile_img"/>
+                                <figure className=" ProfileV_Form_EditIcon">
                                     <Link to="#"><img src={EditIcon} alt="EditIcon" width="39" height="39"/></Link>
                                 </figure>
-                            </div>}
+                                </div>:  
+                                <div className="Nav_ProfileIcon Profile_Form_Header_ProfileIcon ProfileA_Form_Header_ProfileIcon">
+                                    <figure className="Profile_Form_EditIcon">
+                                        <Link to="#"><img src={EditIcon} alt="EditIcon" width="39" height="39"/></Link>
+                                    </figure>
+                                </div>}
 
-                        
-                        <p>{user.verified ? "Verified": "Not Verified"}</p>
+                            
+                        <p className={`status ${user.verified ? 'verified' : 'not-verified'}`}>{user.verified ? "Verified": "Not Verified"}</p>
 
                     </section>
 
@@ -71,7 +71,7 @@ const ProfileA = () => {
                         <textarea name="description" placeholder="Description of main goals of the association"></textarea>
                         
                         <section className="Profile_Form_Field ProfileA_Form_Field">
-                            <input type="text" placeholder="Association name" value = {user.fullName}/>
+                            <input type="text" placeholder="Association name" value = {capitalizeEachWord(user.fullName)}/>
                             <input type="address" placeholder="Address" />
                         </section>
             
@@ -103,4 +103,13 @@ const ProfileA = () => {
      );
 }
  
+
+function capitalizeEachWord(sentence) {
+    if (!sentence) return sentence; // Handle empty strings
+    return sentence
+        .split(' ')
+        .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+        .join(' ');
+}
+
 export default ProfileA;

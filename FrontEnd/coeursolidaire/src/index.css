@@ -1531,6 +1531,36 @@ animation: slideInFromTop 0.8s ease-in-out;
   flex-grow: 1;
 }
 
+.Post_Header_Name{
+  font-weight: 700;
+  font-size: clamp(0.5em,5cqi,1.5em);
+}
+
+/* styles.css */
+.status {
+  font-weight: bold;
+  padding: 4px 8px;
+  border: 2px solid;
+  border-radius: 5px;
+  display: inline-block;
+  font-size: clamp(0.5em,5cqi,0.8em);
+}
+
+.verified {
+  width: 4em;
+  color: var(--AboutColor2) !important;
+  border-color: var(--AboutColor2);
+  background-color: #cfe6cf;
+}
+
+.not-verified {
+  width: 7em;
+  color: rgb(185, 22, 22) !important;
+  border-color: rgb(185, 22, 22);
+  background-color: #ecd0d0;
+}
+
+
 .Post_Header_ProfileIcon{
   box-shadow: none;
   animation: none;

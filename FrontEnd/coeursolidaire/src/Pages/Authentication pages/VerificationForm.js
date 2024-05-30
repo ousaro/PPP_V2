@@ -28,7 +28,7 @@ const VerificationForm = () => {
       });
 
     const history=useHistory();
-    const {verifyAccount, error, isLoading , next} = useVerifyAccount()
+    const {verifyAccount, error, isLoading} = useVerifyAccount()
 
     const goBack=()=>{
         history.goBack();
@@ -52,17 +52,12 @@ const VerificationForm = () => {
     
       const handleSubmit = async (e) => {
         e.preventDefault();
+        
 
-        await verifyAccount(formData);
-
-        if(next){
+        await verifyAccount(formData).then(
             changePg("/")
-        }
+        )
       
-        // Add form submission logic here
-        console.log('Form data submitted:', formData);
-        console.log('User submitted:', user);
-        console.log("verificationToken", user.verificationToken)
       };
 
       

@@ -70,8 +70,8 @@ const AddPost = () => {
             <div className="Post_Header">
                 {user.photo ? <img src={user.photo} alt="profile" className="AddPost_Profile_img"/>:  <div className="Nav_ProfileIcon Post_Header_ProfileIcon"></div>}
                 <div className="Post_Header_Info">
-                    <p>{user.fullName}</p>
-                    <p>{user.verified ? "Verified": "Not Verified"}</p>
+                    <p className="Post_Header_Name">{capitalizeEachWord(user.fullName)}</p>
+                    <p className={`status ${user.verified ? 'verified' : 'not-verified'}`}>{user.verified ? "Verified": "Not Verified"}</p>
                 </div>
             </div>
                                 
@@ -116,5 +116,13 @@ function convertToBase64(file){
             reject(error)
         }
     })
+}
 
+
+function capitalizeEachWord(sentence) {
+    if (!sentence) return sentence; // Handle empty strings
+    return sentence
+        .split(' ')
+        .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+        .join(' ');
 }

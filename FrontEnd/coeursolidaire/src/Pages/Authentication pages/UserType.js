@@ -101,7 +101,7 @@ const SignUP = () => {
                     <section className="Auth_Form_Data SignUp_Form_Data">
 
                         <select className="SignUp_Form_UserType" placeholder="User Type" required onChange={(e)=>{setUserType(e.target.value)}}>
-                            <option value="User Type" defaultValue={"User Type"} disabled >User Type</option>
+                            <option value="User Type" selected disabled >User Type</option>
                             <option value="volounteer">Volounteer</option>
                             <option value="association">Association</option>
                         </select>

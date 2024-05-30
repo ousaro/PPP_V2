@@ -1,5 +1,6 @@
 require('dotenv').config();
 const User = require("../models/userModel")
+const Post = require("../models/postModel")
 const jwt = require('jsonwebtoken');
 const crypto = require('crypto');
 const nodeMailer = require('nodemailer');
@@ -173,6 +174,9 @@ const deleteUser = async (req,res)=>{
     if(!user){
         return res.status(400).json({error: "No such post"});
     }
+
+    // Delete all posts associated with the user
+    await Post.deleteMany({ association_id: id });
 
     res.status(200).json(user);
 
